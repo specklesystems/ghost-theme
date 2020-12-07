@@ -49,6 +49,23 @@ body {
   text-indent: -9999px;
 }
 
+.action-btn {
+  padding: 12px 17px 13px 19px;
+  background-color: var(--blue);
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 999px;
+  transition: all 0.35s ease-in-out;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.action-btn:hover {
+  border-color: var(--blue);
+  background-color: color-mod(var(--blue) w(20%));
+  text-decoration: none;
+}
+
 /* 2. Layout - Page building blocks
 /* ---------------------------------------------------------- */
 
@@ -110,9 +127,6 @@ body {
   position: relative;
   margin-top: 64px;
   padding-bottom: 12px;
-  color: #fff;
-  background: color-mod(var(--darkblue) l(-5%)) no-repeat center center;
-  background-size: cover;
 }
 
 /* .site-header-background:before {
@@ -181,6 +195,11 @@ body {
   opacity: 0.8;
 }
 
+.cover-actions {
+  margin-top: 50px;
+  float: right;
+}
+
 /* 4.1 Home header
 /* ---------------------------------------------------------- */
 
@@ -200,6 +219,7 @@ body {
   font-size: 4.2rem;
   text-align: right;
   line-height: 1.5em;
+  opacity: 1;
 }
 
 .site-home-header .site-description {
@@ -285,7 +305,7 @@ body {
   right: 0;
   left: 0;
   z-index: 1000;
-  background: color-mod(var(--darkblue) l(-5%)) no-repeat center center;
+  background: white;
 }
 
 .site-nav {
@@ -405,8 +425,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   position: relative;
   display: block;
   padding: 12px 12px;
-  color: #fff;
-  opacity: 0.8;
+  color: #303a3e;
+  /* opacity: 0.8; */
   transition: opacity 0.35s ease-in-out;
 }
 
@@ -511,7 +531,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .social-link svg {
   height: 1.8rem;
-  fill: #fff;
+  fill: #303a3e;
 }
 
 .social-link-fb svg {
@@ -562,7 +582,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .rss-button svg {
   margin-bottom: 1px;
   height: 2.1rem;
-  fill: #fff;
+  fill: #303a3e;
 }
 
 /* Special behaviors for home navigation */
@@ -2904,7 +2924,7 @@ Usage (In Ghost editor):
 /* ---------------------------------------------------------- */
 @media (prefers-color-scheme: dark) {
   body {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.9);
     background: var(--darkmode);
   }
 
@@ -2912,8 +2932,18 @@ Usage (In Ghost editor):
     opacity: 0.9;
   }
 
-  .site-header-background:before {
-    background: rgba(0, 0, 0, 0.6);
+  .social-link svg,
+  .rss-button svg {
+    fill: var(--darkmode);
+  }
+
+  .site-nav-main {
+    background: var(--darkblue);
+  }
+
+  .nav li a {
+    color: white;
+    opacity: 0.8;
   }
 
   .post-feed {

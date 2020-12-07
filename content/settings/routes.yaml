@@ -1,8 +1,12 @@
 routes:
+  /: home
 
 collections:
-  /:
-    permalink: /{slug}/
+  /blog/:
+    permalink: /blog/{slug}/
+    template: index
+  /test/:
+    permalink: /test/{slug}/
     template: index
 
 taxonomies:
