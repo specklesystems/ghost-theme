@@ -8,17 +8,15 @@ into the {body} of the default.hbs template --}}
     <div class="inner">
         {{> "site-nav"}}
         <div>
-            <img class="site-logo" src="{{img_url @site.cover_image size="xl"}}" />
+
         </div>
         <div class="site-header-content">
-            <h1 class="site-title">
-                {{#if @site.logo}}
-                <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
-                {{else}}
-                {{@site.title}}
-                {{/if}}
-            </h1>
-            <h2 class="site-description">{{@site.description}}</h2>
+            <img class="cover-image" src="{{img_url @site.cover_image size="m"}}" />
+            <div class="cover">
+
+                <h1 class="site-title">{{@site.description}}</h2>
+            </div>
+
         </div>
     </div>
     </div>

@@ -148,7 +148,8 @@ body {
 .site-header-content {
   z-index: 100;
   display: flex;
-  flex-direction: column;
+  flex: 1 1 100%;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 6vw 3vw;
@@ -162,7 +163,8 @@ body {
   padding: 0;
   font-size: 5rem;
   line-height: 1em;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: "Noto Sans", sans-serif;
 }
 
 .site-logo {
@@ -191,12 +193,13 @@ body {
 }
 
 .site-home-header .site-header-content {
-  padding: 5vw 3vw 6vw;
+  padding: 0vw 0vw 6vw;
 }
 
 .site-home-header .site-title {
-  font-size: 5.5rem;
-  text-align: center;
+  font-size: 4.2rem;
+  text-align: right;
+  line-height: 1.5em;
 }
 
 .site-home-header .site-description {
@@ -235,6 +238,12 @@ body {
 }
 
 /* Special header styles for smaller screens */
+
+@media (max-width: 1170px) {
+  .site-header-content {
+    flex-direction: column;
+  }
+}
 
 @media (max-width: 900px) {
   .site-header-content {
@@ -367,9 +376,9 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   height: 21px;
 }
 
-.site-home-header .site-nav-logo {
-  /* display: none; */
-}
+/* .site-home-header .site-nav-logo {
+   display: none; 
+} */
 
 .site-nav-content {
   position: relative;
