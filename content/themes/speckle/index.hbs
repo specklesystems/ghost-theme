@@ -7,6 +7,9 @@ into the {body} of the default.hbs template --}}
     {{!--Special header-image.hbs partial to generate the background image--}}
     <div class="inner">
         {{> "site-nav"}}
+        <div>
+            <img class="site-logo" src="{{img_url @site.cover_image size="xl"}}" />
+        </div>
         <div class="site-header-content">
             <h1 class="site-title">
                 {{#if @site.logo}}

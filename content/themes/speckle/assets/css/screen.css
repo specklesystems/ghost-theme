@@ -111,13 +111,8 @@ body {
   margin-top: 64px;
   padding-bottom: 12px;
   color: #fff;
-  /* background: color-mod(var(--darkgrey) l(-5%)) no-repeat center center; */
+  background: color-mod(var(--darkblue) l(-5%)) no-repeat center center;
   background-size: cover;
-  background: linear-gradient(
-    to bottom right,
-    color-mod(var(--primary) l(-5%)) 0%,
-    color-mod(var(--secondary) l(-5%)) 100%
-  );
 }
 
 /* .site-header-background:before {
@@ -281,12 +276,7 @@ body {
   right: 0;
   left: 0;
   z-index: 1000;
-  
-      background: linear-gradient(
-    to right,
-    color-mod(var(--primary)) 0%,
-    color-mod(var(--secondary)) 100%
-  );
+  background: color-mod(var(--darkblue) l(-5%)) no-repeat center center;
 }
 
 .site-nav {
@@ -378,7 +368,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 
 .site-home-header .site-nav-logo {
-  display: none;
+  /* display: none; */
 }
 
 .site-nav-content {
@@ -569,7 +559,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 /* Special behaviors for home navigation */
 
 .home-template .site-nav-main {
-  z-index: 100; 
+  z-index: 100;
 }
 
 .home-template .site-nav-main .site-nav {
@@ -580,8 +570,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .home-template .site-nav-main .fixed-nav-active {
   opacity: 1;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.05s;
-
-
 }
 
 @media (max-width: 700px) {
