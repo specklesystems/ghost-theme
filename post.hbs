@@ -4,11 +4,8 @@
 
   <article class="relative">
 
-
-    {{!-- <div class="relative py-16 overflow-hidden dark:text-gray-100 "> --}}
     {{!-- Header --}}
     {{> extras/patterns}}
-    {{> extras/patternsBottom}}
 
     <header class="relative px-4 sm:px-6 lg:px-8 mt-10">
 
@@ -48,36 +45,46 @@
 
     </div>
 
-    <aside class="my-20 max-w-prose mx-auto text-gray-700 dark:text-gray-300">
-      <h3 class="text-base my-10 text-gray-500 text-center">
+    <div class="post-body mt-10 max-w-prose mx-auto text-gray-700 dark:text-gray-300">
+
+
+    <h3 class="text-base mt-24  text-gray-500 text-center">
       Wait - there's more! Read on:
       </h3>
 
-      <div class="w-full grid gap-5 md:grid-cols-2 lg:grid-cols-2">
+    </div>
 
-        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:>{{id}}"
-          limit="2"
-          order="id asc"}}
+
+    <div class="w-default mt-8 grid gap-5 md:grid-cols-2">
+
+        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:>{{id}}" limit="1" order="id asc"}}
+
           {{#foreach posts}}
             {{> cardFancySmall}}
           {{/foreach}}
         {{/get}}
 
-        {{#get "posts"
-          filter="tags:{{primary_tag.slug}}+id:<{{id}}"
-          limit="2"
-          order="id desc"}}
+        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:<{{id}}" limit="1" order="id desc"}}
           {{#foreach posts}}
             {{> cardFancySmall}}
           {{/foreach}}
         {{/get}}
 
         {{> cardTag}}
+    </div>
+
+
+{{!--     <aside class="my-20 max-w-prose mx-auto text-gray-700 dark:text-gray-300">
+
+      <div class="w-full grid gap-5 grid-cols-1 md:grid-cols-2">
+
+
+        {{> cardTag}}
 
         {{> cardCTA}}
 
       </div>
-    </aside>
+    </aside> --}}
 
   </article>
 

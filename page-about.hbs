@@ -1,36 +1,56 @@
 {{!< default}}
 
+<div class="absolute inset-0 opacity-20">
+{{> extras/super }}
+</div>
 
 <article class="relative">
 
   <div class="w-default">
     {{#post}}
-      <div class="post-body px-5 sm:px-10 md:mx-auto mt-24 pt-24 max-w-4xl text-gray-700 dark:text-gray-300">
 
-        {{content}}
+      <div class="page-about-content w-3/3 md:w-2/3 mt-12 text-gray-700 dark:text-gray-300 text-2xl md:text-5xl">
+
+        Speckle is open source digital infrastructure for
+        the built environment. We handle interoperability
+        between software silos, real time collaboration,
+        data management, versioning and automation.
 
       </div>
+      <div class="page-about-content w-3/3 md:w-2/3 ml-auto mr-0 mt-12 text-gray-700 dark:text-gray-300 text-2xl md:text-4xl text-left md:text-right">
+
+        Our mission is to revolutionise the AEC industry's
+        digital performance and accelerate the pace of
+        innovation.
+
+      </div>
+
+
+      {{!-- <div class="page-about-content mt-24 lg:pt-24 text-gray-700 dark:text-gray-300 text-2xl md:text-4xl lg:text-6xl">
+        {{content}}
+      </div> --}}
+
     {{/post}}
   </div>
 
-  <div class="px-5 mt-20 sm:px-10 md:mx-auto max-w-4xl grid grid-cols-1 sm:grid-cols-2 gap-20">
+  <div class="w-default mt-20 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-20">
 
     <div class="relative h-screen/4 rounded-2xl overflow-hidden flex col-span-1 transition hover:shadow-2xl p-5 bg-white dark:bg-gray-900">
-      <a href="/usecases" class="flex w-full h-full pa-5">
-        <div class="block self-center pa-5">
+      <a href="/usecases" class="flex w-full h-full">
+        <div class="block self-center">
           <div class="text-3xl font-semibold text-blue-600">
             Use cases →
           </div>
           <p class="dark:text-gray-300">Interoperability &
-            more: see why AEC uses Speckle.</p>
+            more: a few reasons why people use Speckle.</p>
         </div>
       </a>
     </div>
 
 
     <div class="relative h-screen/4 rounded-2xl overflow-hidden flex col-span-1 transition hover:shadow-2xl p-5 bg-white dark:bg-gray-900">
-      <a href="/developers" class="flex w-full h-full pa-5">
-        <div class="block self-center pa-5">
+      <a href="/developers" class="flex w-full h-full">
+        <div class="block self-center">
           <div class="text-3xl font-semibold text-blue-600">
             For Developers →
           </div>
@@ -43,7 +63,7 @@
 
   </div>
 
-  <div class="mt-20 px-5 sm:px-10 md:mx-auto max-w-4xl text-gray-700 dark:text-gray-300 text-center just">
+  <div class="w-default mt-20 text-gray-700 dark:text-gray-300 text-center">
     <h2 class="text-4xl mb-5 font-bold">Team</h2>
     <p class="max-w-prose mx-auto">Meet the full time
       Specklers! We're a remote team based around the
@@ -74,8 +94,8 @@
   <div class="px-5 mt-20 sm:px-10 md:mx-auto max-w-4xl">
 
     <div class="relative h-screen/4 rounded-2xl overflow-hidden transition hover:shadow-2xl p-5 flex justify-center text-center">
-      <a href="/careers" class="flex w-full h-full pa-5">
-        <div class="block self-center w-full pa-5">
+      <a href="/careers" class="flex w-full h-full">
+        <div class="block self-center w-full">
           <div class="text-3xl font-semibold text-blue-600">
             Careers →
           </div>
@@ -88,8 +108,8 @@
     {{!-- TODO --}}
 
     {{!--     <div class="relative h-screen/4 rounded-2xl overflow-hidden transition hover:shadow-2xl p-5 flex justify-center text-center">
-      <a href="/careers" class="flex w-full h-full pa-5">
-        <div class="block self-center w-full pa-5">
+      <a href="/careers" class="flex w-full h-full">
+        <div class="block self-center w-full">
           <div class="text-3xl font-semibold text-blue-600">
             Press →
           </div>
