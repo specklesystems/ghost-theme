@@ -1,0 +1,75 @@
+{{!< default}}
+
+
+{{#tag}}
+
+  <main class="w-default h-screen/3 flex flex-wrap content-center sm:mt-24">
+    <div class="w-3/3">
+      <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
+        Hey
+        <span class="inline-block xl:inline text-gradient text-gradient bg-gradient-to-r from-blue-500 to-blue-700">
+          Devs
+        </span>
+      </h1>
+      <p class="text-base text-justify text-gray-500 sm:text-lg md:text-xl md:max-w-6xl mt-10">
+        {{description}}
+      </p>
+    </div>
+  </main>
+
+{{/tag}}
+
+<div class="w-default my-10 ">
+  <div class="grid md:grid-cols-2 gap-5 w-full -px-5">
+
+    <div class="relative h-24 lg:h-48 rounded-2xl overflow-hidden transition hover:shadow-2xl p-5 flex col-span-2 sm:col-span-1 bg-white dark:bg-gray-900 ">
+      <a href="https://github.com/specklesystems" class="flex w-full h-full">
+        <div class="block self-center w-full">
+          <div class="text-3xl font-semibold text-blue-600">
+            Github →
+          </div>
+          <p class="dark:text-gray-300">Where our code
+            lives,
+            grows and improves.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="relative h-24 lg:h-48 rounded-2xl overflow-hidden transition hover:shadow-2xl p-5 flex col-span-2 sm:col-span-1 bg-white dark:bg-gray-900 ">
+      <a href="https://speckle.guide" class="flex w-full h-full">
+        <div class="block self-center w-full">
+          <div class="text-3xl font-semibold text-blue-600">
+            Docs →
+          </div>
+          <p class="dark:text-gray-300">They're WIP, but
+            we're getting there.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<div class="w-default my-10">
+  <h3 class="text-xl my-2 text-blue-600">Key features</h3>
+</div>
+
+<div class="w-default grid gap-5 md:gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+
+
+  {{#foreach posts visibility="all"}}
+
+    {{> cardFancy}}
+
+    {{!--     {{#has index="1"}}
+      {{> cardCTA headline="Ready to hack?"}}
+      <p class="col-span-2 -mt-20 text-center text-blue-600">There's
+        more. Check out other use cases below:</p>
+    {{/has}} --}}
+
+  {{/foreach}}
+
+
+  {{> cardCTA headline="Ready to hack?" subHeadline="Create an account and starting drilling the api in 5 minutes." }}
+
+</div>

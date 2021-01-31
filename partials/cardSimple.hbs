@@ -1,0 +1,37 @@
+<div class="relative h-screen/2 rounded-xl hover:rounded-2xl shadow hover:shadow-2xl bg-white transition overflow-hidden flex col-span-2 md:col-span-1">
+  <a href="{{url}}" class="self-center">
+    <img class="absolute inset-0 h-full w-full object-cover"
+      srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+      sizes="(max-width: 1000px) 400px, 700px" src="{{img_url feature_image size="m"}}"
+      alt="{{title}}">
+    <div class="absolute inset-0 bg-blue-500" style="mix-blend-mode: multiply;"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-blue-600 via-blue-600 opacity-90"></div>
+    <div class="relative px-8">
+      <div class="text-3xl font-semibold text-gray-100 dark:text-gray-100">
+        {{title}}
+      </div>
+      <blockquote class="mt-8">
+        <div class="relative text-lg font-medium text-white md:flex-grow">
+          <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-blue-400"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+            fill="currentColor">
+            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z" />
+          </svg>
+          <p class="relative">
+            {{excerpt}}
+          </p>
+        </div>
+
+        <footer class="mt-4">
+          <p class="text-base font-semibold text-blue-200">
+            Read More
+          </p>
+          <span class="text-gray-500">on <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time></span>
+        </footer>
+      </blockquote>
+    </div>
+  </a>
+</div>

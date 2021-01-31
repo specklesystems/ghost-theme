@@ -1,0 +1,49 @@
+{{!< default}}
+
+
+
+{{#post}}
+
+<article class="relative">
+
+
+    {{!-- <div class="relative py-16 overflow-hidden dark:text-gray-100 "> --}}
+    {{!-- Header --}}
+    {{> extras/patterns}}
+
+    <header class="relative px-4 sm:px-6 lg:px-8 mt-24">
+
+
+      <div class="max-w-prose mx-auto object-center">
+        {{#if feature_image}}
+          <img class="gh-feature-image mx-auto" srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 1000px) 1000px, 2000px"
+            loading="lazy" src="{{img_url feature_image size="xl"}}"
+            alt="{{title}}" />
+        {{/if}}
+        <h1>
+          <span class="mt-12 block text-4xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+            {{title}}
+          </span>
+        </h1>
+        {{#if custom_excerpt}}
+          <p class="mt-8 text-2xl text-gray-500 dark:text-gray-300 leading-8">
+            {{custom_excerpt}}
+          </p>
+        {{/if}}
+
+      </div>
+    </header>
+
+    <div class="post-body mt-10 max-w-prose mx-auto text-gray-700 dark:text-gray-300">
+
+      {{content}}
+
+    </div>
+
+  </article>
+
+  {{/post}}

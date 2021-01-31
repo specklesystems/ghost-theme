@@ -1,0 +1,54 @@
+{
+  "data": {
+    "posts": [],
+    "tags": [],
+    "posts_tags": [],
+    "users": [
+      {
+        "id": 1,
+        "slug": "matteo",
+        "bio": "I am a person on the website",
+        "website": "https://www.example.com",
+        "created_at": "Thu, 3 Aug 2019 13:45:57 +0530",
+        "created_by": 1,
+        "email": "matteo@speckle.systems",
+        "name": "Matteo Cominetti",
+        "profile_image": ""
+      },{
+        "id": 2,
+        "slug": "izzy",
+        "bio": "I am a person on the website",
+        "website": "https://www.example.com",
+        "created_at": "Thu, 3 Aug 2019 13:45:57 +0530",
+        "created_by": 1,
+        "email": "izzy@speckle.systems",
+        "name": "Izzy Lyseggen",
+        "profile_image": ""
+      },{
+        "id": 3,
+        "slug": "alan",
+        "bio": "I am a person on the website",
+        "website": "https://www.example.com",
+        "created_at": "Thu, 3 Aug 2019 13:45:57 +0530",
+        "created_by": 1,
+        "email": "alan@speckle.systems",
+        "name": "Alan Rynne",
+        "profile_image": ""
+      },{
+        "id": 4,
+        "slug": "claire",
+        "bio": "I am a person on the website",
+        "website": "https://www.example.com",
+        "created_at": "Thu, 3 Aug 2019 13:45:57 +0530",
+        "created_by": 1,
+        "email": "claire@speckle.systems",
+        "name": "Claire Kuang",
+        "profile_image": ""
+      }
+    ]
+  },
+  "meta": {
+    "exported_on": "Thu, 1 Jan 2021 13:46:48 +0530",
+    "version": "2.14.0"
+  }
+}

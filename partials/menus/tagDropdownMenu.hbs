@@ -1,0 +1,80 @@
+<div class="bg-white dark:bg-gray-900 p-0 sm:p-10">
+  <div class="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-12 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
+
+    {{!-- Link to whole section --}}
+
+    <a href="/{{tag}}" class="-m-3 p-3 flex flex-col justify-between rounded-lg transition bg-blue-600 text-white hover:shadow-2xl">
+
+      {{!-- Get the tag --}}
+
+      {{#get "tags" limit="all" filter="slug:{{tag}}"}}
+        {{#foreach tags}}
+          <div class="flex md:h-full lg:flex-col">
+            <div class="flex-shrink-0">
+              <span class="inline-flex items-center justify-center h-64 w-64 rounded-md text-white sm:h-12 sm:w-12">
+                <svg class="h-6 w-6" x-description="Heroicon name: chart-bar"
+                  xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor"
+                  aria-hidden="true">
+                  <path stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2"
+                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </span>
+            </div>
+            <div class="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
+              <div>
+                <p class="text-2xl font-medium ">
+                  {{name}}
+                </p>
+                <p class="mt-1 text-sm ">
+                  {{description}}
+                </p>
+              </div>
+              <p class="mt-2 text-sm font-medium text-white lg:mt-4">
+                See all
+                <span aria-hidden="true">→</span>
+              </p>
+            </div>
+          </div>
+        {{/foreach}}
+      {{/get}}
+    </a>
+
+
+    {{!-- Cards with posts from tag --}}
+
+    {{#get "posts" filter="tags:{{tag}}" limit=maxcards}}
+      {{#foreach posts}}
+        <a href="{{url}}" class="-m-3 p-3 flex flex-col justify-between rounded-lg transition dark:bg-gray-900 hover:bg-blue-100 dark:hover:bg-gray-800">
+          <div class="flex md:h-full lg:flex-col">
+            <div class="flex-shrink-0">
+              <span class="inline-flex items-center justify-center h-64 w-64 rounded-md text-white sm:h-12 sm:w-12">
+                <img src="{{img_url feature_image size="m"}}">
+              </span>
+            </div>
+            <div class="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
+              <div>
+                <p class="text-xl font-medium text-gray-900 dark:text-gray-50">
+                  {{title}}
+                </p>
+
+                {{#if ../../large}}
+                  <p class="mt-1 text-sm text-gray-800 dark:text-gray-50">
+                    {{excerpt}}
+                  </p>
+                {{/if}}
+
+              </div>
+              <p class="mt-2 text-sm font-medium text-blue-600 lg:mt-4">
+                Learn more
+                <span aria-hidden="true">→</span>
+              </p>
+            </div>
+          </div>
+        </a>
+      {{/foreach}}
+    {{/get}}
+
+  </div>
+</div>
