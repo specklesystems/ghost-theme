@@ -1,7 +1,7 @@
 {{!< default}}
 
-<div class="absolute inset-0 pt-32 opacity-20 h-4/6">
-{{> extras/super }}
+<div class="absolute inset-0 pt-32 opacity-20 h-5/6">
+  {{> extras/super }}
 </div>
 
 <article class="relative">
@@ -9,19 +9,49 @@
   <div class="w-default">
     {{#post}}
 
-      <div class="page-about-content w-3/3 md:w-2/3 mt-12 text-gray-700 dark:text-gray-300 text-2xl md:text-5xl">
-
-        Speckle is open source digital infrastructure for
-        the built environment. We handle interoperability
-        between software silos, real time collaboration,
-        data management, versioning and automation.
-
+      <div class="page-about-content w-3/3 md:w-2/3 mt-12 text-gray-700 dark:text-gray-300">
+        <p class="text-2xl md:text-5xl">
+          Speckle is open source digital infrastructure for
+          the built environment. We handle interoperability
+          between software silos, real time collaboration,
+          data management, versioning and automation.
+        </p>
+        <div class="relative mt-12 rounded-2xl overflow-hidden flex col-span-1 transition hover:shadow-2xl p-5 py-10 bg-white dark:bg-gray-900">
+          <a href="/usecases" class="flex w-full h-full">
+            <div class="block self-center">
+              <div class="text-3xl font-semibold text-blue-600">
+                Use cases →
+              </div>
+              <p class="dark:text-gray-300">Interoperability
+                &
+                more: a few reasons why people use Speckle.</p>
+            </div>
+          </a>
+        </div>
       </div>
-      <div class="page-about-content w-3/3 md:w-2/3 ml-auto mr-0 mt-12 text-gray-700 dark:text-gray-300 text-2xl md:text-4xl text-left md:text-right">
+      <div class="page-about-content w-3/3 md:w-2/3 ml-auto mr-0 mt-12 text-gray-700 dark:text-gray-300  text-left">
 
-        Our mission is to revolutionise the AEC industry's
-        digital performance and accelerate the pace of
-        innovation.
+        <p class="text-2xl md:text-4xl text-justify">
+          Our mission is to revolutionise the AEC
+          industry's
+          digital performance and accelerate the pace of
+          innovation.
+        </p>
+
+        <div class="relative rounded-2xl mt-12 overflow-hidden flex col-span-1 transition hover:shadow-2xl p-5 py-10 bg-white dark:bg-gray-900">
+          <a href="/developers" class="flex w-full h-full">
+            <div class="block self-center">
+              <div class="text-3xl font-semibold text-blue-600">
+                For Developers →
+              </div>
+              <p class="dark:text-gray-300">Want to build
+                the
+                pipelines and apps modern AEC companies
+                need?
+                Read on.</p>
+            </div>
+          </a>
+        </div>
 
       </div>
 
@@ -35,7 +65,7 @@
 
   <div class="w-default mt-20 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-20">
 
-    <div class="relative h-screen/4 rounded-2xl overflow-hidden flex col-span-1 transition hover:shadow-2xl p-5 bg-white dark:bg-gray-900">
+    {{!--     <div class="relative h-screen/4 rounded-2xl overflow-hidden flex col-span-1 transition hover:shadow-2xl p-5 bg-white dark:bg-gray-900">
       <a href="/usecases" class="flex w-full h-full">
         <div class="block self-center">
           <div class="text-3xl font-semibold text-blue-600">
@@ -45,21 +75,8 @@
             more: a few reasons why people use Speckle.</p>
         </div>
       </a>
-    </div>
+    </div> --}}
 
-
-    <div class="relative h-screen/4 rounded-2xl overflow-hidden flex col-span-1 transition hover:shadow-2xl p-5 bg-white dark:bg-gray-900">
-      <a href="/developers" class="flex w-full h-full">
-        <div class="block self-center">
-          <div class="text-3xl font-semibold text-blue-600">
-            For Developers →
-          </div>
-          <p class="dark:text-gray-300">Want to build the
-            pipelines and apps modern AEC companies need?
-            Read on.</p>
-        </div>
-      </a>
-    </div>
 
   </div>
 

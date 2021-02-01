@@ -3,21 +3,8 @@
   xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
   xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
   <g transform="matrix(1,0,0,1,-4297.45,-7937.98)">
-    <g transform="matrix(1.02298,0,0,1.02298,5131.58,-118.013)">
-      <g transform="matrix(0.0750475,-0.0433287,4.81984e-17,1.23407,-960.541,188.297)">
-        <rect x="2560" y="6508.18" width="192" height="55.426"
-          style="fill:rgb(122,188,255);" />
-      </g>
-      <g transform="matrix(0.244629,0.141237,-3.86669e-17,1.23407,-1441.64,2424.67)">
-        <rect x="2560" y="4291.16" width="192" height="55.426"
-          style="fill:rgb(60,156,255);" />
-      </g>
-      <g transform="matrix(0.0750475,-0.0433287,3.38968,1.95703,-24581.5,-6002.34)">
-        <rect x="-4187" y="7104.01" width="192" height="13.856"
-          style="fill:rgb(233,241,255);" />
-      </g>
-    </g>
-    <g transform="matrix(1,0,0,1,8778.02,-41.3668)">
+
+    <g transform="matrix(1,0,0,1,8778.02,-41.3668)" class="floatFirst">
       <g transform="matrix(0.328223,-0.1895,1.68582e-17,0.498739,-5145.37,5417.49)">
         <rect x="2560" y="6508.18" width="192" height="55.426"
           style="fill:rgb(122,188,255);" />
@@ -143,7 +130,8 @@
           style="fill:rgb(60,156,255);" />
       </g>
     </g>
-    <g transform="matrix(0.637112,0,0,0.637112,5269.19,3311.48)">
+    <g transform="matrix(0.637112,0,0,0.637112,5269.19,3311.48)"
+      class="animate-bounce">
       <g transform="matrix(0.481022,-0.277718,3.68062e-17,0.172121,-2585.9,7291.64)">
         <rect x="2560" y="6508.18" width="192" height="55.426"
           style="fill:rgb(122,188,255);" />
@@ -253,7 +241,8 @@
           style="fill:rgb(233,241,255);" />
       </g>
     </g>
-    <g transform="matrix(1.02298,0,0,1.02298,5131.58,-197.767)">
+    <g transform="matrix(1.02298,0,0,1.02298,5131.58,-197.767)"
+      class="floatSecond">
       <g transform="matrix(0.0750475,-0.0433287,4.81984e-17,1.23407,-960.541,188.297)">
         <rect x="2560" y="6508.18" width="192" height="55.426"
           style="fill:rgb(122,188,255);" />
@@ -269,3 +258,48 @@
     </g>
   </g>
 </svg>
+
+<style type="text/css">
+
+@keyframes float {
+  0% {
+
+    transform: matrix(1, 0, 0, 1, 8778.02, -41.3668)
+  }
+
+  50% {
+
+    transform: matrix(1, 0, 0, 1, 8782.02, -31.3668)
+  }
+
+  100% {
+
+    transform: matrix(1, 0, 0, 1, 8778.02, -41.3668)
+  }
+}
+
+@keyframes float_other {
+  0% {
+
+    transform: matrix(1.02298, 0, 0, 1.02298, 5131.58, -197.767)
+  }
+
+  50% {
+
+    transform: matrix(1.02298, 0, 0, 1.02298, 5131.58, -187.767)
+  }
+
+  100% {
+
+    transform: matrix(1.02298, 0, 0, 1.02298, 5131.58, -197.767)
+  }
+}
+
+.floatFirst {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floatSecond {
+  animation: float_other 9s ease-in-out infinite;
+}
+</style>

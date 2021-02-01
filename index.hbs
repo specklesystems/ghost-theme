@@ -1,74 +1,23 @@
 {{!< default}}
 
-<div class="absolute inset-0 pt-32 opacity-20 h-4/6">
-{{> extras/duper }}
-</div>
-
-<main class="relative z-1 h-screen sm:h-screen/2 flex flex-wrap content-center mx-auto max-w-5xl px-10 lg:px-24 sm:mt-24">
-  <div class="w-3/3 text-center">
-    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-      <span class="block xl:inline text-gray-800 dark:text-gray-200">{{@site.description}}</span>
-    </h1>
-    <p class="text-base text-gray-800 dark:text-gray-200 sm:text-lg md:text-xl md:max-w-6xl mt-10">
-      Leading AEC companies, designers and developers use
-      <span class="">Speckle</span> for
-      interoperability, design automation and
-      data management.
-    </p>
-    <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-      <div class="rounded-xl shadow">
-        <a href="/beta" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
-          Join the Beta
-        </a>
-      </div>
-    </div>
-  </div>
-</main>
-
-{{> logos }}
-
-<div class="w-default container my-10 mx-auto sm:mt-24">
-  <h3 class="text-xl my-2 text-blue-600">Why Speckle</h3>
-  <h1 class="text-3xl dark:text-white">Interoperability &
-    Collaboration</h1>
-  <p class="dark:text-white">Designers, architects and
-    engineers use Speckle to Action 1, Action 2, Action
-    3.</p>
-  <div class="grid grid-cols-2 gap-4 mt-10">
-    <div class="p-3 h-screen/2 text-center col-span-2 dark:text-white bg-white dark:bg-gray-900 rounded-xl transition shadow hover:shadow-xl flex justify-center content-center">
-      <p>Interoperability: we support many things, with
-        more
-        to come.</p>
-    </div>
-    <div class="p-3 h-80 dark:text-white bg-white dark:bg-gray-900 rounded-xl transition shadow hover:shadow-xl flex items-center">
-      Real Time Collaboration: fast and snappy. No more
-      endless waits for syncing with central.
-    </div>
-    <div class="p-3 h-80 dark:text-white bg-white dark:bg-gray-900 rounded-xl transition shadow hover:shadow-xl flex items-center">
-      Curate the data you need: say goodbye to files.
-    </div>
-  </div>
-</div>
-
-<div class="h-screen/2 dark:text-white flex flex-wrap content-center justify-center items-center mx-auto max-w-5xl px-10 lg:px-24 sm:mt-24">
-  <p class="text-center max-w-prose w-full text-xl py-10">
-    Open Source:
-  </p>
-  <h1 class="text-6xl mb-10 w-3/3">
-    Your Design. <span class="font-bold text-gradient bg-gradient-to-r from-blue-500 to-blue-700">Your
-      Data.</span>
-  </h1>
-  <p class="text-justify max-w-prose w-3/3">Speckle is
-    Open Source, so you always have a choice and can
-    adapt it to any data sovereignty requirements. You
-    can deploy it on your favourite cloud provider's
-    infrastructure, or on premise, under your
-    supervision.
-  </p>
+<div class="absolute inset-0 pt-5 md:pt-24 opacity-20 dark:opacity-10 h-6/6 md:h-4/6">
+  {{> extras/duper }}
 </div>
 
 
-<div class="bg-gradient-to-r from-blue-800 to-blue-500 dark:to-blue-900 text-white py-10">
+{{> landing/header }}
+
+{{> landing/logos }}
+
+{{> landing/features-wide }}
+
+{{> cardCTA }}
+
+{{> landing/opensource }}
+
+
+
+<div class="">
   <div class="w-default container my-10 pt-10">
     <div class="grid grid-cols-2 gap-4 mt-10">
       <div class="p-3 dark:text-white">
