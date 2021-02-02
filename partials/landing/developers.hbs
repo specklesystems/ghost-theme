@@ -1,9 +1,9 @@
 {{#get "posts" filter="primary_tag:developers" limit="3"}}
 
-  <div class="w-default mt-20 my-0 grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 ">
+  <div class="w-default mt-36 my-0 grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 ">
     <div class="relative">
       <div class="border-l-4 dark:border-gray-700">
-        <h2 class="text-2xl pl-5 mb-5 font-bold text-blue-600">Built
+        <h2 class="text-4xl pl-5 mb-5 font-bold text-blue-600">Built
           for developers</h2>
         <p class=" pl-5 text-lg text-gray-800 dark:text-gray-400">
           We fine tune the right abstractions so your teams
@@ -12,18 +12,24 @@
         </p>
       </div>
     </div>
-    <div class="rounded-xl shadow-xl overflow-hidden">
+    <div class="rounded-xl shadow-2xl overflow-hidden">
       <pre class="" style="margin:0 !important;">
         <code class="language-javascript">
-// Example of using the Speckle 3D viewer in a web app
 import Viewer from './modules/Viewer'
 
 let viewer = new Viewer( )
 
-async function load() {
-  await viewer.loadObject( objectUrl )
+// event handlers
+viewer.on( 'load-progress', args => handleProgress( args ) )
+viewer.on( 'object-clicked', objs => handleObjClick( objs ) )
+
+// load a model
+async function load( ) {
+  await viewer.loadObject( revitStreamUrl )
 }</code>
       </pre>
+      <div class="h-8 w-full bg-gray-300 dark:bg-gray-900">
+      </div>
       <div class="h-80 w-full flex justify-center bg-gradient-to-br from-transparent via-transparent to-gray-200 dark:to-gray-900"
         id="renderer">
         <button class="animate-bounce self-center text-sm font-bold bg-blue-600 text-white rounded-full p-3 shadow-2xl transition hover:bg-blue-500"
