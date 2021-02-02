@@ -87,6 +87,7 @@
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.2.0",
+    "prism-theme-one-light-dark": "^1.0.4",
     "tailwindcss": "^2.0.2"
   }
 }

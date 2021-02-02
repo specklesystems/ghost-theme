@@ -29,7 +29,13 @@ production stylesheet in assets/built/screen.css using: gulp dev
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Main - Your styles here! Edit below
+/* Prism theme */
+@import 'prism-theme-one-light-dark/prism-onedark.css';
+/*@import 'prism-theme-one-light-dark/prism-onelight.css';*/
+
+/*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />*/
+
+/* Main
 /* ---------------------------------------------------------- */
 
 .text-gradient {
@@ -87,9 +93,7 @@ production stylesheet in assets/built/screen.css using: gulp dev
   @apply font-bold;
 }
 
-
-
-pre {
+.post-body pre {
   @apply p-4 px-8 my-10 rounded-xl bg-gray-200 dark:bg-gray-700 shadow-xl;
 }
 

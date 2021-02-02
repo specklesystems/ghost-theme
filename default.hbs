@@ -7,8 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
   <title>{{meta_title}}</title>
+
   {{!-- Outputs important meta data and settings, should always be in <head> --}}
   {{ghost_head}}
+
   {{!-- Fonts  --}}
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
@@ -19,51 +21,50 @@
 
 <body class="{{body_class}} bg-gray-100 dark:bg-gray-800">
 
-  {{> navbar}}
+  {{> navbar }}
 
-  {{{body}}}
+  {{{ body }}}
 
-  {{> footer}}
+  {{> footer }}
 
-
-  <script src="{{asset "built/jquery-3.4.1.min.js"}}"></script>
-
-  {{#if pagination.pages}}
-    <script>
-    var maxPages = parseInt('{{pagination.pages}}');
-    </script>
-    <script src="{{asset "built/infinitescroll.js"}}"></script>
-  {{/if}}
-
-  <script>
-  $(document).ready(function() {
-    // Mobile Menu Trigger
-    $('.gh-burger').click(function() {
-      $('body').toggleClass('gh-head-open');
-    });
-  });
-  </script>
-
-  {{#is "post, page"}}
-    <script src="{{asset "built/jquery.fitvids.js"}}"></script>
-    <script>
-    var images = document.querySelectorAll(
-      '.kg-gallery-image img');
-    images.forEach(function(image) {
-      var container = image.closest('.kg-gallery-image');
-      var width = image.attributes.width.value;
-      var height = image.attributes.height.value;
-      var ratio = width / height;
-      container.style.flex = ratio + ' 1 0%';
-    });
-    $(document).ready(function() {
-      var $postContent = $(".gh-content");
-      $postContent.fitVids();
-    });
-    </script>
-  {{/is}}
   {{ghost_foot}}
-  {{!-- Outputs important scripts - should always be included before closing body tag --}}
+
+  {{#is "home"}}
+
+    <script src="{{asset "built/Speckle.js"}}"></script>
+    <script type="text/javascript">
+    window.loadViewer = function() {
+
+      let v = new Speckle.Viewer({
+        container: document.getElementById(
+          'renderer')
+      });
+
+      v.on('load-progress', args => console.log(args))
+      v.selectionHelper.on('object-clicked', args => {
+        if (args.length !== 0) {
+          console.log(args[0])
+        }
+      });
+
+      // revit: https://staging.speckle.dev/streams/a75ab4f10f/objects/7ae6510afc0173539004a6ad5e5de92f
+      // rhino: https://staging.speckle.dev/streams/4c3ce1459c/objects/60e1982302771e635024ef10dae3dbf3
+
+      (() => {
+        v.loadObject(
+          "https://staging.speckle.dev/streams/4c3ce1459c/objects/60e1982302771e635024ef10dae3dbf3",
+          "e844747dc6f6b0b5c7d5fbd82d66de6e9529531d75"
+        )
+      })()
+
+      document.getElementById('loadbutton').style.display =
+        "none"
+    }
+    </script>
+
+  {{/is}}
+
+
 </body>
 
 </html>

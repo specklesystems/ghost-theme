@@ -1,62 +1,88 @@
-<div x-data="{ featureImageSource: 'https://segment.com/site-assets/f06e5744/images/index/img__phone.svg', default: 'https://segment.com/site-assets/f06e5744/images/index/img__phone.svg' }"
-  class="container my-0 mt-36 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+{{#get "posts" filter="primary_tag:usecases+featured:true" limit="3"}}
 
-  <div class="relative h-screen/2-3 xxxopacity-50 flex text-center justify-center align-middle">
-    <img x-bind:src="featureImageSource" class="self-center">
-  </div>
-
-  <div class="relative grid grid-cols-1 gap-4">
-
-    <div class="relative px-5">
-      <h3 class="relative text-xl my-2 text-blue-600">Why
-        Speckle</h3>
-      <p class="relative dark:text-white">Designers,
-        architects
-        and
-        engineers use Speckle to Action 1, Action 2, Action
-        3.
+  <div class="w-default mt-20 my-0 grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 ">
+    <div class="relative border-l-4 dark:border-gray-700">
+      <h2 class="text-2xl pl-5 mb-5 font-bold text-blue-600">Why
+        Speckle?</h2>
+      <p class=" pl-5 text-lg text-gray-800 dark:text-gray-400">
+        We bring together everything that's needed to build
+        modern workflows and apps that use geometry
+        and data - BIM -
+        in a cloud environment. Speckle's
+        products power collaborative interoperability,
+        real-time data exchange,
+        online apps, automation workflows and everything in
+        between.
       </p>
     </div>
+  </div>
 
-    {{#get "posts" filter="primary_tag:usecases+featured:true" limit="3"}}
+  <div x-data="{ activeSlide: '0', slides: [ '0', '1', '2', '3', '4', '5' ] }"
+    class="w-default my-0 mt-5 mb-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+    <div class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-2 grid-flow-row">
       {{#foreach posts}}
-        {{!-- {{> cardFancySmallNoImage }} --}}
-        <div class="relative rounded-xl h-44 bg-white dark:bg-gray-900 py-15 mb-5 overflow-hidden flex transition hover:shadow-xl"
-          @mouseenter="featureImageSource='{{feature_image}}';">
-          <a href="{{url}}" class="w-full self-center">
-            <div class="relative px-8">
-              <div class="text-3xl font-semibold text-gray-600 dark:text-gray-200">
-                {{title}}
-              </div>
 
-              <div class="relative text-sm md:flex-grow mt-5">
-                <p class="relative text-gray-500 text-clamp-3">
+        <div class="rounded-lg transition transition overflow-hidden bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-200"
+          @mouseenter="activeSlide='{{@index}}';">
+          <div class="flex-shrink-0 lg:hidden">
+            <img class="h-48 w-full object-cover" srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+              sizes="(max-width: 1000px) 400px, 700px" src="{{img_url feature_image size="m"}}"
+              alt="{{title}}">
+          </div>
+          <div class="flex-1 p-6 flex flex-col justify-between">
+            <div class="flex-1">
+              <a href="{{url}}" class="block mt-1">
+                <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
+                  {{title}}
+                </p>
+                <p class="mt-2 text-sm text-gray-500 line-clamp-2">
                   {{excerpt}}
                 </p>
-              </div>
-              <footer class="mt-5">
-                <p class="text-base font-semibold text-blue-500">
-                  Read More
-                </p>
-              </footer>
+                <footer class="mt-2">
+                  <p class="text-base font-semibold text-blue-500">
+                    Read More
+                  </p>
+                </footer>
+              </a>
             </div>
-          </a>
-        </div>
-      {{/foreach}}
-    {{/get}}
-
-    <div class="relative rounded-xl py-5 hover:rounded-2xl hover:shadow-2xl transition overflow-hidden flex">
-      <a href="/usecases" class="w-full self-center">
-        <div class="relative px-8">
-          <div class="text-3xl font-semibold text-blue-600">
-            All Usecases →
           </div>
         </div>
-      </a>
+
+      {{/foreach}}
+
+
+      <div class="relative rounded-xl py-5 hover:rounded-2xl hover:shadow-2xl bg-white dark:bg-gray-900 transition overflow-hidden flex">
+        <a href="/usecases" class="w-full self-center">
+          <div class="relative px-8">
+            <div class="text-xl font-semibold text-blue-600">
+              Usecases →
+            </div>
+          </div>
+        </a>
+      </div>
+
     </div>
+
+    <div class="relative hidden lg:flex">
+
+      {{#foreach posts}}
+        <div class="absolute inset-0 h-full w-full flex"
+          x-show="activeSlide === '{{@index}}'"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 -translate-y-1"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-50"
+          x-transition:leave-start="opacity-100 translate-y-0"
+          x-transition:leave-end="opacity-0 -translate-y-1">
+          <img src="{{feature_image}}" class="object-cover self-center">
+        </div>
+      {{/foreach}}
+
+    </div>
+
   </div>
-  {{!--   <div class="relative p-3 h-screen/2 col-span-2 flex text-center justify-center -mt-48">
-    <img src="https://segment.com/site-assets/f06e5744/images/index/img__data-flow.svg">
-    <img src="https://segment.com/site-assets/images/img__call-to-action.svg">
-  </div> --}}
-</div>
+{{/get}}

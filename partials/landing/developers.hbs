@@ -1,0 +1,110 @@
+{{#get "posts" filter="primary_tag:developers" limit="3"}}
+
+  <div class="w-default mt-20 my-0 grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 ">
+    <div class="relative">
+      <div class="border-l-4 dark:border-gray-700">
+        <h2 class="text-2xl pl-5 mb-5 font-bold text-blue-600">Built
+          for developers</h2>
+        <p class=" pl-5 text-lg text-gray-800 dark:text-gray-400">
+          We fine tune the right abstractions so your teams
+          can be productive in
+          developing on top of Speckle.
+        </p>
+      </div>
+    </div>
+    <div class="rounded-xl shadow-xl overflow-hidden">
+      <pre class="" style="margin:0 !important;">
+        <code class="language-javascript">
+// Example of using the Speckle 3D viewer in a web app
+import Viewer from './modules/Viewer'
+
+let viewer = new Viewer( )
+
+async function load() {
+  await viewer.loadObject( objectUrl )
+}</code>
+      </pre>
+      <div class="h-80 w-full flex justify-center bg-gradient-to-br from-transparent via-transparent to-gray-200 dark:to-gray-900"
+        id="renderer">
+        <button class="animate-bounce self-center text-sm font-bold bg-blue-600 text-white rounded-full p-3 shadow-2xl transition hover:bg-blue-500"
+          onclick="loadViewer()" id="loadbutton">
+          <svg class="inline-flex h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          </svg>
+          Load Model
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div x-data="{ activeSlide: '0', slides: [ '0', '1', '2', '3', '4', '5' ] }"
+    class="w-default my-0 mt-5 mb-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+    {{!--     <div class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-2 grid-flow-row">
+      {{#foreach posts}}
+
+        <div class="rounded-lg transition transition overflow-hidden bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-200"
+          @mouseenter="activeSlide='{{@index}}';">
+          <div class="flex-shrink-0 lg:hidden">
+            <img class="h-48 w-full object-cover" srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+              sizes="(max-width: 1000px) 400px, 700px" src="{{img_url feature_image size="m"}}"
+              alt="{{title}}">
+          </div>
+          <div class="flex-1 p-6 flex flex-col justify-between">
+            <div class="flex-1">
+              <a href="{{url}}" class="block mt-1">
+                <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
+                  {{title}}
+                </p>
+                <p class="mt-2 text-sm text-gray-500 line-clamp-2">
+                  {{excerpt}}
+                </p>
+                <footer class="mt-2">
+                  <p class="text-base font-semibold text-blue-500">
+                    Read More
+                  </p>
+                </footer>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      {{/foreach}}
+
+
+      <div class="relative rounded-xl py-5 hover:rounded-2xl hover:shadow-2xl bg-white dark:bg-gray-900 transition overflow-hidden flex">
+        <a href="/developerss" class="w-full self-center">
+          <div class="relative px-8">
+            <div class="text-xl font-semibold text-blue-600">
+              Developers →
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div> --}}
+
+    {{!--     <div class="relative hidden lg:flex">
+
+      {{#foreach posts}}
+        <div class="absolute inset-0 h-full w-full flex"
+          x-show="activeSlide === '{{@index}}'"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 -translate-y-1"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-50"
+          x-transition:leave-start="opacity-100 translate-y-0"
+          x-transition:leave-end="opacity-0 -translate-y-1">
+          <img src="{{feature_image}}" class="object-cover self-center">
+        </div>
+      {{/foreach}}
+
+    </div> --}}
+
+  </div>
+{{/get}}
