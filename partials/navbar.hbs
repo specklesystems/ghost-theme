@@ -21,7 +21,7 @@
 
       <div class="-mr-2 -my-2 md:hidden">
         <button @click="mobileMenuOpen = true" type="button"
-          class="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+          class="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
           <svg class="h-6 w-6" x-description="Heroicon name: menu"
             xmlns="http://www.w3.org/2000/svg" fill="none"
             viewBox="0 0 24 24" stroke="currentColor"
@@ -176,17 +176,16 @@
     x-transition:enter-end="opacity-100 scale-100"
     x-transition:leave="duration-100 ease-in"
     x-transition:leave-start="opacity-100 scale-100"
-    x-transition:leave-end="opacity-0 scale-95"
-    class="fixed w-full h-full z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+    x-transition:leave-end="opacity-0 scale-95" class="fixed w-full h-full z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
     <div class="rounded-lg shadow-2xl bg-white dark:bg-gray-900">
       <div class="pt-5 pb-6 px-5 sm:pb-8">
         <div class="flex items-center justify-between">
-          <div class="text-2xl text-blue-600 dark:text-blue-500 title-font font-bold mr-5">
+          <a href="/" class="text-2xl text-blue-600 dark:text-blue-500 title-font font-bold mr-5">
             Speckle
-          </div>
+          </a>
           <div class="-mr-2">
             <button @click="mobileMenuOpen = false" type="button"
-              class="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+              class="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
               <svg class="h-6 w-6" x-description="Heroicon name: x"
                 xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor"
@@ -202,7 +201,7 @@
           <nav>
             <div class="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
 
-              <a href="/usecases" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50">
+              <a href="/usecases" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
                 <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-blue-500 text-white sm:h-12 sm:w-12">
                   <svg class="h-6 w-6" x-description="Heroicon name: chart-bar"
                     xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -218,7 +217,7 @@
                 </div>
               </a>
 
-              <a href="/developers" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50">
+              <a href="/developers" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
                 <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-blue-500 text-white sm:h-12 sm:w-12">
                   <svg class="h-6 w-6" x-description="Heroicon name: shield-check"
                     xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -234,7 +233,7 @@
                 </div>
               </a>
 
-              <a href="/blog" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50">
+              <a href="/blog" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
                 <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-blue-500 text-white sm:h-12 sm:w-12">
                   <svg class="h-6 w-6" x-description="Heroicon name: cursor-click"
                     xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -251,7 +250,7 @@
               </a>
 
 
-              <a href="/about" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50">
+              <a href="/about" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
                 <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-blue-500 text-white sm:h-12 sm:w-12">
                   <svg class="h-6 w-6" x-description="Heroicon name: view-grid"
                     xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -267,19 +266,25 @@
                 </div>
               </a>
 
+
+              <div class="text-base">
+                <a href="http://speckle.community" class="font-medium text-blue-600 hover:text-blue-500">
+                  Speckle Community <span aria-hidden="true">→</span></a>
+              </div>
+
+              <div class="text-base">
+                <a href="http://github.com/specklesystems/speckle-server"
+                  class="font-medium text-blue-600 hover:text-blue-500">
+                  Speckle @ Github <span aria-hidden="true">→</span></a>
+              </div>
+
             </div>
-            {{!--             <div class="mt-8 text-base">
-              <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
-                View all
-                products <span aria-hidden="true">→</span></a>
-            </div> --}}
           </nav>
         </div>
       </div>
       <div class="mb-4">
 
         <div class="mt-3 px-10 pb-10 items-center w-full">
-          {{!-- <div class="flex items-center md:ml-12"> --}}
           {{> navbarCTA}}
         </div>
       </div>
