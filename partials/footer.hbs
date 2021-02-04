@@ -1,8 +1,10 @@
-<div class="relative bg-white dark:bg-gray-900 dark:text-white py-20 mt-10">
-  <div class="w-default py-20 flex flex-wrap sm:py-4">
-    {{!-- <h2 id="footerHeading" class="sr-only">Footer</h2> --}}
-    <div class="w-1/1 sm:w-1/1 sm:w-1/2 md:w-1/4">
-      <a href="{{@site.url}}" class="flex">
+<div class="relative bg-white dark:bg-gray-900 dark:text-white py-20">
+  <div class="w-default py-20 sm:py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+    {{!-- Logo and social --}}
+
+    <div class="pl-3 text-center md:text-left">
+      <a href="{{@site.url}}" class="flex justify-center md:justify-start">
         <img class="h-10 mr-4" src="{{@site.logo}}" alt="logo">
         <div class="text-2xl text-blue-600 dark:text-blue-500 title-font font-bold mt-1">
           Speckle
@@ -11,9 +13,9 @@
       <p class="text-gray-500 text-base my-4">
         {{@site.description}}
       </p>
-      <div class="flex space-x-6">
+      <div class="flex space-x-6 justify-center md:justify-start">
 
-        <a href="#" class="text-gray-400 hover:text-gray-500">
+        <a href="#" class="text-gray-800 dark:text-gray-200 hover:text-gray-500">
           <span class="sr-only">Instagram</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"
             aria-hidden="true">
@@ -22,7 +24,7 @@
           </svg>
         </a>
 
-        <a href="#" class="text-gray-400 hover:text-gray-500">
+        <a href="#" class="text-gray-800 dark:text-gray-200 hover:text-gray-500">
           <span class="sr-only">Twitter</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"
             aria-hidden="true">
@@ -30,7 +32,7 @@
           </svg>
         </a>
 
-        <a href="#" class="text-gray-400 hover:text-gray-500">
+        <a href="#" class="text-gray-800 dark:text-gray-200 hover:text-gray-500">
           <span class="sr-only">GitHub</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"
             aria-hidden="true">
@@ -40,19 +42,24 @@
         </a>
 
       </div>
-
+      <div class="mt-10">
+      {{> navbarCTA }}
+      </div>
       <p class="text-gray-500 text-xs mt-10">
         © Aec Systems
       </p>
 
     </div>
-    <div class="mt-10 md:mt-0 w-full sm:w-1/2 md:w-1/4">
-      <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+
+    {{!-- Use Cases --}}
+
+    <div class="pl-3 text-center md:text-left">
+      <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 tracking-wider uppercase">
         Use Cases
       </h3>
       <ul class="mt-4 space-y-4">
 
-        {{#get "posts" filter="tags:usecases" limit="3"}}
+        {{#get "posts" filter="tags:usecases+featured:true" limit="3"}}
           {{#foreach posts}}
             <li>
               <a href="{{url}}" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
@@ -64,7 +71,7 @@
 
         {{#get "tags" filter="slug:usecases" as |tag|}}
           <li>
-            <a href="/usecases" class="text-base font-bold text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
+            <a href="/usecases" class="text-base font-bold text-gray-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100">
               See All
             </a>
           </li>
@@ -72,41 +79,40 @@
 
       </ul>
     </div>
-    <div class="mt-10 md:mt-0 w-full sm:w-1/2 md:w-1/4">
-      <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-        Learn
+
+    {{!-- Resources --}}
+
+    <div class="pl-3 text-center md:text-left">
+      <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 tracking-wider uppercase">
+        Developers
       </h3>
       <ul class="mt-4 space-y-4">
 
-        <li>
-          <a href="#" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
-            Installation & First Steps
-          </a>
-        </li>
+        {{#get "posts" filter="tags:developers+featured:true" limit="3"}}
+          {{#foreach posts}}
+            <li>
+              <a href="{{url}}" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
+                {{title}}
+              </a>
+            </li>
+          {{/foreach}}
+        {{/get}}
 
-        <li>
-          <a href="https://discourse.speckle.works" target="_blank" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
-            Community Forum
-          </a>
-        </li>
-
-        <li>
-          <a href="/developers" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
-            Developer Docs
-          </a>
-        </li>
-
-        <li>
-          <a href="/blog" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
-            Blog
-          </a>
-        </li>
+        {{#get "tags" filter="slug:usecases" as |tag|}}
+          <li>
+            <a href="/developers" class="text-base font-bold text-gray-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100">
+              See All
+            </a>
+          </li>
+        {{/get}}
 
       </ul>
     </div>
 
-    <div class="mt-10 md:mt-0 w-full sm:w-1/2 md:w-1/4">
-      <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+    {{!-- Company Stuff --}}
+
+    <div class="pl-3 text-center md:text-left">
+      <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 tracking-wider uppercase">
         Company
       </h3>
       <ul class="mt-4 space-y-4">

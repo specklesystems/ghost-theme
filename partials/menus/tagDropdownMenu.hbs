@@ -44,15 +44,10 @@
 
     {{!-- Cards with posts from tag --}}
 
-    {{#get "posts" filter="tags:{{tag}}" limit=maxcards}}
+    {{#get "posts" filter="tags:{{tag}}+featured:true" limit=maxcards}}
       {{#foreach posts}}
         <a href="{{url}}" class="-m-3 p-3 flex flex-col justify-between rounded-lg transition dark:bg-gray-900 hover:bg-blue-100 dark:hover:bg-gray-800">
           <div class="flex md:h-full lg:flex-col">
-            <div class="flex-shrink-0">
-              <span class="inline-flex items-center justify-center h-64 w-64 rounded-md text-white sm:h-12 sm:w-12">
-                <img src="{{img_url feature_image size="m"}}">
-              </span>
-            </div>
             <div class="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
               <div>
                 <p class="text-xl font-medium text-gray-900 dark:text-gray-50">

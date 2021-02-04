@@ -1,48 +1,92 @@
 {{!< default}}
 
-
-
 {{#post}}
 
-<article class="relative">
+  <article class="relative">
 
-
-    {{!-- Header --}}
-    {{!-- {{> extras/patterns}} --}}
-
-    <header class="relative px-4 sm:px-6 lg:px-8 mt-24">
-
-
-      <div class="max-w-prose mx-auto object-center">
-        {{#if feature_image}}
-          <img class="gh-feature-image mx-auto" srcset="{{img_url feature_image size="s"}} 300w,
-                    {{img_url feature_image size="m"}} 600w,
-                    {{img_url feature_image size="l"}} 1000w,
-                    {{img_url feature_image size="xl"}} 2000w"
-            sizes="(max-width: 1000px) 1000px, 2000px"
-            loading="lazy" src="{{img_url feature_image size="xl"}}"
-            alt="{{title}}" />
-        {{/if}}
+    <header class="mb-10 mt-24 px-4 lg:px-8 relative sm:px-6">
+      <div class="w-default mx-auto object-center justify-center">
         <h1>
-          <span class="mt-12 block text-4xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+          <span class="font-extrabold leading-8 text-4xl text-center text-gray-900 tracking-tight mt-12 block dark:text-gray-100 sm:text-4xl">
             {{title}}
           </span>
         </h1>
-        {{#if custom_excerpt}}
-          <p class="mt-8 text-2xl text-gray-500 dark:text-gray-300 leading-8">
-            {{custom_excerpt}}
-          </p>
-        {{/if}}
-
+        <div class="leading-8 mx-auto max-w-prose text-2xl text-gray-500 mt-8 dark:text-gray-300 text-justify">
+          {{content}}
+        </div>
       </div>
     </header>
 
-    <div class="post-body mt-10 max-w-prose mx-auto text-gray-700 dark:text-gray-300">
-
-      {{content}}
-
+    <div class="relative w-default mb-20 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+      {{> pricing }}
     </div>
+
+    <div class="relative max-w-prose px-5 mx-auto mb-20 grid grid-cols-3 gap-4 bg-white rounded-xl">
+      <div class="col-span-3 md:col-span-2">
+        <h2 class="font-bold text-xl mt-5 text-gray-700 dark:text-gray-200">
+          Self Hosting
+        </h2>
+        <p class="mb-5 mt-5 pt-5 border-t dark:border-gray-600 dark:text-gray-200">
+          Speckle is open source. You can always deploy it on your own.
+        </p>
+      </div>
+      <div class="col-span-3 md:col-span-1 justify-center">
+        <a href="https://github.com/specklesystems" class="flex w-full h-full">
+          <div class="block self-center w-full text-center">
+            <div class="text-xl font-semibold text-blue-600 text-center">
+              Github →
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <header class="mb-10 mt-24 px-4 lg:px-8 relative sm:px-6">
+      <div class="mx-auto max-w-prose object-center justify-center">
+        <h1>
+          <span class="font-extrabold leading-8 text-xl text-gray-700 tracking-tight mt-12 dark:text-gray-100 ">
+            Q&As:
+          </span>
+        </h1>
+        <div class="leading-8 mx-auto max-w-prose mt-8">
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              Do you provide support for self-hosted
+              versions?
+            </h4>
+            <p class="text-base">Unfortunately we cannot do
+              so, for more reasons than one. First, it's
+              difficult to debug a setup without having
+              access to it. Second, to have access to it
+              implies we would be seeing very private
+              details of your infrastructure - which you
+              don't want us to do without a contract in
+              place.</p>
+          </div>
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              Will the Standard plan always be free?
+            </h4>
+            <p class="text-base">As it stands now, yes. We will gradually introduce other plans with extra features that will come at a cost.</p>
+          </div>
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              What does "Speckle" stand for?
+            </h4>
+            <p class="text-base">
+              Only few people know this. It's a closely guarded secret, but if you find out - let us know and we'll send you some stickers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
 
   </article>
 
-  {{/post}}
+{{/post}}
