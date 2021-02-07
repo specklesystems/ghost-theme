@@ -1,0 +1,38 @@
+{{!< default}}
+
+<section class="h-screen/2 flex justify-center gh-page gh-error">
+  <div class="self-center text-center text-gray-800 dark:text-gray-200">
+
+
+    <h1 class="text-xl my-10">Oups. Something bad happened :(</h1>
+    <h1 class="gh-error-code my-2 text-sm">{{statusCode}}</h1>
+    <p class="gh-error-description my-2 text-sm">{{message}}</p>
+
+    <p class="mt-10">
+      <a href="{{@site.url}}" class="inline-flex items-center justify-center px-4 py-2 border border-transparent transition rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 hover:shadow-xl">Go
+        to the front page →
+      </a>
+    </p>
+
+    {{#if errorDetails}}
+      <section class="gh-error-stack">
+        <h4>Theme errors:</h4>
+        <ul class="gh-error-stack-list">
+          {{#foreach errorDetails}}
+            <li>
+              <h5 class="gh-error-stack-function">{{{rule}}}</h5>
+
+              {{#foreach failures}}
+                <span class="gh-error-stack-file"><strong>Ref:</strong>
+                  {{ref}}</span><br>
+                <span class="gh-error-stack-file"><strong>Message:</strong>
+                  {{message}}</span>
+              {{/foreach}}
+            </li>
+          {{/foreach}}
+        </ul>
+      </section>
+    {{/if}}
+
+  </div>
+</section>

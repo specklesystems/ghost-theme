@@ -1,0 +1,64 @@
+<div class="bg-white dark:bg-gray-900 p-0 pb-8">
+  <div class="max-w-7xl mx-auto grid gap-y-6 px-4 sm:grid-cols-2 sm:gap-12 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8">
+
+    {{!-- Link to whole section --}}
+
+    <a href="/{{tag}}" class="-m-3 p-3 flex flex-col justify-between rounded-lg text-gray-800 dark:text-white transition dark:bg-gray-950 hover:bg-blue-100 dark:hover:bg-gray-800 ring">
+
+      {{!-- Get the tag --}}
+
+      {{#get "tags" limit="all" filter="slug:{{tag}}"}}
+        {{#foreach tags}}
+          <div class="flex md:h-full lg:flex-col">
+            <div class="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
+              <div>
+                <p class="text-2xl font-medium ">
+                  {{name}}
+                </p>
+                <p class="mt-1 text-sm ">
+                  {{description}}
+                </p>
+              </div>
+              <p class="mt-2 text-sm font-medium text-blue-600 lg:mt-4">
+                See all
+                <span aria-hidden="true">→</span>
+              </p>
+            </div>
+          </div>
+        {{/foreach}}
+      {{/get}}
+
+    </a>
+
+
+    {{!-- Cards with posts from tag --}}
+
+    {{#get "posts" filter="tags:{{tag}}+featured:true" limit=maxcards}}
+      {{#foreach posts}}
+        <a href="{{url}}" class="-m-3 p-3 flex flex-col justify-between rounded-lg transition dark:bg-gray-900 hover:bg-blue-100 dark:hover:bg-gray-800">
+          <div class="flex md:h-full lg:flex-col">
+            <div class="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
+              <div>
+                <p class="text-xl font-medium text-gray-900 dark:text-gray-50">
+                  {{title}}
+                </p>
+
+                {{#if ../../large}}
+                  <p class="mt-1 text-sm text-gray-800 dark:text-gray-50">
+                    {{excerpt}}
+                  </p>
+                {{/if}}
+
+              </div>
+              <p class="mt-2 text-sm font-medium text-blue-600 lg:mt-4">
+                Learn more
+                <span aria-hidden="true">→</span>
+              </p>
+            </div>
+          </div>
+        </a>
+      {{/foreach}}
+    {{/get}}
+
+  </div>
+</div>

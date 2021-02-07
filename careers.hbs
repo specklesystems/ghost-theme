@@ -1,0 +1,82 @@
+{{!< default}}
+
+
+{{#tag}}
+
+  <main class="w-default flex flex-wrap content-center mt-24">
+    <div class="w-3/3">
+      <h1 class="text-4xl tracking-tight font-extrabold text-gray-800 dark:text-gray-100 sm:text-5xl md:text-6xl">
+        <span class="block xl:inline text-gradient text-gradient bg-gradient-to-r from-blue-500 to-blue-700">
+          {{name}}
+        </span>
+        @ Speckle
+      </h1>
+      <p class="text-base text-justify text-gray-500 sm:text-lg md:text-xl md:max-w-6xl mt-10">
+        {{description}}
+      </p>
+    </div>
+  </main>
+
+{{/tag}}
+
+<div class="w-default mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-2 sm:mt-24">
+
+  {{#get "posts" filter="tags:careers"}}
+
+    {{#foreach posts visibility="all"}}
+
+      {{> cardCareers}}
+
+    {{/foreach}}
+
+  {{/get}}
+
+  <div class="relative rounded-xl py-10 overflow-hidden flex col-span-2 md:col-span-2 grid grid-cols-2 gap-4">
+
+    <div class="relative px-8 col-span-2 md:col-span-1">
+      <div class="text-3xl font-semibold text-gray-800 dark:text-gray-200">
+        How to apply
+
+      </div>
+      <blockquote class="mt-4">
+        <div class="relative text-lg text-gray-800 dark:text-gray-200 md:flex-grow">
+          <p class="relative">
+
+            Send us an up-to-date CV & a quick intro
+            explaining your motivation for joining and
+            what you think your contribution to the team
+            can be.
+
+
+          </p>
+        </div>
+
+      </blockquote>
+    </div>
+
+    <div class="relative px-8 col-span-2 md:col-span-1">
+      <div class="text-3xl font-semibold text-gray-800 dark:text-gray-200">
+        Didn't find the right position?
+
+      </div>
+      <blockquote class="mt-4">
+        <div class="relative text-lg text-gray-800 dark:text-gray-200 md:flex-grow">
+          <p class="relative">
+
+            No worries! We are always looking for
+            talented people who
+            believe in our mission and want to change
+            AEC.
+            If you're intrested in working at Speckle,
+            get in touch at
+            hello@speckle.systems
+
+
+          </p>
+        </div>
+
+      </blockquote>
+    </div>
+  </div>
+
+</div>

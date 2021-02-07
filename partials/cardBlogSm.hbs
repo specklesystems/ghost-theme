@@ -1,0 +1,40 @@
+<div class="flex flex-col rounded-lg transition shadow hover:shadow-2xl overflow-hidden">
+  <div class="flex-shrink-0 ">
+    {{#if feature_image}}
+      <img class="h-32 w-full object-cover" srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+        sizes="(max-width: 1000px) 400px, 700px" src="{{img_url feature_image size="m"}}"
+        alt="{{title}}">
+    {{else}}
+      <div class="h-32 w-full block bg-blue-500">&nbsp;</div>
+    {{/if}}
+
+  </div>
+  <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-200 p-6 flex flex-col justify-between">
+    <div class="flex-1">
+      <a href="{{url}}" class="block mt-2">
+        <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
+          {{title}}
+        </p>
+        <p class="mt-3 text-sm text-gray-500 line-clamp-3 md:line-clamp-4">
+          {{excerpt}}
+        </p>
+      </a>
+    </div>
+    <div class="mt-6 flex items-center">
+      <div class="">
+        <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
+          {{#foreach authors}}
+            {{name}}
+          {{/foreach}}
+          <span aria-hidden="true">
+            &middot;
+          </span>
+          <span class="text-gray-500"> <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

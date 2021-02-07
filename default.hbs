@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+  <title>{{meta_title}}</title>
+
+  {{!-- Outputs important meta data and settings, should always be in <head> --}}
+  {{ghost_head}}
+
+  {{!-- Fonts  --}}
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  {{!-- Simple little js lib --}}
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"></script>
+</head>
+
+<body class="{{body_class}} bg-gray-100 dark:bg-gray-800">
+
+  {{> navbar }}
+
+  {{{ body }}}
+
+  {{> footer }}
+
+  {{ghost_foot}}
+
+  {{#is "home"}}
+
+    <script src="{{asset "built/Speckle.js"}}"></script>
+    <script type="text/javascript">
+    window.loadViewer = function() {
+
+      let v = new Speckle.Viewer({
+        container: document.getElementById(
+          'renderer')
+      });
+
+      v.on('load-progress', args => console.log(args))
+      v.selectionHelper.on('object-clicked', args => {
+        if (args.length !== 0) {
+          console.log(args[0])
+        }
+      });
+
+      // revit: https://staging.speckle.dev/streams/a75ab4f10f/objects/7ae6510afc0173539004a6ad5e5de92f
+      // rhino: https://staging.speckle.dev/streams/4c3ce1459c/objects/60e1982302771e635024ef10dae3dbf3
+      // rhino old: https://staging.speckle.dev/streams/63028b716f/objects/f66828e3eeb6cb809ef64d64adfe570f
+      (() => {
+        v.loadObject(
+          "https://staging.speckle.dev/streams/4c3ce1459c/objects/60e1982302771e635024ef10dae3dbf3",
+          "e844747dc6f6b0b5c7d5fbd82d66de6e9529531d75"
+        )
+      })()
+
+      document.getElementById('loadbutton').style.display =
+        "none"
+      v.onWindowResize()
+    }
+    </script>
+
+  {{/is}}
+
+
+</body>
+
+</html>

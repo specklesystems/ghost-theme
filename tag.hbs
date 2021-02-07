@@ -1,0 +1,33 @@
+{{!< default}}
+
+<div>
+
+  {{#tag}}
+
+    <main class="h-screen/4 flex flex-wrap content-center mx-auto max-w-5xl px-10 lg:px-24 sm:mt-24">
+      <div class="w-3/3 text-center">
+        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
+          <span class="text-gradient text-gradient bg-gradient-to-r from-blue-500 to-blue-700">
+            {{name}}
+          </span>
+        </h1>
+        <p class="text-base text-justify text-gray-500 sm:text-lg md:text-xl md:max-w-6xl mt-10">
+          {{description}}
+        </p>
+      </div>
+    </main>
+
+  {{/tag}}
+
+  <div class="mt-12 max-w-lg grid gap-5 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl px-10 lg:px-12 sm:mt-24">
+
+    {{#foreach posts visibility="all"}}
+
+      {{> cardSimple}}
+
+    {{/foreach}}
+
+    {{> cardCTA}}
+
+  </div>
+</div>

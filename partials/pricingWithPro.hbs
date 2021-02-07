@@ -1,0 +1,161 @@
+{{!-- Plans  --}}
+<div class="px-10 lg:px-4 xl:px-10 mx-auto max-w-screen-2xl">
+  <div class="mb-20 gap-4 grid-cols-1 grid lg:grid-cols-7 md:grid-cols-2 relative">
+
+    {{!-- Standard --}}
+
+    <div class="bg-white p-8 col-span-1 shadow-xl transition hover:shadow-2xl rounded-xl dark:bg-gray-900 dark:ring-blue-700 md:col-span-2 lg:col-span-3 relative ring hover:ring-4">
+      <div>
+        <h3 class="bg-blue-100 text-sm text-blue-600 tracking-wide uppercase px-4 py-1 rounded-full inline-flex">
+          Individuals & Teams
+        </h3>
+        <h2 class="font-bold text-4xl mt-5 dark:text-gray-300">
+          Standard
+          <span class="font-bold text-base text-blue-600">Free</span>
+        </h2>
+        <div class="text-base lg:text-sm xl:text-base">
+          <p class="mb-5 mt-5 pt-5 border-t dark:border-gray-600 dark:text-gray-300">
+            Our standard plan for individuals & teams.
+            Enjoy
+            Speckle without extra hassle, hosted and
+            managed
+            by
+            us.
+          </p>
+          <p class="mb-2 dark:text-gray-300">Interoperability & Connectors:</p>
+          <ul class="space-y-2 ">
+            {{> extras/listItem value="Speckle Revit"}}
+            {{> extras/listItem value="Speckle Rhino"}}
+            {{> extras/listItem value="Speckle Dynamo"}}
+            {{> extras/listItem value="Speckle Grasshopper"}}
+            {{> extras/listItem value="And More "}}
+          </ul>
+          <p class="my-4 dark:text-gray-300">Features:</p>
+          <ul class="space-y-2 ">
+            {{> extras/listItem value="Unlimited streams"}}
+            {{> extras/listItem value="Unlimited versions"}}
+            {{> extras/listItem value="Web 3d viewer"}}
+            {{> extras/listItem value="API Access"}}
+            {{> extras/listItem value="App Registration"}}
+            {{> extras/listItem value="Community support"}}
+          </ul>
+        </div>
+      </div>
+      {{!-- <div class="h-16 absolute bottom-0 inset-x-0"> --}}
+      <div class="self-end mt-10 ">
+        <a href="https://forms.gle/oA64wPTjk7FprGf16">
+          <button class="bg-blue-600 font-medium text-base text-white w-full px-4 py-2 shadow-sm border-transparent rounded-md border hover:bg-blue-700 hover:shadow-xl transition">
+            Join the waiting list
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="p-8 col-span-1 rounded-xl lg:col-span-2 relative opacity-50 flex flex-col place-content-between">
+      <div class="w-2/2">
+        <h3 class="bg-blue-100 text-sm text-blue-600 tracking-wide uppercase px-4 py-1 rounded-full inline-flex">
+          Teams & Companies
+        </h3>
+        <h2 class="font-bold text-4xl mt-5 dark:text-gray-300">
+          Pro
+        </h2>
+        <div class="text-base lg:text-sm xl:text-base">
+          <p class="mb-5 mt-5 pt-5 border-t dark:border-gray-600 dark:text-gray-300">
+            Everything you need to manage project lifecycle
+            &
+            delivery.
+          </p>
+          <ul class="font-bold space-y-2 ">
+            {{> extras/listItem value="Everyting in Standard"}}
+          </ul>
+          <p class="my-4 dark:text-gray-300">Advanced
+            Collaboration Features:</p>
+          <ul class="space-y-2 ">
+            {{> extras/listItem value="Issue Tracking"}}
+            {{> extras/listItem value="Teams"}}
+            {{> extras/listItem value="SLA (Service Level Agreement)"}}
+            {{> extras/listItem value="Priority Support"}}
+            {{> extras/listItem value="Free for universities & academics"}}
+            {{> extras/listItem value="& More!"}}
+          </ul>
+        </div>
+      </div>
+      {{!-- <div class="h-16 absolute bottom-0 inset-x-0"> --}}
+      <div class="self-end w-full mt-10 w-2/2">
+        <a>
+          <button class="bg-gray-500 font-medium text-base text-white w-full px-4 py-2 shadow-sm border-transparent rounded-md border ">
+            Launching in Q3 2021
+          </button>
+        </a>
+      </div>
+    </div>
+
+
+    {{!-- Managed --}}
+
+    <div class="bg-white dark:bg-gray-900 p-8 col-span-1 flex-wrap shadow-lg rounded-xl dark:bg-gray-800 flex lg:col-span-2 relative">
+      <div class="w-full ">
+        <h3 class="bg-blue-100 text-sm text-blue-600 tracking-wide uppercase px-4 py-1 rounded-full inline-flex">
+          Enterprises
+        </h3>
+        <h2 class="font-bold text-4xl mt-5 dark:text-gray-200">
+          Managed
+        </h2>
+        <div class="text-base lg:text-sm xl:text-base">
+          <p class="mb-5 mt-5 pt-5 border-t dark:border-gray-600 dark:text-gray-200">
+            Dedicated solutions for enterprises, large
+            teams or projects.
+          </p>
+          <ul class="font-bold space-y-2">
+            {{> extras/listItem value="Everyting in Pro"}}
+          </ul>
+          <p class="my-4 dark:text-gray-200">Deployment:</p>
+          <ul class="space-y-2">
+            {{> extras/listItem value="On premise, with your cloud infrastructure"}}
+            {{> extras/listItem value="On our managed cloud infrastructure"}}
+          </ul>
+          <p class="my-4 dark:text-gray-200">Extras:</p>
+          <ul class="space-y-2 ">
+            {{> extras/listItem value="Custom subdomain"}}
+            {{> extras/listItem value="Choice of locations"}}
+            {{> extras/listItem value="SSO (Single sign-on)"}}
+            {{> extras/listItem value="SLA (Service Level Agreement)"}}
+            {{> extras/listItem value="Dedicated Support"}}
+          </ul>
+        </div>
+      </div>
+      <div class="self-end w-full mt-10 ">
+        <button class="bg-blue-600 font-medium text-base text-white w-full px-4 py-2 shadow-sm border-transparent rounded-md border hover:bg-blue-700 hover:shadow-xl transition">
+          Contact Sales
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- Non-plans --}}
+
+<div class="bg-white max-w-prose mb-20 mx-auto p-5 pb-5 gap-4 grid-cols-3 rounded-xl dark:bg-gray-900 grid hover:shadow-xl relative transition">
+  <div class="col-span-3 md:col-span-2">
+    <h2 class="font-bold text-gray-700 text-xl mt-5 dark:text-gray-200">
+      Self Hosting
+    </h2>
+    <p class="mb-5 mt-5 dark:text-gray-200">
+      Speckle is open source. You can always deploy it
+      on your own.
+    </p>
+  </div>
+  <div class="justify-center col-span-3 md:col-span-1">
+    <a href="https://github.com/specklesystems" class="h-full w-full flex">
+      <div class="text-center self-center w-full block">
+        <div class="font-semibold text-blue-600 text-center text-xl ">
+          <svg class="h-6 w-6 -mt-1 inline" fill="currentColor"
+            viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Github →
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

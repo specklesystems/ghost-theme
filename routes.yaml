@@ -1,0 +1,41 @@
+# NOTE:
+# You have to manually upload this file in the Ghost interface,
+# under Settings > Labs > Routes
+
+routes:
+  /: index
+
+collections:
+  /usecases/:
+    permalink: /usecases/{slug}/
+    tempate: usecases
+    filter: tag:usecases
+    data: tag.usecases
+
+  /developers/:
+    permalink: /developers/{slug}/
+    tempate: developers
+    filter: tag:developers
+    data: tag.developers
+
+  /blog/:
+    permalink: /blog/{slug}/
+    tempate: blog
+    filter: tag:blog
+    data: tag.blog
+
+  /careers/:
+    permalink: /careers/{slug}/
+    tempate: careers
+    filter: tag:careers
+    data: tag.careers
+
+  # Note: root is disabled
+  # /:
+  #   permalink: /{slug}/
+  #   template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  # Note: Disabled until we get a template for it
+  # author: /author/{slug}/

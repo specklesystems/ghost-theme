@@ -1,0 +1,136 @@
+{{!< default}}
+
+{{#post}}
+
+  <article class="relative">
+
+    <header class="mb-10 mt-24 px-4 lg:px-8 relative sm:px-6">
+      <div class="w-default mx-auto object-center justify-center">
+        <h1>
+          <span class="font-extrabold leading-8 text-4xl text-center text-gray-900 tracking-tight mt-12 block dark:text-gray-100 sm:text-4xl">
+            {{title}}
+          </span>
+        </h1>
+        <div class="leading-8 mx-auto max-w-prose text-2xl text-gray-500 mt-8 dark:text-gray-300 text-justify">
+          {{content}}
+        </div>
+      </div>
+    </header>
+
+    {{> pricingWithPro }}
+    {{> pricing }}
+
+    <header class="mb-10 mt-24 px-4 lg:px-8 relative sm:px-6 pb-10">
+      <div class="mx-auto max-w-prose object-center justify-center">
+        <h1>
+          <span class="font-extrabold leading-8 text-4xl text-gray-700 tracking-tight mt-12 dark:text-gray-100 ">
+            Q&As:
+          </span>
+        </h1>
+        <div class="leading-8 mx-auto max-w-prose mt-8">
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              Which is the best plan for me?
+            </h4>
+            <p class="text-base">
+              If you are a large enterprise or have special
+              data sovereignty
+              requirements for your project, the
+              Managed plan is best suited to cover your
+              needs. We support deploying Speckle on your
+              own infrastructure, or ours.
+              <br>
+              For everyday usage & just getting things
+              done, we recommend the Standard plan.
+            </p>
+          </div>
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              Can you deploy Speckle on Azure, AWS, or GCP?
+            </h4>
+            <p class="text-base">
+              Yes. As part of the Managed plan, we can
+              deploy Speckle for you on any cloud provider
+              your company might
+              be using.
+            </p>
+          </div>
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              Do you provide support for self-hosted
+              versions?
+            </h4>
+            <p class="text-base">Unfortunately we cannot do
+              so, for more reasons than one. First, it's
+              difficult to debug a setup without having
+              access to it. Second, to have access to it
+              implies we would be seeing very private
+              details of your infrastructure - which you
+              don't want us to do without a contract in
+              place.
+              <br>
+              <br>
+              If you want a support package for self-hosted versions,
+              don't hesitate to get in touch!
+            </p>
+          </div>
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              Will the Standard plan always be free?
+            </h4>
+            <p class="text-base">Yes.
+            </p>
+          </div>
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              I'm a teacher/professor/academic/university,
+              can I get a managed server?
+            </h4>
+            <p class="text-base">Absolutely. Just get in
+              touch with us, and we'll discuss the best way
+              to go forward. <a class="text-blue-500 font-normal"
+                href="/contact">
+                Contact us.</a>
+            </p>
+          </div>
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              What does "Speckle" stand for?
+            </h4>
+            <p class="text-base">
+              Only a few people know this. It's a closely
+              guarded secret, but if you find out - let us
+              know and we'll send you a sticker pack.
+            </p>
+          </div>
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              I have more questions!
+            </h4>
+            <p class="text-base">
+              Great, we're here to talk! <a class="text-blue-500 font-normal"
+                href="/contact">
+                Contact us.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  </article>
+
+{{/post}}

@@ -1,0 +1,117 @@
+<div class="relative bg-white dark:bg-gray-900 dark:text-white py-20">
+  <div class="w-default py-20 sm:py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+    {{!-- Logo and social --}}
+
+    <div class="pl-0 md:pl-3 text-center md:text-left">
+      <a href="{{@site.url}}" class="flex justify-center md:justify-start">
+        <img class="h-10 mr-4" src="{{@site.logo}}" alt="logo">
+        <div class="text-2xl text-blue-600 dark:text-blue-500 title-font font-bold mt-1">
+          Speckle
+        </div>
+      </a>
+      <p class="text-gray-500 text-base my-4">
+        {{@site.description}}
+      </p>
+      <div class="flex space-x-6 justify-center md:justify-start">
+        {{> extras/socialLinks }}
+      </div>
+      <div class="mt-10">
+        {{> navbarCTA }}
+      </div>
+      <p class="text-gray-500 text-xs mt-10">
+        © Aec Systems. Speckle is a trademark of AEC Systems Ltd., registered
+        in the UK and in other countries.
+      </p>
+
+    </div>
+
+    {{!-- Use Cases --}}
+
+    <div class="pl-0 md:pl-3 text-center md:text-left">
+      <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 tracking-wider uppercase">
+        Use Cases
+      </h3>
+      <ul class="mt-4 space-y-4">
+
+        {{#get "posts" filter="tags:usecases+featured:true" limit="3"}}
+          {{#foreach posts}}
+            <li>
+              <a href="{{url}}" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
+                {{title}}
+              </a>
+            </li>
+          {{/foreach}}
+        {{/get}}
+
+        {{#get "tags" filter="slug:usecases" as |tag|}}
+          <li>
+            <a href="/usecases" class="text-base font-bold text-gray-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100">
+              See All
+            </a>
+          </li>
+        {{/get}}
+
+      </ul>
+    </div>
+
+    {{!-- Resources --}}
+
+    <div class="pl-0 md:pl-3 text-center md:text-left">
+      <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 tracking-wider uppercase">
+        Developers
+      </h3>
+      <ul class="mt-4 space-y-4">
+
+        {{#get "posts" filter="tags:developers+featured:true" limit="3"}}
+          {{#foreach posts}}
+            <li>
+              <a href="{{url}}" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
+                {{title}}
+              </a>
+            </li>
+          {{/foreach}}
+        {{/get}}
+
+        {{#get "tags" filter="slug:usecases" as |tag|}}
+          <li>
+            <a href="/developers" class="text-base font-bold text-gray-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100">
+              See All
+            </a>
+          </li>
+        {{/get}}
+
+      </ul>
+    </div>
+
+    {{!-- Company Stuff --}}
+
+    <div class="pl-0 md:pl-3 text-center md:text-left">
+      <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 tracking-wider uppercase">
+        Company
+      </h3>
+      <ul class="mt-4 space-y-4">
+
+        <li>
+          <a href="/about" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
+            About
+          </a>
+        </li>
+
+
+        <li>
+          <a href="/careers" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
+            Careers
+          </a>
+        </li>
+
+        <li>
+          <a href="/contact" class="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>

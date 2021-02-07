@@ -1,0 +1,147 @@
+/*
+
+This is a development CSS file which is compiled to a minified
+production stylesheet in assets/built/screen.css using: gulp dev
+
+*/
+
+/* Lib - Local component imports
+/* ---------------------------------------------------------- */
+
+/* Base components */
+/*@import "vars.css";
+@import "components/global.css";
+@import "components/forms.css";
+@import "components/buttons.css";*/
+
+/* Ghost components */
+/*@import "ghost/header.css";
+@import "ghost/content.css";
+@import "ghost/readmore.css";
+@import "ghost/members.css";
+@import "ghost/errors.css";
+@import "ghost/footer.css";
+@import "ghost/badge.css";
+*/
+
+/* Tailwind */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Prism theme */
+@import 'prism-theme-one-light-dark/prism-onedark.css';
+/*@import 'prism-theme-one-light-dark/prism-onelight.css';*/
+
+/*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />*/
+
+/* Main
+/* ---------------------------------------------------------- */
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.w-default {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.page-about-content h2, .page-about-content h3 {
+  @apply my-10;
+}
+
+.post-body h2 {
+  @apply text-4xl my-4 px-4 sm:px-2 md:px-0;
+}
+
+.post-body h3 {
+  @apply text-2xl my-4 px-4 sm:px-2 md:px-0;
+}
+
+.post-body p{
+  @apply my-3 mx-auto text-lg max-w-prose mx-auto px-4 sm:px-2 md:px-0;
+}
+
+.post-body blockquote {
+  @apply my-4 pl-2 text-lg border-l-2 mx-auto max-w-prose border-l-4 border-blue-600 pl-5;
+}
+
+.post-body figure {
+  @apply my-10;
+}
+
+.post-body hr{
+  @apply my-10;
+}
+
+.post-body ul{
+  @apply text-lg my-4 list-inside list-disc my-3 mx-auto text-lg max-w-prose mx-auto px-4 sm:px-2 md:px-0;
+}
+
+.post-body li{
+  @apply text-lg;
+}
+
+.post-body a {
+  @apply text-blue-500 font-normal;
+}
+
+.post-body a:hover {
+  @apply font-bold;
+}
+
+.post-body pre {
+  @apply p-4 px-8 my-10 rounded-xl bg-gray-200 dark:bg-gray-700 shadow-xl;
+}
+
+figcaption{
+  @apply text-sm text-center;
+}
+
+figure.kg-card.kg-image-card.kg-width-full img {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  position: relative;
+  right: 50%;
+  width: 99.5vw;
+}
+
+.kg-gallery-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1040px;
+    width: 100%;
+}
+
+.kg-gallery-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.kg-gallery-image img {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.kg-gallery-row:not(:first-of-type) {
+    margin: 0.75em 0 0 0;
+}
+
+.kg-gallery-image:not(:first-of-type) {
+    margin: 0 0 0 0.75em;
+}
+
+.kg-gallery-card + .kg-image-card.kg-width-wide,
+.kg-gallery-card + .kg-gallery-card,
+.kg-image-card.kg-width-wide + .kg-gallery-card,
+.kg-image-card.kg-width-wide + .kg-image-card.kg-width-wide {
+    margin: -2.25em 0 3em;
+}
