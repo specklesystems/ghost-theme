@@ -1,24 +1,27 @@
 {{!< default}}
 
 {{#post}}
+  {{> extras/patterns}}
 
   <article class="relative">
-
-    <header class="mb-10 mt-24 px-4 lg:px-8 relative sm:px-6">
-      <div class="w-default mx-auto object-center justify-center">
-        <h1>
-          <span class="font-extrabold leading-8 text-4xl text-center text-gray-900 tracking-tight mt-12 block dark:text-gray-100 sm:text-4xl">
+    <main class="w-default h-screen/3 flex flex-wrap content-center mt-24">
+      <div class="w-3/3">
+        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
+          <span class="inline-block xl:inline text-gradient text-gradient bg-gradient-to-r from-blue-500 to-blue-700">
             {{title}}
           </span>
         </h1>
-        <div class="leading-8 mx-auto max-w-prose text-2xl text-gray-500 mt-8 dark:text-gray-300 text-justify">
-          {{content}}
+        <div class="post-body text-gray-500 text-base text-justify sm:text-lg md:text-xl md:max-w-6xl mt-10">
+          We are working round the clock to kick off
+          Speckle 2. If you are interested in participating
+          in our 2.0 beta launch programme, please register
+          below!
         </div>
       </div>
-    </header>
+    </main>
 
     {{> pricingWithPro }}
-    {{> pricing }}
+    {{!-- {{> pricing }} --}}
 
     <header class="mb-10 mt-24 px-4 lg:px-8 relative sm:px-6 pb-10">
       <div class="mx-auto max-w-prose object-center justify-center">
@@ -76,8 +79,10 @@
               place.
               <br>
               <br>
-              If you want a support package for self-hosted versions,
-              don't hesitate to get in touch!
+              If you want a support package for self-hosted
+              versions, <a class="text-blue-500 font-normal"
+                href="/contact">
+                don't hesitate to get in touch!</a>
             </p>
           </div>
 
@@ -115,20 +120,22 @@
               know and we'll send you a sticker pack.
             </p>
           </div>
+        </div>
+      </div>
 
-          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
-            <h4 class="text-xl mb-4">
-              <span class="text-blue-600 font-bold">Q:</span>
-              I have more questions!
-            </h4>
-            <p class="text-base">
-              Great, we're here to talk! <a class="text-blue-500 font-normal"
-                href="/contact">
-                Contact us.</a>
-            </p>
+      <div class="max-w-prose mx-auto py-10 px-5 lg:px-0">
+
+        <div class="relative py-10 my-5 rounded-2xl overflow-hidden flex col-span-2 transition hover:shadow-2xl bg-white dark:bg-gray-900">
+          <div class="relative block mx-auto self-center text-center">
+            <a href="/contact" class="w-full h-full flex content-center">
+              <div class=" text-2xl font-semibold text-blue-600">
+                Still have questions? Contact us →
+              </div>
+            </a>
           </div>
         </div>
       </div>
+
     </header>
 
   </article>

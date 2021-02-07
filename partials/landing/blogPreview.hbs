@@ -3,15 +3,12 @@
     <div class="relative w-default container mx-auto pb-20 lg:pb-32">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-gray-500 dark:text-gray-600">
 
-        {{#foreach posts}}
-          {{> cardBlogSm }}
-        {{/foreach}}
 
         <div>
-          <div class="relative ">
-            <h2 class="text-2xl pl-5 mb-5 font-bold text-blue-600">Pressroom</h2>
+          <div class="relative border-l-4 dark:border-gray-700">
+            <h2 class="text-4xl pl-5 mb-5 font-bold text-blue-600">Blog</h2>
             <p class=" pl-5 text-lg text-gray-800 dark:text-gray-400">
-              Latest news from the Speckle Blog.
+              Latest news from Speckle.
             </p>
 
           </div>
@@ -25,6 +22,10 @@
             </a>
           </div>
         </div>
+
+        {{#foreach posts}}
+          {{> cardBlogSm }}
+        {{/foreach}}
 
       </div>
     </div>

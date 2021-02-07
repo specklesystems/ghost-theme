@@ -1,36 +1,44 @@
 {{!< default}}
 
-<div class="absolute inset-0 pt-32 opacity-20 h-5/6">
+<div class="absolute inset-0 pt-32 opacity-10 h-5/6">
   {{> extras/super }}
 </div>
 
 <article class="relative">
 
-  <div class="w-default">
-    {{#post}}
+  {{> aboutHeader }}
 
-      <div class="page-about-content w-3/3 md:w-2/3 mt-12 text-gray-700 dark:text-gray-300 border-l-4 border-blue-500 pl-5">
-        <p class="text-2xl md:text-5xl">
-          Speckle is open source digital infrastructure for
-          the built environment. We handle interoperability
-          between software silos, real time collaboration,
-          data management, versioning and automation.
-        </p>
-        <div class="relative mt-12 rounded-2xl overflow-hidden flex col-span-1 transition hover:shadow-2xl p-5 py-10 bg-white dark:bg-gray-900">
-          <a href="/usecases" class="flex w-full h-full">
-            <div class="block self-center">
-              <div class="text-3xl font-semibold text-blue-600">
-                Use cases →
+  <div class="w-default">
+
+{{!--       <div class="w-default mt-20 my-0 grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 flex flex-col shadow-xl">
+        <div class="relative">
+          <h2 class="text-4xl pl-5 mb-5 font-bold text-blue-600 border-l-4 border-blue-500">What
+            is Speckle?</h2>
+          <p class=" pl-5 text-2xl text-gray-800 dark:text-gray-400">
+            <b>Speckle is open source digital
+              infrastructure
+              for
+              the built environment.</b> We handle
+            interoperability
+            between software silos, real time
+            collaboration,
+            data management, versioning and automation.
+          </p>
+          <div class="relative mt-4 rounded-2xl overflow-hidden flex col-span-1 transition hover:shadow-2xl p-5 py-5 ">
+            <a href="/usecases" class="flex w-full h-full">
+              <div class="block self-center">
+                <div class="text-xl font-semibold text-blue-600">
+                  Use cases →
+                </div>
               </div>
-              <p class="dark:text-gray-300">Interoperability
-                &
-                more: a few reasons why people use Speckle.</p>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="page-about-content w-3/3 md:w-2/3 ml-auto mr-0 mt-12 text-gray-700 dark:text-gray-300 text-left border-r-4 border-blue-500 pr-5">
+      <div class="page-about-content w-3/3 md:w-2/3 ml-auto mr-0 mt-12 text-gray-700 dark:text-gray-300 text-left pr-5">
+         <h2 class="text-4xl pl-5 mb-5 font-bold text-blue-600 border-l-4 border-blue-500">What
+            is our mission?</h2>
         <p class="text-2xl md:text-4xl">
           Our mission is to revolutionise the AEC
           industry's
@@ -52,9 +60,8 @@
           </a>
         </div>
 
-      </div>
+      </div> --}}
 
-    {{/post}}
   </div>
 
   <div class="w-default mt-20 text-gray-700 dark:text-gray-300 text-center">
