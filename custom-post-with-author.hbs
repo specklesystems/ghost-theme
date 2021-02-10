@@ -55,26 +55,23 @@
 
     </div>
 
+    <div class="max-w-prose mx-auto mt-8 grid gap-5 md:grid-cols-2 mb-10">
 
-    <div class="w-default mt-8 grid gap-5 md:grid-cols-2 mb-10">
+        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:>{{id}}" limit="1" order="id asc"}}
 
-      {{#get "posts" filter="tags:{{primary_tag.slug}}+id:>{{id}}"
-        limit="1" order="id asc"}}
+          {{#foreach posts}}
+            {{> cardFancySmall}}
+          {{/foreach}}
+        {{/get}}
 
-        {{#foreach posts}}
-          {{> cardFancySmall}}
-        {{/foreach}}
-      {{/get}}
-
-      {{#get "posts" filter="tags:{{primary_tag.slug}}+id:<
-          {{id}}" limit=" 1" order="id desc" }}
-          {{#foreach posts}} {{> cardFancySmall}}
-          {{/foreach}} {{/get}} {{> cardTag}} </div>
-          {{!--     <aside class="my-20 max-w-prose mx-auto text-gray-700 dark:text-gray-300">
-
-      <div class="w-full grid gap-5 grid-cols-1 md:grid-cols-2">
-
+        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:<{{id}}" limit="1" order="id desc"}}
+          {{#foreach posts}}
+            {{> cardFancySmall}}
+          {{/foreach}}
+        {{/get}}
 
         {{> cardTag}}
-          {{> cardCTA}} </div> </aside> --}} </article>
-          {{/post}}
+    </div>
+
+  </article>
+{{/post}}

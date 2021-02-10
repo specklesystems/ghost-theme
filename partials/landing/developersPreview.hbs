@@ -1,0 +1,106 @@
+{{#get "posts" filter="primary_tag:developers+featured:true" limit="3"}}
+
+  <div class="bg-gray-50 dark:bg-gray-900 py-2 mt-20">
+
+    <div class="w-default mt-36 my-0 grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10 ">
+      <div class="relative">
+        <div class="border-l-4 dark:border-gray-700">
+          <h2 class="text-4xl pl-5 mb-5 font-bold text-blue-600">Built
+            for developers</h2>
+          <p class=" pl-5 text-lg text-gray-800 dark:text-gray-400">
+            We fine tune the right abstractions so you
+            can focus on the business logic, rather than
+            extracting data out of Revit.
+          </p>
+        </div>
+
+        <div class="relative grid gap-4 grid-cols-1 md:grid-cols-2 mt-10">
+          {{#foreach posts}}
+
+            <div class="rounded-lg transition overflow-hidden bg-white dark:bg-gray-900 dark:hover:bg-gray-800 shadow hover:shadow-2xl dark:text-gray-200">
+              <div class="flex-1 p-6 flex flex-col justify-between">
+                <div class="flex-1">
+                  <a href="{{url}}" class="block mt-1">
+                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
+                      {{title}}
+                    </p>
+                    <p class="mt-2 text-sm text-gray-500 line-clamp-2">
+                      {{excerpt}}
+                    </p>
+                    <footer class="mt-2">
+                      <p class="text-base font-semibold text-blue-500">
+                        Read More
+                      </p>
+                    </footer>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          {{/foreach}}
+
+          <div class="relative rounded-xl py-5 hover:rounded-2xl shadow hover:shadow-2xl dark:hover:bg-gray-800 bg-white dark:bg-gray-900 transition overflow-hidden flex">
+            <a href="/developers" class="w-full self-center">
+              <div class="relative px-8">
+                <div class="text-xl font-semibold text-blue-600">
+                  Start Developing →
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+
+      {{!-- Viewer Demo --}}
+
+      <div class="relative lg:-mt-72 lg:mb-72 rounded-xl shadow-2xl overflow-hidden">
+        <p class="relative text-xl lg:hidden font-semibold text-gray-900 dark:text-gray-200 bg-white dark:bg-gray-900 py-8 px-8">
+          3d Viewer: Batteries Included
+        </p>
+        <div class="relative h-72 w-full flex justify-center bg-gradient-to-br from-white dark:from-gray-900 via-gray-200 dark:via-gray-700 dark:to-gray-800 to-white"
+          id="renderer">
+          <button class="animate-bounce self-center text-sm font-bold bg-blue-600 text-white rounded-full p-3 shadow-2xl transition hover:bg-blue-500"
+            onclick="loadViewer()" id="loadbutton">
+            <svg class="inline-flex h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+            Load Model
+          </button>
+          <button class="absolute hidden bottom-2 right-2 text-sm mb-1 ml-1 font-bold bg-blue-600 text-white rounded-full p-1 shadow-2xl transition hover:bg-blue-500"
+            onclick="ze()" id="zebutton">
+            <svg class="inline-flex h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full bg-gray-300 dark:bg-gray-900 text-gray-500 text-xs py-2 px-8">
+          $ ▸ superApp.js <span class="ml-3 opacity-50">#
+            double click an object to focus</span>
+        </div>
+        <pre class="" style="margin:0 !important; font-size: 0.8em !important;">
+        <code class="language-javascript">
+  // Sample 3d viewer app
+  // See: https://github.com/specklesystems/speckle-server
+  import Viewer from '@speckle/viewer'
+
+  let viewer = new Viewer( )
+
+  // event handlers
+  viewer.on( 'load-progress', args => handleProgress( args ) )
+  viewer.on( 'object-clicked', objs => handleObjClick( objs ) )
+
+  // load a model
+  async function load( commitUrl ) {
+    await viewer.loadObject( commitUrl )
+  }</code></pre>
+
+      </div>
+    </div>
+
+  </div>
+{{/get}}

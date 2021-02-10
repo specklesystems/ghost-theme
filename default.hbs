@@ -33,9 +33,13 @@
 
     <script src="{{asset "built/Speckle.js"}}"></script>
     <script type="text/javascript">
+    let v
+    window.ze = function() {
+      v.sceneManager.zoomExtents()
+    }
     window.loadViewer = function() {
 
-      let v = new Speckle.Viewer({
+      v = new Speckle.Viewer({
         container: document.getElementById(
           'renderer')
       });
@@ -59,6 +63,8 @@
 
       document.getElementById('loadbutton').style.display =
         "none"
+      document.getElementById('zebutton').style.display =
+        "block"
       v.onWindowResize()
     }
     </script>

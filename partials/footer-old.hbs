@@ -1,9 +1,9 @@
-<div class="relative bg-white dark:bg-gray-900 dark:text-white py-14">
-  <div class="w-default py-20 sm:py-4 flex justify-center md:justify-between flex-wrap space-x-4 space-y-4">
+<div class="relative bg-white dark:bg-gray-900 dark:text-white py-20">
+  <div class="w-default py-20 sm:py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
     {{!-- Logo and social --}}
 
-    <div class=" text-center md:text-left w-full md:w-full lg:w-2/6 md:mb-10">
+    <div class="pl-0 md:pl-3 text-center md:text-left">
       <a href="{{@site.url}}" class="flex justify-center md:justify-start">
         <img class="h-10 mr-4" src="{{@site.logo}}" alt="logo">
         <div class="text-2xl text-blue-600 dark:text-blue-500 title-font font-bold mt-1">
@@ -21,14 +21,14 @@
       </div>
       <p class="text-gray-500 text-xs mt-10">
         © Aec Systems Ltd. Speckle and Speckle Systems are trademarks of AEC Systems Ltd., registered
-        in the UK and in other countries. Company No. 12403784.
+        in the UK and in other countries.
       </p>
 
     </div>
 
     {{!-- Use Cases --}}
 
-    <div class=" text-center md:text-left pt-4 md:pt-0 w-full md:w-2/6 lg:w-1/6">
+    <div class="pl-0 md:pl-3 text-center md:text-left">
       <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 tracking-wider uppercase">
         Use Cases
       </h3>
@@ -46,7 +46,7 @@
 
         {{#get "tags" filter="slug:usecases" as |tag|}}
           <li>
-            <a href="/usecases" class="text-base text-gray-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100">
+            <a href="/usecases" class="text-base font-bold text-gray-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100">
               See All
             </a>
           </li>
@@ -57,7 +57,7 @@
 
     {{!-- Resources --}}
 
-    <div class=" text-center md:text-left pt-4 md:pt-0 w-full md:w-2/6 lg:w-1/6">
+    <div class="pl-0 md:pl-3 text-center md:text-left">
       <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 tracking-wider uppercase">
         Developers
       </h3>
@@ -75,7 +75,7 @@
 
         {{#get "tags" filter="slug:usecases" as |tag|}}
           <li>
-            <a href="/developers" class="text-base text-gray-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100">
+            <a href="/developers" class="text-base font-bold text-gray-900 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100">
               See All
             </a>
           </li>
@@ -86,7 +86,7 @@
 
     {{!-- Company Stuff --}}
 
-    <div class=" text-center md:text-left pt-4 md:pt-0">
+    <div class="pl-0 md:pl-3 text-center md:text-left">
       <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200 tracking-wider uppercase">
         Company
       </h3>
