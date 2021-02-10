@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "gulp",
-    "zip": "gulp zip",
+    "zip": "NODE_ENV=production gulp zip",
     "test": "gscan .",
     "test:ci": "gscan --fatal --verbose .",
     "pretest": "gulp build",
@@ -21,9 +21,9 @@
     "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
   },
   "author": {
-    "name": "Ghost Foundation",
-    "email": "hello@ghost.org",
-    "url": "https://ghost.org"
+    "name": "AEC Systems",
+    "email": "hello@speckle.systems",
+    "url": "https://speckle.systems"
   },
   "gpm": {
     "type": "theme",
@@ -63,7 +63,7 @@
     "defaults"
   ],
   "config": {
-    "posts_per_page": 15,
+    "posts_per_page": 5,
     "image_sizes": {
       "xxs": {
         "width": 30
@@ -87,6 +87,7 @@
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.2.0",
+    "cssnano-preset-advanced": "^4.0.7",
     "prism-theme-one-light-dark": "^1.0.4",
     "tailwindcss": "^2.0.2"
   }

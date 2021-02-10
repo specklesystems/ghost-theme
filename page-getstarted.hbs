@@ -4,7 +4,7 @@
   {{> extras/patterns}}
 
   <article class="relative">
-    <main class="w-default h-screen/3 flex flex-wrap content-center mt-24">
+    <main class="w-default flex flex-wrap content-center mt-24 mb-10">
       <div class="w-3/3">
         <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
           <span class="inline-block xl:inline text-gradient text-gradient bg-gradient-to-r from-blue-500 to-blue-700">
@@ -20,8 +20,8 @@
       </div>
     </main>
 
-    {{> pricingWithPro }}
-    {{!-- {{> pricing }} --}}
+    {{!-- {{> pricingWithPro }} --}}
+    {{> pricing }}
 
     <header class="mb-10 mt-24 px-4 lg:px-8 relative sm:px-6 pb-10">
       <div class="mx-auto max-w-prose object-center justify-center">
@@ -47,6 +47,19 @@
               <br>
               For everyday usage & just getting things
               done, we recommend the Standard plan.
+            </p>
+          </div>
+
+          <div class="my-5 text-xl text-gray-700 dark:text-gray-200">
+            <h4 class="text-xl mb-4">
+              <span class="text-blue-600 font-bold">Q:</span>
+              Wait, isn't Speckle free?
+            </h4>
+            <p class="text-base">
+              Speckle is Open Source - not free. You can always self-host your server, build your own connectors, etc. - at your own cost.
+              Check out our <a class="text-blue-500 font-normal"
+                href="https://github.com/specklesystems">
+                code on Github.</a>
             </p>
           </div>
 
