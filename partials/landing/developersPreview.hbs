@@ -17,7 +17,7 @@
         <div class="relative grid gap-4 grid-cols-1 md:grid-cols-2 mt-10">
           {{#foreach posts}}
 
-            <div class="rounded-lg transition transition overflow-hidden bg-white dark:bg-gray-900 dark:hover:bg-gray-800 shadow hover:shadow-2xl dark:text-gray-200">
+            <div class="rounded-lg transition overflow-hidden bg-white dark:bg-gray-900 dark:hover:bg-gray-800 shadow hover:shadow-2xl dark:text-gray-200">
               <div class="flex-1 p-6 flex flex-col justify-between">
                 <div class="flex-1">
                   <a href="{{url}}" class="block mt-1">
@@ -59,7 +59,7 @@
         <p class="relative text-xl lg:hidden font-semibold text-gray-900 dark:text-gray-200 bg-white dark:bg-gray-900 py-8 px-8">
           3d Viewer: Batteries Included
         </p>
-        <div class="relative h-72 w-full flex justify-center bg-gradient-to-br from-white dark:from-gray-900 via-gray-200 dark:via-gray-700 to-gray-800"
+        <div class="relative h-72 w-full flex justify-center bg-gradient-to-br from-white dark:from-gray-900 via-gray-200 dark:via-gray-700 dark:to-gray-800 to-white"
           id="renderer">
           <button class="animate-bounce self-center text-sm font-bold bg-blue-600 text-white rounded-full p-3 shadow-2xl transition hover:bg-blue-500"
             onclick="loadViewer()" id="loadbutton">
@@ -85,7 +85,7 @@
         <pre class="" style="margin:0 !important; font-size: 0.8em !important;">
         <code class="language-javascript">
   // Sample 3d viewer app
-  // https://github.com/specklesystems/speckle-server/tree/master/packages/viewer
+  // See: https://github.com/specklesystems/speckle-server
   import Viewer from '@speckle/viewer'
 
   let viewer = new Viewer( )

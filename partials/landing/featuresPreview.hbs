@@ -26,7 +26,7 @@
       <div class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-2 grid-flow-row">
         {{#foreach posts}}
 
-          <div class="rounded-lg transition transition overflow-hidden bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-200"
+          <div class="rounded-lg transition overflow-hiddenbg-white dark:bg-gray-900 dark:hover:bg-gray-800 shadow hover:shadow-2xl dark:text-gray-200"
             @mouseenter="activeSlide='{{@index}}';">
             <div class="flex-shrink-0 lg:hidden">
               <img class="h-48 w-full object-cover" srcset="{{img_url feature_image size="s"}} 300w,
@@ -59,7 +59,7 @@
         {{/foreach}}
 
 
-        <div class="relative rounded-xl py-5 hover:rounded-2xl hover:shadow-2xl bg-white dark:bg-gray-900 transition overflow-hidden flex">
+        <div class="relative rounded-xl py-5 hover:rounded-2xl shadow hover:shadow-2xl bg-white dark:bg-gray-900 transition overflow-hidden flex">
           <a href="/usecases" class="w-full self-center">
             <div class="relative px-8">
               <div class="text-xl font-semibold text-blue-600">

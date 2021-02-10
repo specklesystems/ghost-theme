@@ -10,7 +10,8 @@
       {{!-- Logo/Home Link --}}
 
       <div @mouseenter="usecasesMenu = false; learnMenu = false; developersMenu = false">
-        <a href="/" class="flex">
+        <a href="/" class="flex relative" style="margin-top:-4px;">
+          <img class="h-8 mr-2 " src="{{@site.logo}}" alt="logo">
           <div class="text-2xl text-blue-600 dark:text-blue-500 title-font font-bold mr-5">
             Speckle
           </div>
@@ -19,7 +20,7 @@
 
       {{!-- Mobile Menu Button --}}
 
-      <div class="-mr-2 -my-2 md:hidden">
+      <div class="-mr-2 -my-2 lg:hidden">
         <button @click="mobileMenuOpen = true" type="button"
           class="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
           <svg class="h-6 w-6" x-description="Heroicon name: menu"
@@ -34,7 +35,7 @@
 
       {{!-- Main Menu --}}
 
-      <div class="hidden md:flex-1 md:flex md:items-center md:justify-between">
+      <div class="hidden lg:flex-1 lg:flex lg:items-center lg:justify-between">
         <nav class="flex space-x-4">
 
           {{!-- use cases menu button --}}
@@ -233,7 +234,8 @@
     x-transition:enter-end="opacity-100 scale-100"
     x-transition:leave="duration-100 ease-in"
     x-transition:leave-start="opacity-100 scale-100"
-    x-transition:leave-end="opacity-0 scale-95" class="fixed w-full h-full z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+    x-transition:leave-end="opacity-0 scale-95"
+    class="fixed w-full h-full z-30 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden">
     <div class="rounded-lg shadow-2xl bg-white dark:bg-gray-900">
       <div class="pt-5 pb-6 px-5 sm:pb-8">
         <div class="flex items-center justify-between">
