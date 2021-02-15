@@ -9,8 +9,8 @@
     {{!-- Header --}}
 
     <header class="relative px-4 sm:px-6 lg:px-8 mt-10">
-      <div class="max-w-prose mx-auto object-center">
 
+      <div class="max-w-screen-lg  mx-auto object-center">
         {{#if feature_image}}
           <img class="gh-feature-image mx-auto" srcset="{{img_url feature_image size="s"}} 300w,
                     {{img_url feature_image size="m"}} 600w,
@@ -20,7 +20,9 @@
             loading="lazy" src="{{img_url feature_image size="xl"}}"
             alt="{{title}}" />
         {{/if}}
+      </div>
 
+      <div class="max-w-prose mx-auto object-center">
         <h1 class="mt-10">
           <span class="mt-2 block text-4xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
             {{title}}
@@ -48,22 +50,16 @@
 
     <div class="max-w-prose mx-auto mt-8 grid gap-5 md:grid-cols-2 mb-10">
 
-        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:>{{id}}" limit="1" order="id asc"}}
+      {{#get "posts" filter="tags:{{primary_tag.slug}}+id:>{{id}}"
+        limit="1" order="id asc"}}
 
-          {{#foreach posts}}
-            {{> cardFancySmall}}
-          {{/foreach}}
-        {{/get}}
+        {{#foreach posts}}
+          {{> cardFancySmall}}
+        {{/foreach}}
+      {{/get}}
 
-        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:<{{id}}" limit="1" order="id desc"}}
-          {{#foreach posts}}
-            {{> cardFancySmall}}
-          {{/foreach}}
-        {{/get}}
-
-        {{> cardTag}}
-    </div>
-
-  </article>
-
-{{/post}}
+      {{#get "posts" filter="tags:{{primary_tag.slug}}+id:<
+          {{id}}" limit=" 1" order="id desc" }}
+          {{#foreach posts}} {{> cardFancySmall}}
+          {{/foreach}} {{/get}} {{> cardTag}} </div> </article>
+          {{/post}}

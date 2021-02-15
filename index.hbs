@@ -1,8 +1,15 @@
 {{!< default}}
 
-<div class="absolute inset-0 lg:inset-y-0 right-0 pt-5 md:pt-24 opacity-30 dark:opacity-10 h-6/6 md:h-5/6 w-3/3 w-3/3">
-  {{> extras/duper }}
+
+<div class="z-0 absolute w-full md:w-3/6 md:right-0 h-screen/2 md:mt-20 md:mr-5">
+  <div class="absolute z-0 inset-0 w-full h-full opacity-5">
+    {{> extras/circles }}
+  </div>
+  <div class="absolute z-1 inset-0 w-full h-full opacity-20">
+    {{> extras/duper }}
+  </div>
 </div>
+
 
 {{> landing/header }}
 
