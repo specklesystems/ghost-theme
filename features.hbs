@@ -1,9 +1,16 @@
 {{!< default}}
 
+{{> extras/patterns}}
+
+<div class="z-0 absolute w-full md:w-3/6 md:right-0 h-screen/2  md:mr-5">
+  <div class="absolute z-1 inset-0 w-full h-full opacity-40">
+    {{> extras/featuresSvg }}
+  </div>
+</div>
 
 {{#tag}}
 
-  <main class="w-default h-screen/3 flex flex-wrap content-center mt-24">
+  <main class="relative w-default h-screen/3 flex flex-wrap content-center mt-24">
     <div class="w-3/3">
       <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
         Speckle
