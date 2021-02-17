@@ -1,4 +1,4 @@
-{{#get "posts" filter="primary_tag:features+featured:true" limit="5"}}
+{{#get "posts" filter="primary_tag:features+featured:true" limit="3"}}
   <div class="relative bg-gray-50 dark:bg-gray-900 py-10">
 
     <div class="w-default mt-20 my-0 grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div x-data="{ activeSlide: '2', slides: [ '0', '1', '2', '3', '4', '5' ] }"
+    <div x-data="{ activeSlide: '0', slides: [ '0', '1', '2', '3', '4', '5' ] }"
       class="w-default my-0 mt-5 mb-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
 
       <div class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-2 grid-flow-row">
@@ -31,7 +31,7 @@
                 src="{{img_url feature_image size="m"}}"
                 alt="{{title}}">
             </div>
-            <div class="flex-1 px-6 py-2 flex flex-col justify-between">
+            <div class="flex-1 px-6 py-4 flex flex-col justify-between">
               <div class="flex-1">
                 <a href="{{url}}" class="block mt-1">
                   <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
