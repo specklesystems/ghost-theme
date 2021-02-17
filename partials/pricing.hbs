@@ -19,21 +19,17 @@
         enjoy Speckle without extra hassle, hosted and managed by
         us.
       </p>
-      <p class="mb-2  dark:text-gray-300">Interoperability:</p>
+      {{!-- <ul class="space-y-2 ">
+        {{> extras/listItem value="Interoperability Suite (Revit, Rhino, Gh, etc.)"}}
+      </ul> --}}
+      {{!-- <p class="my-4  dark:text-gray-300">Features:</p> --}}
       <ul class="space-y-2 ">
-        {{> extras/listItem value="Speckle Revit"}}
-        {{> extras/listItem value="Speckle Rhino"}}
-        {{> extras/listItem value="Speckle Dynamo"}}
-        {{> extras/listItem value="Speckle Grasshopper"}}
-        {{> extras/listItem value="And More "}}
-      </ul>
-      <p class="my-4  dark:text-gray-300">Features:</p>
-      <ul class="space-y-2 ">
-        {{> extras/listItem value="Unlimited streams"}}
-        {{> extras/listItem value="Unlimited versions"}}
-        {{> extras/listItem value="Web 3d viewer"}}
+        {{> extras/listItem value="Interoperability Suite (Revit, Rhino, Gh, etc.)"}}
+        {{> extras/listItem value="Version control"}}
+        {{> extras/listItem value="No limits on data, streams or versions"}}
+        {{> extras/listItem value="Web based 3D viewer"}}
         {{> extras/listItem value="API Access"}}
-        {{> extras/listItem value="App Registration"}}
+        {{> extras/listItem value="3rd Party App Registration"}}
         {{> extras/listItem value="Community support"}}
       </ul>
     </div>
@@ -62,7 +58,7 @@
         Dedicated solutions for enterprises, large
         teams or projects.
       </p>
-      <ul class="font-bold space-y-2 ">
+     {{!--  <ul class="font-bold space-y-2 ">
         {{> extras/listItem value="Everyting in Standard"}}
       </ul>
       <p class="my-4  dark:text-gray-200">Deployment:</p>
@@ -70,11 +66,12 @@
         {{> extras/listItem value="On premise, with your cloud infrastructure"}}
         {{> extras/listItem value="On our managed cloud infrastructure"}}
       </ul>
-      <p class="my-4  dark:text-gray-200">Extras:</p>
+      <p class="my-4  dark:text-gray-200">Extras:</p> --}}
       <ul class="space-y-2 ">
+        {{> extras/listItem value="Everyting in Free"}}
+        {{> extras/listItem value="On prem or managed deployments"}}
         {{> extras/listItem value="Custom subdomain"}}
         {{> extras/listItem value="White labelling"}}
-        {{> extras/listItem value="Choice of locations"}}
         {{> extras/listItem value="SSO (Single sign-on)"}}
         {{> extras/listItem value="SLA (Service Level Agreement)"}}
         {{> extras/listItem value="Dedicated Support"}}
