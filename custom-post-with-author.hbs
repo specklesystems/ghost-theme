@@ -68,8 +68,15 @@
         {{/foreach}}
       {{/get}}
 
-      {{#get "posts" filter="tags:{{primary_tag.slug}}+id:<
-          {{id}}" limit=" 1" order="id desc" }}
-          {{#foreach posts}} {{> cardFancySmall}}
-          {{/foreach}} {{/get}} {{> cardTag}} </div> </article>
-          {{/post}}
+      {{#get "posts" filter="tags:{{primary_tag.slug}}+id:<{{id}}" limit="1" order="id desc" }}
+          {{#foreach posts}}
+            {{> cardFancySmall}}
+          {{/foreach}}
+      {{/get}}
+
+      <span></span>
+      {{> cardTag}}
+
+    </div>
+  </article>
+{{/post}}

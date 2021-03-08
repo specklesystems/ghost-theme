@@ -52,7 +52,7 @@
     <div class="max-w-prose mx-auto mt-8 grid gap-5 md:grid-cols-2 mb-10">
 
       {{#get "posts" filter="tags:{{primary_tag.slug}}+id:>{{id}}"
-        limit="1" order="id asc"}}
+        limit="2" order="id asc"}}
 
         {{#foreach posts}}
           {{> cardFancySmall}}
@@ -60,7 +60,10 @@
       {{/get}}
 
       {{#get "posts" filter="tags:{{primary_tag.slug}}+id:<
-          {{id}}" limit=" 1" order="id desc" }}
+          {{id}}" limit="2" order="id desc" }}
           {{#foreach posts}} {{> cardFancySmall}}
-          {{/foreach}} {{/get}} {{> cardTag}} </div> </article>
-          {{/post}}
+          {{/foreach}}
+      {{/get}}
+      {{> cardTag}}
+    </div> </article>
+{{/post}}
