@@ -8,9 +8,11 @@
           <h2 class="text-4xl pl-5 mb-5 font-bold text-blue-600">Built
             for developers</h2>
           <p class=" pl-5 text-lg text-gray-800 dark:text-gray-400">
-            We fine tune the right abstractions so you
-            can focus on the business logic, rather than
-            extracting data out of Revit.
+            We're building the <code>git</code> of AEC -
+            independent, object based real-time version
+            control for BIM & CAD data. Focus on the
+            business logic rather than extracting data from
+            proprietary software.
           </p>
         </div>
 
@@ -59,8 +61,10 @@
         <p class="relative text-xl lg:hidden font-semibold text-gray-900 dark:text-gray-200 bg-white dark:bg-gray-900 py-8 px-8">
           3d Viewer: Batteries Included
         </p>
-        <div class="relative h-72 w-full flex justify-center bg-gradient-to-br from-white dark:from-gray-900 via-gray-200 dark:via-gray-700 dark:to-gray-800 to-white"
+        <div class="relative h-72 w-full flex items-center justify-center bg-gradient-to-br from-white dark:from-gray-900 via-gray-200 dark:via-gray-700 dark:to-gray-800 to-white"
           id="renderer">
+
+          <div class="h-1 bg-gray-200 absolute bg-blue-500 shadow-md" style="width:0%;" id="bar"></div>
           <button class="animate-bounce self-center text-sm font-bold bg-blue-600 text-white rounded-full p-3 shadow-2xl transition hover:bg-blue-500"
             onclick="loadViewer()" id="loadbutton">
             <svg class="inline-flex h-6 w-6" xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +78,15 @@
             onclick="ze()" id="zebutton">
             <svg class="inline-flex h-5 w-5" xmlns="http://www.w3.org/2000/svg"
               fill="none" viewBox="0 0 24 24" stroke="currentColor">
-               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg>
+          </button>
+          <button class="absolute hidden bottom-2 right-12 text-sm mb-1 ml-1 font-bold bg-blue-600 text-white rounded-full p-1 shadow-2xl transition hover:bg-blue-500"
+            onclick="toggleSection()" id="sectionbutton">
+            <svg class="inline-flex h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
             </svg>
           </button>
         </div>
@@ -103,4 +115,47 @@
     </div>
 
   </div>
+  <script src="{{asset "built/Speckle.js"}}"></script>
+  <script type="text/javascript">
+  let v
+
+  window.ze = function() {
+    v.interactions.zoomExtents()
+  }
+
+  window.toggleSection = function() {
+    v.interactions.toggleSectionBox()
+  }
+
+
+  window.loadViewer = function() {
+
+    v = new Speckle.Viewer({
+      container: document.getElementById(
+        'renderer')
+    });
+    v.on('load-progress', args => {
+      width = args.progress * 100
+      document.getElementById('bar').style.width = `${width}%`;
+      if( width > 99 ) {
+        document.getElementById('bar').style.display = 'none';
+      }
+    })
+
+    ;(() => {
+      v.loadObject(
+        "https://staging.speckle.dev/streams/4c3ce1459c/objects/839259d02c5a1d22700fc5ae19c9f494",
+        "e844747dc6f6b0b5c7d5fbd82d66de6e9529531d75"
+      )
+    })()
+
+    document.getElementById('loadbutton').style.display =
+      "none"
+    document.getElementById('zebutton').style.display =
+      "block"
+    document.getElementById('sectionbutton').style.display =
+      "block"
+    v.onWindowResize()
+  }
+  </script>
 {{/get}}

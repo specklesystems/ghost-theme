@@ -6,11 +6,11 @@ routes:
   /: index
 
 collections:
-  /usecases/:
-    permalink: /usecases/{slug}/
-    tempate: usecases
-    filter: tag:usecases
-    data: tag.usecases
+  /features/:
+    permalink: /features/{slug}/
+    tempate: features
+    filter: tag:features
+    data: tag.features
 
   /developers/:
     permalink: /developers/{slug}/

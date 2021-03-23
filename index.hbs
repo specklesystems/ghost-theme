@@ -1,10 +1,21 @@
 {{!< default}}
 
-<div class="absolute inset-0 lg:inset-y-0 right-0 pt-5 md:pt-24 opacity-30 dark:opacity-10 h-6/6 md:h-5/6 w-3/3 w-3/3">
-  {{> extras/duper }}
+
+<div class="z-0 relative lg:absolute w-4/6 mx-auto lg:w-3/6 lg:right-0 h-screen/2 -mt-10 lg:mt-20 lg:mr-5">
+  <div class="absolute z-1 inset-0 w-full h-full visible opacity-70 dark:invisible">
+    {{> extras/landingIllustration }}
+  </div>
+  <div class="absolute z-1 inset-0 w-full h-full opacity-40 invisible dark:visible">
+    {{> extras/landingIllustrationDark }}
+  </div>
+  <div class="absolute z-1 inset-0 w-full h-full opacity-70 ">
+    {{> extras/landingIllustrationDarkHigh }}
+  </div>
 </div>
 
-{{> landing/header }}
+<div class="relative -mt-44 lg:mt-0">
+  {{> landing/header }}
+</div>
 
 {{> landing/logos }}
 

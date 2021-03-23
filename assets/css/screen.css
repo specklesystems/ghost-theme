@@ -1,42 +1,20 @@
-/*
-
-This is a development CSS file which is compiled to a minified
-production stylesheet in assets/built/screen.css using: gulp dev
-
-*/
-
-/* Lib - Local component imports
-/* ---------------------------------------------------------- */
-
-/* Base components */
-/*@import "vars.css";
-@import "components/global.css";
-@import "components/forms.css";
-@import "components/buttons.css";*/
-
-/* Ghost components */
-/*@import "ghost/header.css";
-@import "ghost/content.css";
-@import "ghost/readmore.css";
-@import "ghost/members.css";
-@import "ghost/errors.css";
-@import "ghost/footer.css";
-@import "ghost/badge.css";
-*/
-
 /* Tailwind */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Prism theme */
-@import 'prism-theme-one-light-dark/prism-onedark.css';
-/*@import 'prism-theme-one-light-dark/prism-onelight.css';*/
-
-/*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />*/
-
 /* Main
 /* ---------------------------------------------------------- */
+
+.main-illustration {
+  opacity: 0.75;
+}
+
+@media (prefers-color-scheme: dark) {
+  .main-illustration {
+    opacity: 0.3;
+  }
+}
 
 .text-gradient {
   background-clip: text;

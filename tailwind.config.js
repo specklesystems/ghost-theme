@@ -6,6 +6,11 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
+      maxHeight: {
+        '1/2': '50%',
+        '3/4': '75%',
+        'full': '100%'
+      },
       height: theme => ({
         'screen/2': '50vh',
         'screen/3': 'calc(100vh / 3)',
@@ -20,7 +25,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      opacity: ['active', 'dark'],
+      visibility: ['hover', 'dark'],
+    },
   },
   plugins: [
     require('@tailwindcss/line-clamp')

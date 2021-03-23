@@ -1,8 +1,14 @@
 {{!< default}}
 
-{{#tag}}
+{{> extras/patterns}}
 
-  {{> extras/patterns}}
+<div class="z-0 absolute w-full md:w-3/6 md:right-0 h-screen/2  md:mr-5">
+  <div class="absolute z-1 inset-0 w-full h-full opacity-40 dark:opacity-20">
+    {{> extras/devsSvg }}
+  </div>
+</div>
+
+{{#tag}}
 
   <main class="relative w-default h-screen/3 flex flex-wrap content-center mt-24">
     <div class="w-3/3">
@@ -12,7 +18,7 @@
           Devs!
         </span>
       </h1>
-      <p class="text-base text-justify text-gray-500 sm:text-lg md:text-xl md:max-w-6xl mt-10">
+      <p class="text-base text-justify text-gray-500 dark:text-gray-100 sm:text-lg md:text-xl md:max-w-6xl mt-10">
         {{description}}
       </p>
     </div>
@@ -61,7 +67,7 @@
     covered:</h3>
 </div>
 
-<div class="w-default grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+<div class="w-default grid gap-5 md:grid-cols-2 lg:grid-cols-3 mb-16">
 
   {{#foreach posts}}
 
@@ -69,7 +75,34 @@
 
   {{/foreach}}
 
+  <div class="relative py-20 rounded-xl shadow hover:shadow-2xl bg-white dark:bg-gray-800 ring transition overflow-hidden flex col-span-2 md:col-span-1">
+    <a href="/features" class="self-center">
+      <div class="absolute inset-0 bg-blue-500 opacity-10"
+        style="mix-blend-mode: multiply;"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-blue-600 via-blue-600 opacity-10"></div>
+      <div class="relative px-8">
+        <div class="text-3xl font-semibold text-gray-800 dark:text-gray-100 dark:text-gray-100">
+          Still curious?
+        </div>
+        <blockquote class="mt-8">
+          <div class="relative text-lg font-medium text-gray-800 dark:text-gray-100 md:flex-grow">
+            <p class="relative line-clamp-3">
+              Read about more about Speckle's headline features.
+            </p>
+          </div>
+
+          <footer class="mt-4">
+            <p class="text-base font-semibold hover:text-blue-900 dark:text-blue-200 ">
+              Read more
+            </p>
+          </footer>
+        </blockquote>
+      </div>
+    </a>
+  </div>
+
+
 </div>
 
 
-{{> cardCTA headline="Ready to hack?" subHeadline="Speckle 2.0 is coming soon." }}
+{{!-- {{> cardCTA headline="Ready to hack?" subHeadline="Speckle 2.0 is coming soon." }} --}}
