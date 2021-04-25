@@ -14,7 +14,7 @@
       Specklers!</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-20 md:gap-10 my-20 text-left">
 
-      {{#get 'authors' limit='all' include='count.posts' order='count.posts desc' filter="slug:-speckle"}}
+      {{#get 'authors' limit='all' include='count.posts' order='date desc' filter="slug:-speckle"}}
         {{#foreach authors}}
 
           <div class="flex items-center space-x-4 lg:space-x-6">
