@@ -86,46 +86,4 @@
     </div>
 
   </div>
-  <script src="{{asset "built/Speckle.js"}}"></script>
-  <script type="text/javascript">
-  let v
-
-  window.ze = function() {
-    v.interactions.zoomExtents()
-  }
-
-  window.toggleSection = function() {
-    v.interactions.toggleSectionBox()
-  }
-
-
-  window.loadViewer = function() {
-
-    v = new Speckle.Viewer({
-      container: document.getElementById(
-        'renderer')
-    });
-    v.on('load-progress', args => {
-      width = args.progress * 100
-      document.getElementById('bar').style.width = `${width}%`;
-      if( width > 99 ) {
-        document.getElementById('bar').style.display = 'none';
-      }
-    })
-
-    ;(() => {
-      v.loadObject(
-        "https://speckle.xyz/streams/3073b96e86/objects/e05c5834368931c9d9a4e2087b4da670"
-      )
-    })()
-
-    document.getElementById('loadbutton').style.display =
-      "none"
-    document.getElementById('zebutton').style.display =
-      "block"
-    document.getElementById('sectionbutton').style.display =
-      "block"
-    v.onWindowResize()
-  }
-  </script>
 {{/get}}
