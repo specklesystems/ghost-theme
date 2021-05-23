@@ -28,6 +28,7 @@ module.exports = {
     extend: {
       opacity: ['active', 'dark'],
       visibility: ['hover', 'dark'],
+      ringWidth: ['hover', 'active'],
     },
   },
   plugins: [
