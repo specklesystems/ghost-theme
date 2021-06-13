@@ -40,8 +40,8 @@ function hbs( done ) {
 
 function css( done ) {
   var processors = [
-    tailwind(),
     easyimport,
+    tailwind(),
     colorFunction(),
     // autoprefixer(),
     // cssnano()

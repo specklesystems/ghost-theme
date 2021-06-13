@@ -8,7 +8,6 @@
 
     <header class="mt-10 prose prose-lg dark:prose-dark max-w-none">
 
-
       {{#if feature_image}}
         <img class="gh-feature-image mx-auto w-full max-w-full"
           srcset="{{img_url feature_image size="s"}} 300w,
@@ -28,14 +27,14 @@
         </p>
       {{/if}}
 
-       <p class="text-sm">
-          Written by
-          {{#foreach authors}}
-            {{name}}
-          {{/foreach}}
-          <span class="text-gray-500">on <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time></span>
+      <p class="text-sm">
+        Written by
+        {{#foreach authors}}
+          {{name}}
+        {{/foreach}}
+        <span class="text-gray-500">on <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time></span>
 
-        </p>
+      </p>
 
     </header>
 
