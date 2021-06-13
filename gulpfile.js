@@ -42,13 +42,13 @@ function css( done ) {
   var processors = [
     tailwind(),
     easyimport,
-    // colorFunction(),
-    autoprefixer(),
-    cssnano()
+    colorFunction(),
+    // autoprefixer(),
+    // cssnano()
   ]
 
   pump( [
-    src( 'assets/css/*.css', { sourcemaps: true } ),
+    src( 'assets/css/*.css', { sourcemaps: false } ),
     postcss( processors ),
     dest( 'assets/built/', { sourcemaps: '.' } ),
     livereload()
