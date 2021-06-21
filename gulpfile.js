@@ -5,7 +5,10 @@ const pump = require( 'pump' )
 var livereload = require( 'gulp-livereload' )
 var postcss = require( 'gulp-postcss' )
 var zip = require( 'gulp-zip' )
-var uglify = require( 'gulp-uglify' )
+// var uglify = require( 'gulp-uglify' )
+var uglify = require( 'gulp-terser' )
+// const terser = require('gulp-terser')
+var concat = require( 'gulp-concat' )
 var beeper = require( 'beeper' )
 
 // postcss plugins
@@ -57,7 +60,8 @@ function css( done ) {
 
 function js( done ) {
   pump( [
-    src( 'assets/js/*.js', { sourcemaps: true } ),
+    src( 'assets/js/*.js', { sourcemaps: false } ),
+    concat('theme.js'),
     uglify(),
     dest( 'assets/built/', { sourcemaps: '.' } ),
     livereload()

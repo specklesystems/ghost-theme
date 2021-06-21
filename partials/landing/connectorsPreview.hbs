@@ -1,0 +1,180 @@
+<div class="perspective-700 overflow-hidden max-w-full w-full">
+  <div
+    class="perspective-transform w-full md:w-2/3 lg:w-1/2 mx-auto dark:bg-gray-900 bg-gray-200 prose lg:prose-lg dark:prose-dark max-w-none text-center rounded-t-3xl pt-10 pb-6 mt-10 -mb-12">
+    <div class="px-4">
+      <h1><span class='text-blue-500'>Speckle</span> Connectors</h1>
+      {{#get "posts" filter="primary_tag:features+featured:true+title:'Interoperability'" limit="5"}}
+      {{#foreach posts}}
+      <p class="pb-4">{{excerpt}}</p>
+      {{/foreach}}
+      {{/get}}
+      {{!-- <h1>Why <span class='text-blue-500'>Speckle?</span></h1> --}}
+      {{!-- <p>Speckle goes beyond point-to-point interoperability: it's data infrastructure for the built environment.
+      </p> --}}
+    </div>
+  </div>
+</div>
+
+
+{{!-- <div class="bg-gradient-to-t from-transparent dark:to-gray-900 to-gray-200 pt-20"> --}}
+  <div class="dark:bg-gray-900 bg-gray-200 pt-10">
+    {{!-- <p class="text-gray-500 text-center text-xs w-full">Speckle Connectors</p> --}}
+    <div class="swiper-container connector-swiper mx-auto">
+      <div class="swiper-wrapper mb-10">
+        <div
+          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+            src="{{asset 'images/rhino.png'}}">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Rhino
+          </p>
+        </div>
+        <div
+          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110 object-contain"
+            src="{{asset 'images/gh.png'}}">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Grasshopper
+          </p>
+        </div>
+
+        {{!-- unccomment in stage 2 --}}
+        {{!-- <div
+          class="swiper-slide group p-2 bg-white h-full rounded-xl text-center content-center flex flex-wrap justify-center h-auto">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Check out all our connectors!
+          </p>
+        </div> --}}
+
+        <div
+          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center"
+          style="">
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+            src="{{asset 'images/revit.png'}}">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Revit
+          </p>
+        </div>
+        <div
+          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+            src="{{asset 'images/dyn.png'}}">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Dynamo
+          </p>
+        </div>
+        <div
+          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+            src="{{asset 'images/unity.png'}}">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Unity
+          </p>
+        </div>
+        <div
+          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+            src="{{asset 'images/blender.png'}}">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Blender
+          </p>
+        </div>
+        <div
+          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+            src="{{asset 'images/acad.png'}}">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Autocad & Civil3D
+          </p>
+        </div>
+        <div
+          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+            src="{{asset 'images/unreal.png'}}">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Unreal
+          </p>
+        </div>
+        <div
+          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+            src="{{asset 'images/excel.png'}}">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            Excel
+          </p>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <div
+    class="group w-full mx-auto prose lg:prose-lg dark:prose-dark max-w-none text-center p-10 bg-gradient-to-b from-gray-200 dark:from-gray-900">
+    <div class="w-default px-4">
+     Go beyond interoperability and leverage all the potential behind a fully fledged BIM data platform
+    </div>
+    <div class="flex flex-wrap content-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="relative">
+    <div class="w-default mx-auto pb-10 space space-y-4 mt-20">
+      {{#get "posts" filter="primary_tag:features+featured:true+title:-'Interoperability'" limit="5"}}
+      {{#foreach posts}}
+      <div class="px-4 flex flex-col md:flex-row group">
+        <a href="{{url}}"
+          class="w-full md:w-1/2 p-4 self-center text-center md:text-left transition group-hover:shadow-xl rounded-xl dark:group-hover:bg-gray-900 group-hover:bg-gray-50">
+          <div class="prose dark:prose-dark prose-blue lg:prose-lg group">
+            <h2>
+              {{title}}
+            </h2>
+            <p>{{excerpt}}</p>
+            <p><button href="{{url}}" class="font-bold group-hover:text-blue-500">Read More</button></p>
+          </div>
+        </a>
+        <div
+          class="w-full md:w-1/2 {{#if @even}} md:order-first {{else}}{{/if}} transform group-hover:scale-125 transition-transform pointer-events-none ">
+          <img class="object-contain h-60 w-full" srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
+            feature_image size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl"
+            }} 2000w" sizes="(max-width: 1000px) 400px, 700px" src="{{img_url feature_image size=" m"}}"
+            alt="{{title}}">
+        </div>
+      </div>
+      {{/foreach}}
+      {{/get}}
+    </div>
+  </div>
+
+  <script>
+    var swiper = new Swiper(".connector-swiper", {
+      slidesPerView: 3,
+      spaceBetween: 20,
+      loop: true,
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 50,
+        },
+        1280: {
+          slidesPerView: 7,
+          spaceBetween: 50,
+        }
+      }
+    });
+  </script>

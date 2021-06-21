@@ -3,6 +3,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "swiper/swiper-bundle";
+
 /* Main
 /* ---------------------------------------------------------- */
 
@@ -19,6 +21,23 @@
 
 .page-about-content h2, .page-about-content h3 {
   @apply my-10;
+}
+
+.swiper-slide {
+  height: auto !important;
+}
+
+.perspective-700{
+  perspective: 750px;
+}
+
+.perspective-transform {
+  transform: rotateX(30deg) rotateY(0deg); transform-style: preserve-3d;
+  transition: 1s ease all;
+}
+
+.perspective-transform:hover{
+  transform: rotateX(15deg) rotateY(0deg); 
 }
 
 /*

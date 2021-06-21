@@ -1,25 +1,30 @@
-<main class="w-default relative z-1 py-24 lg:py-32 flex flex-wrap content-center grid grid-cols-2 gap-6">
-  <div class="col-span-2 lg:col-span-1 text-center lg:text-left">
-    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-      <span class="block xl:inline text-gray-800 dark:text-gray-200">{{@site.description}}</span>
-    </h1>
-    <p class="text-base lg:w-prose text-gray-800 dark:text-gray-200 sm:text-lg md:text-xl md:max-w-6xl mt-2 md:mt-6 lg:mt-10">
-      Engineers, designers, hackers and entire
-      organizations rely on us for interoperability,
-      automation and collaboration to deliver better
-      buildings, faster.
-    </p>
-    <div class="mt-5 mx-auto md:mt-8">
-      <a href="/getstarted" class="items-center justify-center px-8 py-3 border border-transparent transition text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 hover:shadow-xl md:py-4 md:text-lg md:px-10">
-        Get Started
+<main class="w-default relative z-1 py-10 lg:py-16 content-center flex flex-col lg:flex-row">
+  <div class="w-full lg:w-1/2 text-center lg:text-left self-center">
+    <div class="prose dark:prose-dark prose-lg self-center max-w-none">
+      <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+        <span class="block xl:inline text-gray-800 dark:text-gray-200">{{@site.description}}</span>
+      </h1>
+      <p
+        class="text-base lg:w-prose text-gray-800 dark:text-gray-200 sm:text-lg md:text-xl md:max-w-6xl mt-2 md:mt-6 lg:mt-10">
+        Engineers, designers, hackers and entire
+        organizations rely on us for interoperability,
+        automation and collaboration to deliver better
+        buildings, faster.
+      </p>
+    </div>
+    <div class="mt-5 md:mt-8">
+      <a href="/getstarted" class="items-center justify-center px-8 py-3 border-4 border-blue-600 transition text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 hover:shadow-3xl md:py-4 md:text-lg md:px-10
+        ">
+        <span class="text-white no-underline">Get Started</span>
       </a>
-      {{!--       <a href="https://calendly.com/speckle-ollie" target="_blank" class="ml-2 items-center justify-center px-8 py-3 transition text-base font-medium rounded-md text-gray-900 dark:text-gray-50 hover:ring-2 hover:shadow-xl md:py-4 md:px-10">
+      {{!-- <a href="https://calendly.com/speckle-ollie" target="_blank"
+        class="ml-2 items-center justify-center px-8 py-3 transition text-base font-medium rounded-md text-gray-900 dark:text-gray-50 hover:ring-2 hover:shadow-xl md:py-4 md:px-10">
         Book A Demo
       </a> --}}
     </div>
   </div>
-  <div class="col-span-2 lg:col-span-1 text-center lg:text-left p-2">
-    <div class="overflow-hidden shadow-2xl rounded-2xl mx-auto aspect-w-16 aspect-h-9">
+  <div class="w-full lg:w-1/2 p-4 mt-4 lg:mt-0">
+    <div class="overflow-hidden shadow-2xl rounded-2xl mx-auto max-w-xl lg:w-full aspect-w-16 aspect-h-9">
       <div class="h-full">
         <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/B9humiSpHzM"
           title="YouTube video player" frameborder="0"

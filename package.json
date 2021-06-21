@@ -2,7 +2,7 @@
   "name": "speckle-starter-theme",
   "description": "A custom theme for speckle",
   "demo": "https://starter.ghost.io",
-  "version": "2.2.1",
+  "version": "2.3.1",
   "engines": {
     "ghost": ">=3.0.0",
     "ghost-api": "v3"
@@ -48,9 +48,11 @@
     "cssnano": "4.1.10",
     "gscan": "3.5.4",
     "gulp": "4.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-livereload": "4.0.2",
     "gulp-postcss": "8.0.0",
     "gulp-sourcemaps": "2.6.5",
+    "gulp-terser": "^2.0.1",
     "gulp-uglify": "3.0.2",
     "gulp-util": "3.0.8",
     "gulp-watch": "5.0.1",
@@ -91,6 +93,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "cssnano-preset-advanced": "^4.0.7",
     "prism-theme-one-light-dark": "^1.0.4",
-    "tailwindcss": "^2.0.2"
+    "swiper": "^6.7.0",
+    "tailwindcss": "^2.2.2"
   }
 }

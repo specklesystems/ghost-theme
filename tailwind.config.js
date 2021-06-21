@@ -97,6 +97,7 @@ module.exports = {
       opacity: ['active', 'dark'],
       visibility: ['hover', 'dark'],
       ringWidth: ['hover', 'active'],
+      scale: [ 'group-hover' ]
     },
   },
   plugins: [
