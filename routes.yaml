@@ -29,6 +29,11 @@ collections:
     tempate: careers
     filter: tag:careers
     data: tag.careers
+  
+  /tutorials/:
+    permalink: /tutorials/{slug}/
+    filter: tag:tutorials
+    data: tag.tutorials
 
   # Note: root is disabled
   # /:

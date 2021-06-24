@@ -3,7 +3,7 @@
     class="perspective-transform w-full md:w-2/3 lg:w-1/2 mx-auto dark:bg-gray-900 bg-gray-200 prose lg:prose-lg dark:prose-dark max-w-none text-center rounded-t-3xl pt-10 pb-6 mt-10 -mb-12">
     <div class="px-4">
       <h1><span class='text-blue-500'>Speckle</span> Connectors</h1>
-      {{#get "posts" filter="primary_tag:features+featured:true+title:'Interoperability'" limit="5"}}
+      {{#get "posts" filter="primary_tag:features+featured:true+title:'Speckle Connectors'" limit="1"}}
       {{#foreach posts}}
       <p class="pb-4">{{excerpt}}</p>
       {{/foreach}}
@@ -38,13 +38,6 @@
           </p>
         </div>
 
-        {{!-- unccomment in stage 2 --}}
-        {{!-- <div
-          class="swiper-slide group p-2 bg-white h-full rounded-xl text-center content-center flex flex-wrap justify-center h-auto">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Check out all our connectors!
-          </p>
-        </div> --}}
 
         <div
           class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center"
@@ -55,6 +48,15 @@
             Revit
           </p>
         </div>
+        
+        {{!-- unccomment in stage 2 --}}
+        <div
+          class="swiper-slide group p-2 bg-white dark:bg-gray-800 rounded-xl text-center content-center flex flex-wrap justify-center h-auto">
+          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            <a href="/features/connectors">Check out all our connectors!</a>
+          </p>
+        </div>
+        
         <div
           class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
           <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
@@ -122,7 +124,7 @@
 
   <div class="relative">
     <div class="w-default mx-auto pb-10 space space-y-4 mt-20">
-      {{#get "posts" filter="primary_tag:features+featured:true+title:-'Interoperability'" limit="5"}}
+      {{#get "posts" filter="primary_tag:features+featured:true+title:-'Speckle Connectors'" limit="5"}}
       {{#foreach posts}}
       <div class="px-4 flex flex-col md:flex-row group">
         <a href="{{url}}"

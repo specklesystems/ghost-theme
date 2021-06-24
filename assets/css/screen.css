@@ -8,6 +8,8 @@
 /* Main
 /* ---------------------------------------------------------- */
 
+[x-cloak] { display: none !important; }
+
 .text-gradient {
   background-clip: text;
   -webkit-background-clip: text;
@@ -38,6 +40,10 @@
 
 .perspective-transform:hover{
   transform: rotateX(15deg) rotateY(0deg); 
+}
+
+.no-underline {
+  text-decoration: none !important;
 }
 
 /*

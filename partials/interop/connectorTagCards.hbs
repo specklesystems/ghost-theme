@@ -1,0 +1,145 @@
+<div class="sticky w-default transform z-40 top-20 mt-5">
+  <div class="bg-gradient-to-r from-blue-500 to-blue-700 px-5 pt-2 pb-3 flex flex-wrap items-center justify-center md:justify-start rounded-lg w-full text-white">
+    Send
+    <select id="from" name="from"
+      class="block w-full md:inline-block md:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <option value="Select a connector">From</option>
+      {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
+      filter="slug:-[features,developers,careers,blog,tutorials]"}}
+      {{#foreach tags }}
+      <option value="{{name}}">{{name}}</option>
+      {{/foreach}}
+      {{/get}}
+    </select>
+    to
+    <select id="to" name="to"
+      class="block w-full md:inline-block md:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <option value="Select a connector">To </option>
+      {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
+      filter="slug:-[features,developers,careers,blog,tutorials]"}}
+      {{#foreach tags }}
+      <option value="{{name}}">{{name}}</option>
+      {{/foreach}}
+      {{/get}}
+    </select>
+    <button class="mt-1" onclick="clearSelection()" id='clearbutton' style="display: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<div class="relative flex items-center w-default mt-4 text-white"></div>
+<div class="w-default pt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+  {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
+  filter="slug:-[features,developers,careers,blog,tutorials]"}}
+  {{#foreach tags }}
+  <div class="group dark:text-gray-200 text-gray-600 p-2 flex flex-col sm:flex-row prose-blue prose-nounderline prose prose-sm dark:prose-dark max-w-none
+          shadow-sm hover:shadow-xl transition-shadow dark:bg-gray-900 bg-white rounded-xl col-span-1 connector-card connector-{{name}}
+        ">
+    <div class="flex flex-shrink-0 items-center justify-center mx-6">
+      <img class="mx-auto h-32 w-32 transition-transform transform group-hover:scale-110 object-contain"
+        src="{{feature_image}}">
+    </div>
+    <div class="flex-grow flex flex-col justify-between text-center sm:text-left p-4">
+      <h2 class="w-full mt-4">
+        {{name}}
+      </h2>
+      <p>{{description}}</p>
+      <h3>
+        <a href="{{url}}" class="no-underline flex items-center justify-center sm:justify-start">
+          <span class="no-underline">Tutorials</span>
+          <svg xmlns="http://www.w3.org/2000/svg"
+            class="ml-2 h-6 w-6 transition-opacity opacity-0 group-hover:opacity-100" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </h3>
+    </div>
+  </div>
+  {{/foreach}}
+  {{/get}}
+
+  <div
+    class="group dark:text-gray-200 text-gray-600 p-2 col-span-2 tip-card flex flex-col justify-center items-center my-10 dark:bg-gray-900 bg-white rounded-xl shadow-xl py-10"
+    id='tipcontainer' style="display: none;">
+    <div class="prose-blue prose prose-sm dark:prose-dark max-w-none">
+      <h3 id="tip-text">Speckle allow you to send data from Rhino to Revit, and basically sketch shit in one.</h3>
+    </div>
+    <div class="my-4">
+      {{> ctaButton}}
+    </div>
+    <div class="prose prose-sm dark:prose-dark">
+      <p>For the full details, check our list of <a href="https://speckle.guide/user/support-tables.html">supported
+          elements</a>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  document.getElementById('from').addEventListener('change', fromSelect)
+  document.getElementById('to').addEventListener('change', toSelect)
+
+  let selection = [null, null]
+
+  function fromSelect(event) {
+    selection[0] = event.target.value
+    filterCards()
+  }
+
+  function toSelect(event) {
+    selection[1] = event.target.value
+    filterCards()
+  }
+
+  function clearSelection() {
+    selection[0] = null
+    selection[1] = null
+    document.getElementById('from').value = 'Select a connector'
+    document.getElementById('to').value = 'Select a connector'
+    filterCards()
+    document.getElementById('clearbutton').style.display = 'none'
+    document.getElementById('tipcontainer').style.display = 'none'
+  }
+
+  function filterCards() {
+    console.log(tips[selection[0] + selection[1]])
+
+
+    if (selection[0] === 'Select a connector' || !selection[0]) {
+      [].forEach.call(document.getElementsByClassName(`connector-card`), el => el.style.display = 'flex')
+      return
+    }
+    document.getElementById('clearbutton').style.display = 'flex'
+
+      ;[].forEach.call(document.getElementsByClassName(`connector-card`), el => el.style.display = 'none')
+
+    document.getElementsByClassName(`connector-${selection[0]}`)[0].style.display = 'flex'
+
+    if (selection[1] === 'Select a connector' || !selection[1]) return
+    document.getElementsByClassName(`connector-${selection[1]}`)[0].style.display = 'flex'
+
+    if (tips[selection[0] + selection[1]]) {
+      document.getElementById('tip-text').innerHTML = tips[selection[0] + selection[1]]
+    } else {
+      document.getElementById('tip-text').innerHTML = 'Do you use this workflow? Let us know on the <a href="https://speckle.community">community forum</a>!'
+    }
+    document.getElementById('tipcontainer').style.display = 'flex'
+  }
+
+  const tips = {
+    'GrasshopperExcel': `TIP TODO`,
+    'ExcelRevit': `So you want to control properties of specific Revit elements from Excel? Yes you can.`,
+    'RevitExcel': `Scheduling much? Let Speckle help!`,
+    'ExcelExcel': `Excel to Excel workflows work quite well - especially for a distributed team!`,
+    'ExcelRhino': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive them in Rhino.`,
+    'ExcelGrasshopper': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive in Grasshopper.`,
+    'ExcelDynamo': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive them in Dynamo.`,
+    'ExcelBlender': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive them in Blender.`,
+    'ExcelAutocad': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive them in Autocad.`,
+  }
+
+</script>
