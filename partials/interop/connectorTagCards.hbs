@@ -1,8 +1,8 @@
-<div class="block lg:sticky w-default transform z-40 top-20 mt-5">
+<div class="hidden sm:block lg:sticky w-default transform z-40 top-20 mt-5">
   <div
-    class="bg-gradient-to-r from-blue-500 to-blue-700 px-5 pt-2 pb-3 flex flex-wrap items-center justify-center md:justify-start rounded-lg w-full text-white">
+    class="bg-gradient-to-r from-blue-500 to-blue-700 px-5 pt-2 pb-3 flex flex-wrap items-center justify-start rounded-lg w-full text-white">
     Send
-    <select id="from" name="from" class="block w-full sm:inline-block sm:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 foc
+    <select id="from" name="from" class="block inline-block sm:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 foc
       us:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
       <option value="Select a connector">From</option>
       {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
@@ -14,7 +14,7 @@
     </select>
     to
     <select id="to" name="to"
-      class="block w-full sm:inline-block sm:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      class="block inline-block sm:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
       <option value="Select a connector">To </option>
       {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
       filter="slug:-[features,developers,careers,blog,tutorials]"}}
@@ -32,19 +32,19 @@
 </div>
 
 <div class="relative flex items-center w-default mt-4 text-white"></div>
-<div class="w-default pt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="w-default pt-10 grid grid-cols-1 md:grid-cols-2 gap-0 gap-y-2 md:gap-6">
   {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
   filter="slug:-[features,developers,careers,blog,tutorials]"}}
   {{#foreach tags }}
-  <a href="{{url}}" class="group p-2 py-5 flex flex-col sm:flex-row max-w-none
+  <a href="{{url}}" class="group p-2 py-5 flex flex-row
           shadow-sm hover:shadow-xl transition-shadow hover:ring dark:bg-gray-900 bg-white rounded-xl col-span-1 connector-card connector-{{name}}
         ">
     <div class="flex flex-shrink-0 items-center justify-center mx-6">
       <img class="mx-auto h-32 w-32 transition-transform transform group-hover:scale-110 object-contain"
         src="{{feature_image}}">
     </div>
-    <div class="flex-grow flex flex-col justify-center text-center sm:text-left">
-      <h2 class="w-full text-xl dark:text-gray-50 text-gray-900 font-bold flex items-center group-hover:text-blue-500">
+    <div class="flex flex-grow flex-col justify-center">
+      <h2 class="text-xl dark:text-gray-50 text-gray-900 font-bold flex items-center group-hover:text-blue-500">
         {{name}}
         <svg xmlns="http://www.w3.org/2000/svg"
           class="ml-2 h-6 w-6 transition-opacity opacity-0 group-hover:opacity-100" fill="none" viewBox="0 0 24 24"
@@ -62,7 +62,7 @@
     class="group dark:text-gray-200 text-gray-600 p-2 col-span-2 tip-card flex flex-col justify-center items-center my-10 dark:bg-gray-900 bg-white rounded-xl shadow-xl py-10"
     id='tipcontainer' style="display: none;">
     <div class="prose-blue prose prose-sm dark:prose-dark max-w-none">
-      <h3 id="tip-text"></h3>
+      <h3 id="tip-text" class="text-center"></h3>
     </div>
     <div class="my-4">
       {{> ctaButton}}

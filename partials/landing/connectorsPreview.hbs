@@ -2,12 +2,14 @@
   <div
     class="perspective-transform w-full md:w-2/3 lg:w-1/2 mx-auto dark:bg-gray-900 bg-gray-200 prose lg:prose-lg dark:prose-dark max-w-none text-center rounded-t-3xl pt-10 pb-6 mt-10 -mb-12">
     <div class="px-4">
-      <h1><span class='text-blue-500'>Speckle</span> Connectors</h1>
-      {{#get "posts" filter="primary_tag:features+featured:true+title:'Speckle Connectors'" limit="1"}}
-      {{#foreach posts}}
-      <p class="pb-4">{{excerpt}}</p>
-      {{/foreach}}
-      {{/get}}
+      <a href="/features/connectors" class="no-underline">
+        <h1><span class='text-blue-500'>Speckle</span> Connectors</h1>
+        {{#get "posts" filter="primary_tag:features+featured:true+title:'Speckle Connectors'" limit="1"}}
+        {{#foreach posts}}
+        <p class="pb-4">{{excerpt}}</p>
+        {{/foreach}}
+        {{/get}}
+      </a>
       {{!-- <h1>Why <span class='text-blue-500'>Speckle?</span></h1> --}}
       {{!-- <p>Speckle goes beyond point-to-point interoperability: it's data infrastructure for the built environment.
       </p> --}}
@@ -38,6 +40,15 @@
           </p>
         </div>
 
+        {{!-- unccomment in stage 2 --}}
+        <div
+          class="swiper-slide group p-2 rounded-xl text-center content-center flex flex-wrap justify-center h-auto transform opacity-90 hover:opacity-100 scale-90 hover:scale-100 transition bg-blue-500 text-white">
+          <a href="/features/connectors"
+            class="flex flex-col text-center w-full h-full text-xl items-center justify-center">
+            All <span class="hidden md:inline-block">Connectors</span>
+          </a>
+        </div>
+
 
         <div
           class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center"
@@ -49,19 +60,6 @@
           </p>
         </div>
 
-        {{!-- unccomment in stage 2 --}}
-        <div
-          class="swiper-slide group p-2 rounded-xl text-center content-center flex flex-wrap justify-center h-auto transform scale-90 hover:scale-100 transition bg-blue-500 text-white">
-          <a href="/features/connectors"
-            class="flex flex-col text-center w-full h-full text-xl items-center justify-center">
-            All Connectors
-            <svg xmlns="http://www.w3.org/2000/svg"
-              class="ml-2 h-6 w-6 transition-opacity opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-          </a>
-        </div>
 
         <div
           class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
@@ -159,7 +157,7 @@
 
   <script>
     var swiper = new Swiper(".connector-swiper", {
-      slidesPerView: 3,
+      slidesPerView: 5,
       spaceBetween: 20,
       loop: true,
       grabCursor: true,
@@ -168,14 +166,6 @@
         clickable: true
       },
       breakpoints: {
-        640: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 4,
-          spaceBetween: 40,
-        },
         1024: {
           slidesPerView: 5,
           spaceBetween: 50,
@@ -185,5 +175,8 @@
           spaceBetween: 50,
         }
       }
-    });
+    })
+
+    if(window.innerWidth>=1280)
+      swiper.slideTo(6, false, false)
   </script>

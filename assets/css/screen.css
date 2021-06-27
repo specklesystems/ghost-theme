@@ -20,7 +20,7 @@ a.no-underline:hover{
 }
 
 pre{
-  @apply shadow-inner dark:bg-gray-300;
+  @apply shadow-inner max-w-full;
 }
 
 .text-gradient {
