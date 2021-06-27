@@ -108,7 +108,7 @@
 
     {{!-- Body --}}
 
-    <div class="post-content prose dark:prose-dark lg:prose-xl prose-blue mx-auto col-span-7 md:col-span-5 mt-4 max-w-prose">
+    <div class="block post-content prose dark:prose-dark lg:prose-xl prose-blue mx-auto col-span-7 md:col-span-5 mt-4 w-full max-w-prose">
       {{content}}
     </div>
 
@@ -146,8 +146,6 @@
   {{/post}}
 
   <script>
-    // let pTags = Array.from(document.getElementsByTagName('p')) //.filter( t => t.innerHTML.includes(':::'))
-
     let postContent = Array.from(document.getElementsByClassName('post-content'))[0].innerHTML
 
     let tips = postContent.match(/<p>::: tip(.*?):::<\/\p>/g)
@@ -196,6 +194,4 @@
       })
 
     Array.from(document.getElementsByClassName('post-content'))[0].innerHTML = postContent
-
-
   </script>

@@ -42,9 +42,9 @@
 
         {{!-- unccomment in stage 2 --}}
         <div
-          class="swiper-slide group p-2 rounded-xl text-center content-center flex flex-wrap justify-center h-auto transform opacity-90 hover:opacity-100 scale-90 hover:scale-100 transition bg-blue-500 text-white">
+          class="swiper-slide group p-2 rounded-xl text-center content-center flex flex-wrap justify-center h-auto transform opacity-90 hover:opacity-100 scale-75 hover:scale-90 transition bg-blue-500 text-white">
           <a href="/features/connectors"
-            class="flex flex-col text-center w-full h-full text-xl items-center justify-center">
+            class="flex flex-col text-center w-full text-xl items-center justify-center">
             All <span class="hidden md:inline-block">Connectors</span>
           </a>
         </div>
@@ -156,27 +156,29 @@
   </div>
 
   <script>
-    var swiper = new Swiper(".connector-swiper", {
-      slidesPerView: 5,
-      spaceBetween: 20,
-      loop: true,
-      grabCursor: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
-      breakpoints: {
-        1024: {
-          slidesPerView: 5,
-          spaceBetween: 50,
+    window.addEventListener('load', (event) => {      
+      let swiper = new Swiper(".connector-swiper", {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        grabCursor: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
         },
-        1280: {
-          slidesPerView: 7,
-          spaceBetween: 50,
+        breakpoints: {
+          768: {
+            slidesPerView: 5,
+            spaceBetween: 50,
+          },
+          1280: {
+            slidesPerView: 7,
+            spaceBetween: 50,
+          }
         }
-      }
-    })
+      })
 
-    if(window.innerWidth>=1280)
-      swiper.slideTo(6, false, false)
+      if(window.innerWidth>=1280)
+        swiper.slideTo(6, false, false)
+    })
   </script>

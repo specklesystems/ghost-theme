@@ -19,8 +19,22 @@ a.no-underline:hover{
   text-decoration: none;
 }
 
-pre{
-  @apply shadow-inner max-w-full;
+/* pre{
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-width: 100%;
+}
+
+code{
+  word-break: break-all;
+} */
+
+.kg-image-card{
+  @apply content-center;
+}
+
+.kg-image {
+  @apply mx-auto;
 }
 
 .text-gradient {
