@@ -50,6 +50,7 @@ module.exports = {
             },
             code: {
               backgroundColor: theme("colors.gray.800"),
+              color: theme("colors.gray.200"),
             },
             hr: { borderColor: theme("colors.gray.700") },
             "ol li:before": {
@@ -88,6 +89,7 @@ module.exports = {
       visibility: ["hover", "dark"],
       ringWidth: ["hover", "active"],
       scale: ["group-hover"],
+      display: ["group-hover"],
     },
   },
   plugins: [

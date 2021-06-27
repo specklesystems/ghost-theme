@@ -1,0 +1,184 @@
+{{!< default}} {{#post}} <article id="top" class="w-default mx-auto mb-10">
+  <div class="w-full p-0 mx-auto grid gap-0 md:gap-4 grid-cols-7"
+    x-data="{ collapseToc: window.innerWidth < 768, isMobile: false, openToc: false }"
+    @load.window="isMobile = window.innerWidth < 768; collapseToc = isMobile;"
+    @resize.window="isMobile = window.innerWidth < 768; collapseToc = isMobile;">
+
+    {{!-- Header --}}
+    <figure class="col-span-7 md:col-span-2 flex items-center justify-center">
+      {{#if feature_image}}
+      <img srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w, {{img_url
+        feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 1170px,
+                                2000px" src="{{img_url feature_image size=" xl"}}" alt="{{title}}" />
+      {{/if}}
+    </figure>
+
+    <header x-ref="header" class="title-wrapper my-10  col-span-7 md:col-span-5 col-span-7 max-w-full">
+      <div class="prose dark:prose-dark lg:prose-xl mx-auto">
+        <span class="gh-post-meta text-sm"><time datetime="{{date format=" YYYY-MM-DD"}}">{{date format="D MMM
+            YYYY"}}</time>
+          <span class="bull">&bull;</span>
+          {{reading_time}}
+        </span>
+        <h1 class="gh-title">{{title}}</h1>
+      </div>
+      <div class="max-w-prose mx-auto my-4">
+        {{#foreach tags}}
+        <a class="rounded-full py-1 px-3 bg-blue-500 text-white mr-2 inline-block transform scale-90 hover:scale-100 transition-transform"
+          href="{{url}}">
+          {{name}}
+        </a>
+        {{/foreach}}
+      </div>
+      <div class="prose dark:prose-dark lg:prose-xl mx-auto">
+        {{#if custom_excerpt}}
+        <p class="italic">{{custom_excerpt}}</p>
+        {{/if}}
+      </div>
+      <div class="authors mt-4 max-w-prose mx-auto grid grid-cols-3 gap-2">
+        {{#foreach authors}}
+        <div class="author flex items-center col-span-1">
+          {{#if profile_image}}
+          <div class="inline-block rounded-full overflow-hidden">
+            <img class="h-8 w-8" src="{{img_url profile_image size=" xs"}}" alt="{{name}}" />
+          </div>
+          {{else}}
+          <div class="h-8 w-8 mr-2">{{> "icons/avatar"}}</div>
+          {{/if}}
+          <span class="ml-2 text-gray-800 dark:text-gray-200">{{name}}</span>
+        </div>
+        {{/foreach}}
+      </div>
+    </header>
+
+    {{!-- TOC --}}
+
+    <aside
+      class="toc-wrapper col-span-7 md:col-span-2 shadow-xl md:shadow-none rounded-lg p-3 md:p-1 bg-gray-50 md:bg-transparent sticky top-16 md:relative md:top-0 z-20">
+      <div class="md:sticky md:top-20">
+        <div class="">
+          <div class="font-medium">
+            <button class="flex font-medium" @click="openToc = !openToc;">
+              {{!-- <span class="self-center text-blue-500">{{title}}</span> --}}
+              <span class="text-blue-500">In this page</span>
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="transition transform self-center block md:hidden t-1 h-5 w-5"
+                :class="{'rotate-180' : (!collapseToc || !isMobile || openToc) }" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div x-ref="toc" class="origin-top pb-0 md:pb-3 max-h-full" x-show="!collapseToc || !isMobile || openToc"
+          @click="openToc=false" x-transition:enter="transition ease-out duration-100"
+          x-transition:enter-start="opacity-0 transform scale-y-0"
+          x-transition:enter-end="opacity-100 transform scale-y-100"
+          x-transition:leave="transition ease-in duration-100"
+          x-transition:leave-start="opacity-100 transform scale-y-100"
+          x-transition:leave-end="opacity-0 transform scale-y-0">
+          <div class="toc"></div>
+          <div class="mt-2 pt-2 border-t md:border-t-0">
+            <a href="" onclick="event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });"
+              class="inline-flex -ml-2 pl-2 pr-4 py-1 items-center no-underline text-sm font-medium text-blue-500 transition-shadow shadow-none hover:shadow-lg w-full md:w-auto rounded-xl">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
+              </svg>
+              Top
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    {{!-- Body --}}
+
+    <div class="post-content prose dark:prose-dark lg:prose-xl prose-blue mx-auto col-span-7 md:col-span-5 mt-4">
+      {{content}}
+    </div>
+
+  </div>
+  </article>
+
+  <aside class="w-default mx-auto mb-10 px-3">
+    {{#if primary_tag}}
+    {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
+    {{#if related_posts}}
+    <article class="read-next-card">
+      <header class="read-next-card-header">
+        {{#../primary_tag}}
+        <h3 class="text-xl dark:text-gray-100 mt-12 mb-4">Get to know Speckle more:</h3>
+        {{/../primary_tag}}
+      </header>
+      <div class="read-next-card-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {{#foreach related_posts}}
+        <div class="grid-cols-1">
+          {{> cardSm }}
+        </div>
+        {{/foreach}}
+      </div>
+    </article>
+    {{/if}}
+    {{/get}}
+    {{/if}}
+
+  </aside>
+
+  {{/post}}
+
+  <script>
+    // let pTags = Array.from(document.getElementsByTagName('p')) //.filter( t => t.innerHTML.includes(':::'))
+    
+    let postContent = Array.from(document.getElementsByClassName('post-content'))[0].innerHTML
+    
+    let tips = postContent.match(/<p>::: tip(.*?):::<\/\p>/g)
+    let warnings = postContent.match(/<p>::: warning(.*?):::<\/\p>/g)
+    let dangers = postContent.match(/<p>::: danger(.*?):::<\/\p>/g)
+
+    let details = postContent.match(/<p>::: details([\s\S]+?):::<\/\p>/g)
+    
+    console.log( details )
+
+    tips.forEach( tip => {
+      let result = tip.match(/::: tip(.*?)</)
+      let tipTitle = result[1] && result[1] !== "" ? result[1] : 'Tip'
+      let newTip = `<div class="mb-4 border-l-4 border-blue-500 bg-white dark:bg-gray-900 px-4 py-2 rounded-lg transition-shadow shadow-sm hover:shadow-xl">` + tip.replace( `::: tip${result[1]}`, `<div class="font-bold text-blue-500 mb-2">${tipTitle}</div>`) + `</div>`
+      newTip = newTip.replace(":::", "")
+      newTip = newTip.replace("<br>", "")
+      postContent = postContent.replace(tip, newTip)
+    })
+
+    warnings.forEach( tip => {
+      let result = tip.match(/::: warning(.*?)</)
+      let tipTitle = result[1] && result[1] !== "" ? result[1] : 'Warning'
+      let newTip = `<div class="mb-4 border-l-4 border-yellow-500 bg-white dark:bg-gray-900 px-4 py-2 rounded-lg transition-shadow shadow-sm hover:shadow-xl">` + tip.replace( `::: warning${result[1]}`, `<div class="font-bold text-yellow-500 mb-2">${tipTitle}</div>`) + `</div>`
+      newTip = newTip.replace(":::", "")
+      newTip = newTip.replace("<br>", "")
+      postContent = postContent.replace(tip, newTip)
+    })
+
+    dangers.forEach( tip => {
+      let result = tip.match(/::: danger(.*?)</)
+      let tipTitle = result[1] && result[1] !== "" ? result[1] : 'Danger'
+      let newTip = `<div class="mb-4 border-l-4 border-red-500 bg-white dark:bg-gray-900 px-4 py-2 rounded-lg transition-shadow shadow-sm hover:shadow-xl">` + tip.replace( `::: danger${result[1]}`, `<div class="font-bold text-red-500 mb-2">${tipTitle}</div>`) + `</div>`
+      newTip = newTip.replace(":::", "")
+      newTip = newTip.replace("<br>", "")
+      postContent = postContent.replace(tip, newTip)
+    })
+
+    details.forEach( detail => {
+      let result = detail.match(/::: details(.*?)</)
+      let detailTitle = result[1] && result[1] !== "" ? result[1] : 'Details'
+      let newDetails = `<details class="mb-4 bg-white dark:bg-gray-900 px-4 py-2 rounded-lg transition-shadow shadow-sm hover:shadow-xl">` + detail.replace(`::: details${result[1]}`, `<summary class="font-bold text-blue-500 my-2 hover:cursor-pointer">${detailTitle}</summary>`) + `</details>`
+      newDetails = newDetails.replace(":::", "")
+      postContent = postContent.replace(detail, newDetails)
+    })
+
+    Array.from(document.getElementsByClassName('post-content'))[0].innerHTML = postContent
+
+
+  </script>

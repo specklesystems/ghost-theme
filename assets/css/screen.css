@@ -8,7 +8,20 @@
 /* Main
 /* ---------------------------------------------------------- */
 
-[x-cloak] { display: none !important; }
+[x-cloak] {
+  display: none !important;
+}
+
+a.no-underline{
+  text-decoration: none !important;
+}
+a.no-underline:hover{
+  text-decoration: none;
+}
+
+pre{
+  @apply shadow-inner dark:bg-gray-300;
+}
 
 .text-gradient {
   background-clip: text;
@@ -21,7 +34,8 @@
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-.page-about-content h2, .page-about-content h3 {
+.page-about-content h2,
+.page-about-content h3 {
   @apply my-10;
 }
 
@@ -29,69 +43,54 @@
   height: auto !important;
 }
 
-.perspective-700{
+.perspective-700 {
   perspective: 750px;
 }
 
 .perspective-transform {
-  transform: rotateX(30deg) rotateY(0deg); transform-style: preserve-3d;
+  transform: rotateX(30deg) rotateY(0deg);
+  transform-style: preserve-3d;
   transition: 1s ease all;
 }
 
-.perspective-transform:hover{
-  transform: rotateX(15deg) rotateY(0deg); 
+.perspective-transform:hover {
+  transform: rotateX(15deg) rotateY(0deg);
 }
 
 .no-underline {
   text-decoration: none !important;
 }
 
-/*
-.post-body h2 {
-  @apply text-4xl my-4 px-4 sm:px-2 md:px-0;
-}
-
-.post-body h3 {
-  @apply text-2xl my-4 px-4 sm:px-2 md:px-0;
-}
-
-.post-body p{
-  @apply my-3 mx-auto text-lg max-w-prose mx-auto px-4 sm:px-2 md:px-0;
-}
-
-.post-body blockquote {
-  @apply my-4 pl-2 text-lg border-l-2 mx-auto max-w-prose border-l-4 border-blue-600 pl-5;
-}
-
-.post-body figure {
-  @apply my-10;
-}
-
-.post-body hr{
-  @apply my-10;
-}
-
-.post-body ul{
-  @apply text-lg my-4 list-inside list-disc my-3 mx-auto text-lg max-w-prose mx-auto px-4 sm:px-2 md:px-0;
-}
-
-.post-body li{
-  @apply text-lg;
-}
-
-.post-body a {
-  @apply text-blue-500 font-normal;
-}
-
-.post-body a:hover {
-  @apply font-bold;
-}
-
-.post-body pre {
-  @apply p-4 px-8 my-10 rounded-xl bg-gray-200 dark:bg-gray-700 shadow-xl;
-}*/
-
-figcaption{
+figcaption {
   @apply text-sm text-center;
 }
 
+.prose > h1::before,
+.prose > h2::before,
+.prose > h3::before,
+.prose > h4::before,
+.prose > h5::before,
+.prose > h6::before {
+  display: block;
+  content: " ";
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.is-active-link {
+  @apply transition-colors text-gray-900 dark:text-gray-100 bg-blue-100 dark:bg-blue-900;
+}
+
+.toc-list-item a {
+  @apply text-sm transition-colors text-gray-600 dark:text-gray-400;
+}
+
+.toc-list-item a:hover {
+  @apply dark:text-blue-500;
+}
+
+.toc-list-item {
+  @apply my-1;
+}
