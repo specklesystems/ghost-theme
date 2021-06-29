@@ -1,7 +1,7 @@
-<div class="perspective-700 overflow-hidden max-w-full w-full">
+<div class="relative perspective-700 overflow-hidden max-w-full w-full z-30">
   <div
-    class="perspective-transform w-full md:w-2/3 lg:w-1/2 mx-auto dark:bg-gray-900 bg-gray-200 prose lg:prose-lg dark:prose-dark max-w-none text-center rounded-t-3xl pt-10 pb-6 mt-10 -mb-12">
-    <div class="px-4">
+    class="relative perspective-transform z-30 w-full md:w-2/3 lg:w-1/2 mx-auto dark:bg-gray-900 border-4 border-blue-500 border-opacity-0 hover:border-opacity-100  bg-gray-200 prose lg:prose-lg dark:prose-dark max-w-none text-center rounded-3xl pt-10 pb-6 mt-10 -mb-8">
+    <div class="relative px-4 z-30">
       <a href="/features/connectors" class="no-underline">
         <h1><span class='text-blue-500'>Speckle</span> Connectors</h1>
         {{#get "posts" filter="primary_tag:features+featured:true+title:'Speckle Connectors'" limit="1"}}
@@ -15,102 +15,101 @@
       </p> --}}
     </div>
   </div>
-</div>
 
 
-{{!-- <div class="bg-gradient-to-t from-transparent dark:to-gray-900 to-gray-200 pt-20"> --}}
-  <div class="dark:bg-gray-900 bg-gray-200 pt-10">
-    {{!-- <p class="text-gray-500 text-center text-xs w-full">Speckle Connectors</p> --}}
-    <div class="swiper-container connector-swiper mx-auto">
-      <div class="swiper-wrapper mb-10">
-        <div
-          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
-          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
-            src="{{asset 'images/rhino.png'}}">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Rhino
-          </p>
-        </div>
-        <div
-          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
-          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110 object-contain"
-            src="{{asset 'images/gh.png'}}">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Grasshopper
-          </p>
-        </div>
 
-        {{!-- unccomment in stage 2 --}}
-        <div
-          class="swiper-slide group p-2 rounded-xl text-center content-center flex flex-wrap justify-center h-auto transform opacity-90 hover:opacity-100 scale-75 hover:scale-90 transition bg-blue-500 text-white">
-          <a href="/features/connectors"
-            class="flex flex-col text-center w-full text-xl items-center justify-center">
-            All <span class="hidden md:inline-block">Connectors</span>
-          </a>
-        </div>
+  {{!-- <div class="bg-gradient-to-t from-transparent dark:to-gray-900 to-gray-200 pt-20"> --}}
+    <div class="relative transform perspective-700 dark:bg-gray-900 bg-gray-200 pt-10 z-0">
+      <div class="swiper-container connector-swiper mx-auto">
+        <div class="swiper-wrapper mb-10">
+          <div
+            class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+            <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+              src="{{asset 'images/rhino.png'}}">
+            <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              Rhino
+            </p>
+          </div>
+          <div
+            class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+            <img class="mx-auto w-32 transition-transform transform group-hover:scale-110 object-contain"
+              src="{{asset 'images/gh.png'}}">
+            <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              Grasshopper
+            </p>
+          </div>
 
-
-        <div
-          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center"
-          style="">
-          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
-            src="{{asset 'images/revit.png'}}">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Revit
-          </p>
-        </div>
+          {{!-- unccomment in stage 2 --}}
+          {{!-- <div
+            class="swiper-slide group p-2 rounded-xl text-center content-center flex flex-wrap justify-center h-auto transform opacity-90 hover:opacity-100 scale-75 hover:scale-90 transition bg-blue-500 text-white">
+            <a href="/features/connectors" class="flex flex-col text-center w-full text-xl items-center justify-center">
+              All <span class="hidden md:inline-block">Connectors</span>
+            </a>
+          </div> --}}
 
 
-        <div
-          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
-          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
-            src="{{asset 'images/dyn.png'}}">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Dynamo
-          </p>
+          <div
+            class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center"
+            style="">
+            <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+              src="{{asset 'images/revit.png'}}">
+            <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              Revit
+            </p>
+          </div>
+
+
+          <div
+            class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+            <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+              src="{{asset 'images/dyn.png'}}">
+            <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              Dynamo
+            </p>
+          </div>
+          <div
+            class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+            <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+              src="{{asset 'images/unity.png'}}">
+            <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              Unity
+            </p>
+          </div>
+          <div
+            class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+            <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+              src="{{asset 'images/blender.png'}}">
+            <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              Blender
+            </p>
+          </div>
+          <div
+            class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+            <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+              src="{{asset 'images/acad.png'}}">
+            <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              Autocad & Civil3D
+            </p>
+          </div>
+          <div
+            class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+            <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+              src="{{asset 'images/unreal.png'}}">
+            <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              Unreal
+            </p>
+          </div>
+          <div
+            class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
+            <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
+              src="{{asset 'images/excel.png'}}">
+            <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              Excel
+            </p>
+          </div>
         </div>
-        <div
-          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
-          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
-            src="{{asset 'images/unity.png'}}">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Unity
-          </p>
-        </div>
-        <div
-          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
-          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
-            src="{{asset 'images/blender.png'}}">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Blender
-          </p>
-        </div>
-        <div
-          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
-          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
-            src="{{asset 'images/acad.png'}}">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Autocad & Civil3D
-          </p>
-        </div>
-        <div
-          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
-          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
-            src="{{asset 'images/unreal.png'}}">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Unreal
-          </p>
-        </div>
-        <div
-          class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 text-center content-center flex flex-wrap justify-center">
-          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110"
-            src="{{asset 'images/excel.png'}}">
-          <p class="w-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            Excel
-          </p>
-        </div>
+        <div class="swiper-pagination mt-10"></div>
       </div>
-      <div class="swiper-pagination"></div>
     </div>
   </div>
 
@@ -156,7 +155,7 @@
   </div>
 
   <script>
-    window.addEventListener('load', (event) => {      
+    window.addEventListener('load', (event) => {
       let swiper = new Swiper(".connector-swiper", {
         slidesPerView: 3,
         spaceBetween: 20,
@@ -165,6 +164,11 @@
         pagination: {
           el: ".swiper-pagination",
           clickable: true
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
         },
         breakpoints: {
           768: {
@@ -178,7 +182,7 @@
         }
       })
 
-      if(window.innerWidth>=1280)
+      if (window.innerWidth >= 1280)
         swiper.slideTo(6, false, false)
     })
   </script>

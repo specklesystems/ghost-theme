@@ -59,16 +59,23 @@ code{
 
 .perspective-700 {
   perspective: 750px;
+  /* z-index: 100; */
 }
 
 .perspective-transform {
-  transform: rotateX(30deg) rotateY(0deg);
+  transform: rotateX(25deg) rotateY(0deg) translateZ(0px);
+  transform-style: preserve-3d;
+  transition: 1s ease all;
+}
+
+.perspective-transform-0 {
+  transform: rotateX(0deg) rotateY(0deg);
   transform-style: preserve-3d;
   transition: 1s ease all;
 }
 
 .perspective-transform:hover {
-  transform: rotateX(15deg) rotateY(0deg);
+  transform: rotateX(10deg) rotateY(0deg) translateZ(20px);
 }
 
 .no-underline {
