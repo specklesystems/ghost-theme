@@ -1,59 +1,53 @@
-{{!< default}}
+{{!< default}} {{#post}} <article class="relative max-w-2xl mx-auto px-4 md:px-0">
 
-{{#post}}
+  {{!-- Header --}}
 
-  <article class="relative max-w-2xl mx-auto px-4 md:px-0">
+  <header class="mt-10 prose prose-lg dark:prose-dark max-w-none">
 
-    {{!-- Header --}}
+    {{#if feature_image}}
+    <img class="gh-feature-image mx-auto" srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image
+      size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w"
+      sizes="(max-width: 1000px) 1000px, 2000px" loading="lazy" src="{{img_url feature_image size=" xl"}}"
+      alt="{{title}}" />
+    {{/if}}
+    <h1>
+      Position: <span
+        class="inline-block xl:inline text-gradient text-gradient bg-gradient-to-r from-blue-500 to-blue-700">{{title}}</span>
+    </h1>
+    {{#if custom_excerpt}}
+    <p class="text-blue-500">
+      {{custom_excerpt}}
+    </p>
+    {{/if}}
 
-    <header class="mt-10 prose prose-lg dark:prose-dark max-w-none">
+  </header>
 
-      {{#if feature_image}}
-        <img class="gh-feature-image mx-auto" srcset="{{img_url feature_image size="s"}} 300w,
-                    {{img_url feature_image size="m"}} 600w,
-                    {{img_url feature_image size="l"}} 1000w,
-                    {{img_url feature_image size="xl"}} 2000w"
-          sizes="(max-width: 1000px) 1000px, 2000px"
-          loading="lazy" src="{{img_url feature_image size="xl"}}"
-          alt="{{title}}" />
-      {{/if}}
+  <div class="prose prose-blue lg:prose-xl dark:prose-dark max-w-none mt-10">
+
+    {{content}}
+
+  </div>
+
+  <aside class="prose prose-blue dark:prose-dark mt-10">
+    <div class="mb-10 bg-blue-500 text-white rounded-lg px-4 py-10">
       <h1>
-        Position: <span class="inline-block xl:inline text-gradient text-gradient bg-gradient-to-r from-blue-500 to-blue-700">{{title}}</span>
+        <span class="text-white">How to apply</span>
       </h1>
-      {{#if custom_excerpt}}
-        <p>
-          {{custom_excerpt}}
-        </p>
-      {{/if}}
-
-    </header>
-
-    <div class="prose prose-blue dark:prose-dark max-w-none mt-10">
-
-      {{content}}
-
+      <p>
+        Send your CV (hello [at] speckle [dot] systems) and tell us why you think you'd be a great fit for the role.
+      </p>
+      <p>
+        Include a small example of
+        how you would improve Speckle, whether it's an idea, a sketch or a Pull Request. We want to make sure you know
+        the product before you apply, all the code and docs are out there - do something amazing!
+      </p>
     </div>
 
-    <aside class="prose prose-blue dark:prose-dark mt-10">
-      <div class="mb-10">
-        <h1>
-          Apply now!
-        </h1>
-        <p>
-          Send us (hello [at] speckle [dot] systems) an
-          up-to-date CV & a quick intro
-          explaining your motivation for joining and
-          what you think your contribution to the team
-          can be. Any supporting links or documents are
-          welcome.
-        </p>
-      </div>
-
-      <div class="pb-10">
-        {{> cardTag}}
-      </div>
-    </aside>
+    <div class="pb-10">
+      {{> cardTag}}
+    </div>
+  </aside>
 
   </article>
 
-{{/post}}
+  {{/post}}

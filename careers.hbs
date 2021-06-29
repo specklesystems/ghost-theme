@@ -1,82 +1,165 @@
-{{!< default}}
-
-
-{{#tag}}
-
-  <main class="w-default flex flex-wrap content-center mt-24">
-    <div class="w-3/3">
-      <h1 class="text-4xl tracking-tight font-extrabold text-gray-800 dark:text-gray-100 sm:text-5xl md:text-6xl">
-        <span class="block xl:inline text-gradient text-gradient bg-gradient-to-r from-blue-500 to-blue-700">
-          {{name}}
-        </span>
-        @ Speckle
-      </h1>
-      <p class="text-base text-justify text-gray-500 sm:text-lg md:text-xl md:max-w-6xl mt-10">
-        {{description}}
-      </p>
-    </div>
+{{!< default}} {{#tag}} <main class="w-default flex flex-wrap content-center mt-24">
+  <div class="w-3/3">
+    <h1 class="text-4xl tracking-tight font-extrabold text-gray-800 dark:text-gray-100 sm:text-5xl md:text-6xl">
+      <span class="block xl:inline text-gradient text-gradient bg-gradient-to-r from-blue-500 to-blue-700">
+        {{name}}
+      </span>
+      @ Speckle
+    </h1>
+    <p class="text-base text-justify text-gray-800 dark:text-gray-200 sm:text-lg md:text-xl md:max-w-6xl mt-10">
+      {{description}}
+    </p>
+  </div>
   </main>
 
-{{/tag}}
+  {{/tag}}
 
-<div class="w-default mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-2 sm:mt-24">
+  <div class="w-default mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-2 sm:mt-24">
 
-  {{#get "posts" filter="tags:careers"}}
+    {{#get "posts" filter="tags:careers"}}
 
     {{#foreach posts visibility="all"}}
 
-      {{> cardCareers}}
+    {{> cardCareers}}
 
     {{/foreach}}
 
-  {{/get}}
+    {{/get}}
 
-  <div class="relative rounded-xl py-10 overflow-hidden flex col-span-2 md:col-span-2 grid grid-cols-2 gap-4">
+    <div class="relative rounded-xl py-10 overflow-hidden col-span-2 md:col-span-2 grid grid-cols-2 gap-4">
 
-    <div class="relative px-8 col-span-2 md:col-span-1">
-      <div class="text-3xl font-semibold text-gray-800 dark:text-gray-200">
-        How to apply
+      <div class="relative px-8 col-span-2 md:col-span-1">
+        <div class="text-3xl font-semibold text-gray-600 dark:text-gray-400">
+          How to apply
 
-      </div>
-      <blockquote class="mt-4">
-        <div class="relative text-lg text-gray-800 dark:text-gray-200 md:flex-grow">
-          <p class="relative">
-
-            Send us an up-to-date CV & a quick intro
-            explaining your motivation for joining and
-            what you think your contribution to the team
-            can be.
-
-
-          </p>
         </div>
+        <blockquote class="mt-4">
+          <div class="relative text-lg text-gray-600 dark:text-gray-400 md:flex-grow">
+            <p class="relative">
 
-      </blockquote>
+              Send your CV and tell us why you think you'd be a great fit for the role! We'd also
+              you to include a small example of how you would improve Speckle, whether it's an idea, a sketch or a Pull Request.
+            </p>
+          </div>
+
+        </blockquote>
+      </div>
+
+      <div class="relative px-8 col-span-2 md:col-span-1">
+        <div class="text-3xl font-semibold text-gray-600 dark:text-gray-400">
+          Didn't find the right position?
+
+        </div>
+        <blockquote class="mt-4">
+          <div class="relative text-lg text-gray-600 dark:text-gray-400 md:flex-grow">
+            <p class="relative">
+
+              No worries! We are always looking for
+              talented people who
+              believe in our mission and want to change
+              AEC.
+              If you're intrested in working at Speckle,
+              get in touch at
+              hello@speckle.systems
+
+
+            </p>
+          </div>
+
+        </blockquote>
+      </div>
     </div>
 
-    <div class="relative px-8 col-span-2 md:col-span-1">
-      <div class="text-3xl font-semibold text-gray-800 dark:text-gray-200">
-        Didn't find the right position?
-
-      </div>
-      <blockquote class="mt-4">
-        <div class="relative text-lg text-gray-800 dark:text-gray-200 md:flex-grow">
-          <p class="relative">
-
-            No worries! We are always looking for
-            talented people who
-            believe in our mission and want to change
-            AEC.
-            If you're intrested in working at Speckle,
-            get in touch at
-            hello@speckle.systems
-
-
-          </p>
-        </div>
-
-      </blockquote>
+    <div class="prose prose-xl dark:prose-dark mb-10 block max-w-none col-span-2 mx-4">
+      <h1>Life at Speckle</h1>
+      <p>Wondering what it's like to work with us? Here's some of our perks.</p>
     </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full col-span-2 mb-24">
+      
+      <div class="flex flex-col rounded-lg transition shadow hover:shadow-2xl overflow-hidden col-span-1 md:col-span-2">
+        <div class="flex-shrink-0 ">
+          <img class="h-72 w-full object-cover" src="https://media4.giphy.com/media/XymXANrzgI4k6FL6zr/giphy.gif"
+            alt="Working from home">
+        </div>
+        <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-200 p-6 flex flex-col justify-between">
+          <div class="flex-1">
+            <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
+              Remote First
+            </p>
+            <p class="mt-3 text-base dark:text-gray-300 text-gray-700 line-clamp-3 md:line-clamp-4">
+              No office, no commute! Work from home or from wherever you fancy, 100% of the time (we do want though a 6h timezone overalp of sorts between each other).
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col rounded-lg transition shadow hover:shadow-2xl overflow-hidden col-span-1">
+        <div class="flex-shrink-0 ">
+          <img class="h-52 w-full object-cover" src="https://expanscape.com/assets/images/A7_6.jpg"
+            alt="gadget">
+        </div>
+        <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-200 p-6 flex flex-col justify-between">
+          <div class="flex-1">
+            <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
+              Generous Gadget Budget
+            </p>
+            <p class="mt-3 text-base dark:text-gray-300 text-gray-700 line-clamp-3 md:line-clamp-4">
+              You can choose your own gear - we allocate a Generous Gadget Budget (tm) to each of us to spend on the hardware and software that makes you happy.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col rounded-lg transition shadow hover:shadow-2xl overflow-hidden col-span-1">
+        <div class="flex-shrink-0 ">
+          <img class="h-52 w-full object-cover" src="https://discourse.speckle.works/uploads/default/optimized/1X/e77a5e5d33d47990227ef47d418e64d386716891_2_666x500.jpeg"
+            alt="izzys bunnies going to the vet">
+        </div>
+        <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-200 p-6 flex flex-col justify-between">
+          <div class="flex-1">
+            <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
+              Flexible Working Hours
+            </p>
+            <p class="mt-3 text-base dark:text-gray-300 text-gray-700 line-clamp-3 md:line-clamp-4">
+              There is no Big Brother watching you. If you need to take your bunnies to the vet, just do so.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex flex-col rounded-lg transition shadow hover:shadow-2xl overflow-hidden col-span-1 md:col-span-2">
+        <div class="flex-shrink-0 ">
+          <img class="w-full h-72 object-cover" src="https://speckle.systems/content/images/2021/06/standups.png"
+            alt="izzys bunnies going to the vet">
+        </div>
+        <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-200 p-6 flex flex-col justify-between">
+          <div class="flex-1">
+            <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
+              Wonky Stand-Ups
+            </p>
+            <p class="mt-3 text-base dark:text-gray-300 text-gray-700 line-clamp-3 md:line-clamp-4">
+              Our mid-morning (10.30am, we're not really morning people) ritual is - or should be - never boring. There's a rotating chairperson-ship that has full control over the proceedings.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col rounded-lg transition shadow hover:shadow-2xl overflow-hidden col-span-1 md:col-span-3">
+        <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-200 p-6 flex flex-col justify-between">
+          <div class="flex-1">
+            <p class="text-xl font-semibold text-gray-900 dark:text-gray-200">
+              Open Source & Community: The Greater Good!
+            </p>
+            <p class="mt-3 text-base dark:text-gray-300 text-gray-700 line-clamp-3 md:line-clamp-4 prose prose-blue max-w-none">
+              Last, but not least: doing open source is a <a href="https://speckle.systems/blog/opensource-aec-speckle/">unique adventure</a>. We work in the open, constantly engaging with our community and users from across backgrounds, domains and cultures. Defintively not a desk job!
+            </p>
+          </div>
+        </div>
+        <div class="flex-shrink-0 ">
+          <img class="w-full h-80 object-cover" src="https://user-images.githubusercontent.com/7696515/123794194-7c036700-d8da-11eb-8462-2fb63b2058d4.png"
+            alt="izzys bunnies going to the vet">
+        </div>
+      </div>
+
+    </div>
+
   </div>
-
-</div>
