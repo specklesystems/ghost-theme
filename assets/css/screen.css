@@ -82,6 +82,22 @@ code{
   text-decoration: none !important;
 }
 
+.medium-zoom-image--opened {
+  @apply relative z-50;
+}
+
+.medium-zoom-overlay{
+  @apply dark:bg-gray-900 bg-gray-200 z-50;
+}
+
+.kg-gallery-row {
+  @apply flex space-x-2;
+}
+
+.kg-gallery-image {
+  @apply opacity-100;
+}
+
 figcaption {
   @apply text-sm text-center;
 }
