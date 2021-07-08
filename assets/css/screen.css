@@ -90,6 +90,46 @@ code{
   @apply dark:bg-gray-900 bg-gray-200 z-50;
 }
 
+.kg-bookmark-card {
+  @apply pl-2 shadow-xl dark:bg-gray-900 bg-gray-200 rounded-lg;
+}
+
+.kg-bookmark-container {
+  @apply grid grid-cols-3 content-center dark:text-gray-100 text-gray-800;
+  text-decoration: none !important;
+}
+
+.kg-bookmark-content{
+  @apply col-span-2 self-center;
+}
+
+.kg-bookmark-description {
+  @apply line-clamp-1;
+}
+.kg-bookmark-description {
+  @apply dark:text-gray-100 text-gray-800 line-clamp-2;
+}
+
+.kg-bookmark-thumbnail{
+  @apply col-span-1 h-40;
+}
+
+.kg-bookmark-thumbnail img {
+  @apply object-cover;
+  margin: 0 !important;
+}
+
+.kg-bookmark-metadata {
+  display: none;
+}
+
+.kg-bookmark-title {
+  @apply text-xl;
+}
+.kg-bookmark-description {
+  @apply text-xs line-clamp-3;
+}
+
 .kg-gallery-row {
   @apply flex space-x-2;
 }
