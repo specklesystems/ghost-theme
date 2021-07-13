@@ -91,16 +91,16 @@ code{
 }
 
 .kg-bookmark-card {
-  @apply pl-2 shadow-xl dark:bg-gray-900 bg-gray-200 rounded-lg;
+  @apply shadow-md hover:shadow-xl transition-shadow dark:bg-gray-900 bg-white rounded-lg overflow-x-hidden;
 }
 
 .kg-bookmark-container {
-  @apply grid grid-cols-3 content-center dark:text-gray-100 text-gray-800;
+  @apply grid grid-cols-3 content-center dark:text-gray-100 text-gray-800 ;
   text-decoration: none !important;
 }
 
 .kg-bookmark-content{
-  @apply col-span-2 self-center;
+  @apply px-4 col-span-2 self-center;
 }
 
 .kg-bookmark-description {
@@ -111,7 +111,7 @@ code{
 }
 
 .kg-bookmark-thumbnail{
-  @apply col-span-1 h-40;
+  @apply col-span-1;
 }
 
 .kg-bookmark-thumbnail img {
