@@ -13,15 +13,15 @@
     </div>
   </div>
 
-  <div class="relative transform perspective-700 dark:bg-gray-900 bg-gray-200 pt-10 z-0 flex">
+  <div class="relative transform perspective-700 dark:bg-gray-900 bg-gray-200 pt-10 z-0 flex justify-around">
     <div id="prev"
-      class="xxx-swiper-button-next flex-shrink transition text-blue-500 flex bg-none dark:hover:bg-gray-800 hover:bg-gray-100 opacity-10 hover:opacity-100 rounded-full -mt-5 cursor-pointer">
+      class="px-4 flex-shrink transition text-blue-500 flex bg-none dark:hover:bg-gray-800 hover:bg-gray-100 opacity-40 hover:opacity-100 rounded-full -mt-5 cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 self-center" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
       </svg>
     </div>
-    <div class="swiper-container connector-swiper mx-auto max-w-7xl flex-grow">
+    <div class="swiper-container connector-swiper">
       <div class="swiper-wrapper mb-10">
         {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
         filter="slug:[rhino,grasshopper,revit,dynamo,excel,blender,autocad,civil3d,unity,unreal]"}}
@@ -39,7 +39,7 @@
       {{!-- <div class="swiper-pagination mt-10"></div> --}}
     </div>
     <div id="next"
-      class="xxx-swiper-button-next flex-shrink transition text-blue-500 flex bg-none dark:hover:bg-gray-800 hover:bg-gray-100 opacity-10 hover:opacity-100 rounded-full -mt-5 cursor-pointer">
+      class="px-4 flex-shrink transition text-blue-500 flex bg-none dark:hover:bg-gray-800 hover:bg-gray-100 opacity-40 hover:opacity-100 rounded-full -mt-5 cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 self-center" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
