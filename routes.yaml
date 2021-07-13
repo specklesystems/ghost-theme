@@ -32,6 +32,7 @@ collections:
   
   /tutorials/:
     permalink: /tutorials/{slug}/
+    template: tutorials
     filter: tag:tutorials
     data: tag.tutorials
 
