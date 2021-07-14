@@ -15,7 +15,7 @@
   {{/tag}}
 
   <div class="w-default flex flex-row space-x-4 flex-wrap content-center justify-center">
-    <p class="text-gray-500 w-full text-center text-sm mt-1">Popular topics:</p>
+    {{!-- <p class="text-gray-500 w-full text-center text-sm mt-1">Popular topics:</p> --}}
     {{#get "tags" limit="all" filter="slug:-[features,tutorials,careers,developers,blog]"}}
     {{#foreach tags}}
     <a href="{{url}}" class="mt-2 px-2 py-1 bg-blue-500 rounded-full inline-block text-white ring-0 hover:ring-4 transition">
