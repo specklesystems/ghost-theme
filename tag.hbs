@@ -1,6 +1,7 @@
-{{!< default}} {{#tag}} <div x-data="{ docsLink: null, sourceLink: null, videoLink:null, showInstallLink: false, connectorTag:false }" x-init="
+{{!< default}} {{#tag}} <div
+  x-data="{ docsLink: null, sourceLink: null, videoLink:null, showInstallLink: false, connectorTag:false, installLink: null }" x-init="
     docsLink = window.docsLink; sourceLink = window.sourceLink; videoLink = window.videoLink; showInstallLink = window.showInstallLink; connectorTag = window.connectorTag;
-    if( videoLink ) document.getElementById('tagvideo').src = videoLink;">
+    if( videoLink ) document.getElementById('tagvideo').src = videoLink; installLink = window.installLink;">
 
 
 
@@ -8,9 +9,11 @@
     <div class="w-full md:w-1/2">
       <div class="prose lg:prose-xl dark:prose-dark prose-blue max-w-none w-full mb-4">
         <h1 class="flex overflow-ellipsis overflow-hidden w-full max-w-full">
-          <a class="flex items-center justify-center no-underline" href="/features/connectors" x-cloak x-show="connectorTag">
+          <a class="flex items-center justify-center no-underline" href="/features/connectors" x-cloak
+            x-show="connectorTag">
             Connectors
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </a>
@@ -19,7 +22,7 @@
         <p>{{description}}</p>
       </div>
       <a class="py-2 px-4 rounded inline-flex items-center text-white bg-purple-500 dark:bg-purple-800 transition-shadow hover:shadow-xl hover:ring mr-2"
-        href="/getstarted" x-show="showInstallLink">
+        href="#" x-show="installLink" x-cloak x-bind:href="installLink">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd"
             d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
