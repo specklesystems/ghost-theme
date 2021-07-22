@@ -24,6 +24,7 @@
       key: window.searchKey,
       postFields: ['title', 'url', 'excerpt', 'published_at'],
       postsExtraFields: ['tags'],
+      debug: true,
       emptyTemplate: function () {
         return `
         <p class="text-center text-sm col-span-3 dark:text-white" id='no-results'>No results found.</p>
@@ -40,7 +41,7 @@
       outputChildsType: '',
       searchOptions: {
         where: {
-          firstTag: "Tutorials"
+          firstTag: "tutorials"
         },
         limit: 9
       },
