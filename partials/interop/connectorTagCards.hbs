@@ -58,6 +58,14 @@
   {{/foreach}}
   {{/get}}
 
+  <div class="col-span-2" id="tutorial-links">
+    <input type="text" name="search" id="search-bar"
+      class="hidden focus:ring-blue-500 focus:border-blue-500 transition w-full pl-10 sm:text-sm border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white rounded-md h h-12"
+      placeholder="Search...">
+    <div id="some-tutorials" class="w-full text-xs text-center dark:text-white hidden">Some tutorials:</div>
+    <div id="search-results" class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+  </div>
+
   <div
     class="group dark:text-gray-200 text-gray-600 p-2 col-span-2 tip-card flex flex-col justify-center items-center my-10 dark:bg-gray-900 bg-white rounded-xl shadow-xl py-10"
     id='tipcontainer' style="display: none;">
@@ -72,6 +80,7 @@
           elements</a>.</p>
     </div>
   </div>
+
 </div>
 
 <script>
@@ -99,6 +108,9 @@
     filterCards()
     document.getElementById('clearbutton').style.display = 'none'
     document.getElementById('tipcontainer').style.display = 'none'
+    
+    document.getElementById('search-bar').value = ''
+    document.getElementById('search-bar').dispatchEvent(new Event('keyup'))
   }
 
   function filterCards() {
@@ -124,6 +136,9 @@
       document.getElementById('tip-text').innerHTML = 'Let us know how you use this workflow on the <a href="https://speckle.community">community forum</a>!'
     }
     document.getElementById('tipcontainer').style.display = 'flex'
+
+    document.getElementById('search-bar').value = selection[0] + ' ' + selection[1]
+    document.getElementById('search-bar').dispatchEvent(new Event('keyup'))
   }
 
   const tips = {
@@ -154,4 +169,57 @@
     'RevitUnreal': `Visualisation has never been nicer - combine multiple models in AR/XR, do walkthroughs, send data back to inform your designs!`,
   }
 
+  window.addEventListener('load', () => {
+    const tutorialSearchConnectors = new SearchinGhost({
+      key: window.searchKey,
+      loadOn: 'page',
+      postFields: ['title', 'url', 'excerpt', 'published_at'],
+      postsExtraFields: ['tags'],
+      customProcessing: function (post) {
+        if (post.tags && post.tags.length !== 0) {
+          post.firstTag = post.tags[0].name.toLowerCase()
+          post.string_tags = post.string_tags = post.tags.map(o => o.name).join(' ').toLowerCase()
+        }
+        else post.firstTag = "no-tag"
+
+        return post
+      },
+      outputChildsType: '',
+      limit: 3,
+      searchOptions: {
+        where: {
+          firstTag: "Tutorials"
+        },
+      },
+      onSearchEnd: function (posts) { 
+        console.log(posts.length)
+        if( posts.length !== 0 ) {
+          document.getElementById('some-tutorials').style.display = 'block'
+        } else {
+          document.getElementById('some-tutorials').style.display = 'none'
+        }
+
+      },
+      template: function (post) {
+        return `
+        <div class="flex flex-col rounded-lg transition shadow hover:shadow-2xl overflow-hidden w-full">
+          <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-200 p-6 flex flex-col justify-between">
+            <div class="flex-1">
+              <a href="${post.url}" class="block mt-2">
+                <p class="font-semibold text-gray-900 dark:text-gray-200 line-clamp-2">
+                  <span class="text-xs py-0 px-2 rounded border border-blue-500 text-blue-500">${post.firstTag}</span> ${post.title}
+                </p>
+                <p class="mt-3 text-sm text-gray-500 line-clamp-2">
+                  ${post.excerpt}
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+        `
+      }
+    })
+
+    window.srch = tutorialSearchConnectors
+  })
 </script>
