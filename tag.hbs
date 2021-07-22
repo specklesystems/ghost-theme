@@ -67,7 +67,19 @@
 
   <div class="w-default my-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mx-auto">
 
-    {{#get "posts" filter="tag:{{slug}}" include="authors,tags" order="featured desc"}}
+    {{!-- Featured posts first --}}
+    {{#get "posts" filter="tag:{{slug}}+featured:true" include="authors,tags" order="published_at desc"}}
+    
+    {{#foreach posts visibility="all"}}
+    
+    {{> cardTutorial }}
+    
+    {{/foreach}}
+    
+    {{/get}}
+
+    {{!-- Then all the rest in desc order --}}
+    {{#get "posts" filter="tag:{{slug}}+featured:false" include="authors,tags" order="published_at desc" limit="50"}}
 
     {{#foreach posts visibility="all"}}
 

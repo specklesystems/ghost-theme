@@ -48,15 +48,24 @@
 
   <div class="w-default mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-    {{#foreach posts columns=3}}
-
-    {{!-- {{#if featured}}
-    <h1>HAI</h1>
-    {{else}} --}}
-    {{> cardTutorialSm}}
-    {{!-- {{/if}} --}}
+    {{!-- {{#get "posts" filter="tag:tutorials+featured:true" include="authors,tags" order="published_at desc" as |featured_posts pages|}}
+    
+    {{#foreach featured_posts visibility="all"}}
+    
+    {{> cardTutorialSm }}
+    
     {{/foreach}}
 
+    {{pages.total}}
+    
+    {{/get}} --}}
+
+
+
+
+    {{#foreach posts }}
+      {{> cardTutorialSm}}
+    {{/foreach}}
 
   </div>
 
