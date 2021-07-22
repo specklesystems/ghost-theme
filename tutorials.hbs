@@ -27,6 +27,9 @@
     {{/foreach}}
     {{/get}}
   </div>
+  <div class="max-w-4xl w-full mx-auto mt-4">
+    {{> searchLarge}}
+  </div>
 
   <div class="shadow-xl sm:px-2 px-5 pt-8 pb-10 rounded-lg mt-10 bg-white dark:bg-gray-900">
     <div class="w-default flex content-center space-x-2 flex-wrap justify-around  mx-auto ">
@@ -60,8 +63,3 @@
   <aside class="w-default py-10">
     {{pagination}}
   </aside>
-
-  {{!-- {{> cardCTA }} --}}
-
-  {{!-- TODO: pagination --}}
-  {{!-- NOTE: seems like custom collections do not paginate? --}}
