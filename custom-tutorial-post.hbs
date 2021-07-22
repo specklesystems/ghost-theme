@@ -25,8 +25,7 @@
       </div>
       <div class="max-w-prose mx-auto my-4">
         {{#foreach tags}}
-        {{!-- <a x-cloak x-show="'{{slug}}'!=='tutorials'" --}} <a
-          class="rounded-full py-1 px-3 bg-blue-500 text-white mr-2 inline-block transform scale-90 hover:scale-100 transition-transform"
+        <a class="rounded-full py-1 px-3 bg-blue-500 text-white mr-2 inline-block hover:ring-4 transition"
           href="{{url}}">
           {{name}}
         </a>
@@ -94,8 +93,7 @@
             <p class="border-t dark:border-gray-800 mt-2 pt-2"></p>
             <div>
               {{#foreach tags}}
-              {{!-- <a x-cloak x-show="'{{slug}}'!=='tutorials'" --}} <a
-                class="rounded-full py-1 px-3 bg-blue-500 text-white mr-2 inline-block transform scale-90 hover:scale-100 transition-transform"
+              <a class="rounded-full py-1 px-3 bg-blue-500 text-white mr-2 inline-block hover:ring-4 transition"
                 href="{{url}}">
                 {{name}}
               </a>
@@ -137,7 +135,7 @@
   <aside class="w-default mx-auto mb-10 px-3" x-data="{}">
 
     {{#if primary_tag}}
-    {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="6" as |related_posts|}}
+    {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" include="authors" limit="6" as |related_posts|}}
     {{#if related_posts}}
     <article class="read-next-card">
       <header class="read-next-card-header">
@@ -148,7 +146,7 @@
       <div class="read-next-card-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {{#foreach related_posts}}
         <div class="grid-cols-1">
-          {{> cardSm }}
+          {{> cardTutorialSm }}
         </div>
         {{/foreach}}
       </div>
