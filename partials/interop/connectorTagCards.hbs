@@ -122,6 +122,8 @@
       return
     }
     document.getElementById('clearbutton').style.display = 'flex'
+    document.getElementById('search-bar').value = selection[0]
+    document.getElementById('search-bar').dispatchEvent(new Event('keyup'))
 
       ;[].forEach.call(document.getElementsByClassName(`connector-card`), el => el.style.display = 'none')
 
