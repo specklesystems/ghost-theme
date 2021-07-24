@@ -15,12 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-
-  {{!-- Simple little js lib --}}
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"></script>
-
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body class="{{body_class}} bg-gray-100 dark:bg-gray-800">
@@ -31,14 +26,49 @@
 
   {{> footer }}
 
-  {{ghost_foot}}
+    {{#is "post, page"}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.min.js"></script>
+    <script>
+      tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.post-content',
+        hasInnerContainers: true
+      });
+    </script>
+    {{/is}}
 
-  {{#is "home"}}
 
+  {{!-- swiper for connectors (homepage only) --}}
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+  {{!-- Simple little js lib --}}
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"></script>
+  
+  {{!-- Search Lib --}}
+  <script src="https://cdn.jsdelivr.net/npm/searchinghost@1.6.0/dist/searchinghost.min.js"></script>
+  <script>
+    
+  </script>
 
+  {{#is "post, page"}}
+  {{!-- Zoomable images --}}
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script>
+    let margin = 150;
+    if(window.innerWidth < 1024) margin = 75
+    if(window.innerWidth < 768) margin = 20
+    if(window.innerWidth < 600) margin = 10
+    
+    mediumZoom('.kg-image, .kg-gallery-image img', 
+    {
+      margin: margin,
+      background: '',
+      scrollOffset: 0
+    })
+
+  </script>
   {{/is}}
-
+  {{ghost_foot}}
 
 </body>
 

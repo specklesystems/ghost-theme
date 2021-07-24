@@ -1,0 +1,227 @@
+<div class="hidden sm:block lg:sticky w-default transform z-40 top-20 mt-5">
+  <div
+    class="bg-gradient-to-r from-blue-500 to-blue-700 px-5 pt-2 pb-3 flex flex-wrap items-center justify-start rounded-lg w-full text-white">
+    Send
+    <select id="from" name="from" class="block inline-block sm:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 foc
+      us:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <option value="Select a connector">From</option>
+      {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
+      filter="slug:[rhino,grasshopper,revit,dynamo,excel,blender,autocad,civil3d,unity,unreal]"}}
+      {{#foreach tags }}
+      <option value="{{name}}">{{name}}</option>
+      {{/foreach}}
+      {{/get}}
+    </select>
+    to
+    <select id="to" name="to"
+      class="block inline-block sm:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <option value="Select a connector">To </option>
+      {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
+      filter="slug:[rhino,grasshopper,revit,dynamo,excel,blender,autocad,civil3d,unity,unreal]"}}
+      {{#foreach tags }}
+      <option value="{{name}}">{{name}}</option>
+      {{/foreach}}
+      {{/get}}
+    </select>
+    <button class="mt-1" onclick="clearSelection()" id='clearbutton' style="display: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<div class="relative flex items-center w-default mt-4 text-white"></div>
+<div class="w-default pt-10 grid grid-cols-1 md:grid-cols-2 gap-0 gap-y-2 md:gap-6">
+  {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
+  filter="slug:[rhino,grasshopper,revit,dynamo,excel,blender,autocad,civil3d,unity,unreal]"}}
+  {{#foreach tags }}
+  <a href="{{url}}" class="group p-2 py-5 flex flex-row
+          shadow-sm hover:shadow-xl transition-shadow hover:ring dark:bg-gray-900 bg-white rounded-xl col-span-1 connector-card connector-{{name}}
+        ">
+    <div class="flex flex-shrink-0 items-center justify-center mx-6">
+      <img class="mx-auto h-32 w-32 transition-transform transform group-hover:scale-110 object-contain"
+        src="{{feature_image}}">
+    </div>
+    <div class="flex flex-grow flex-col justify-center">
+      <h2 class="text-xl dark:text-gray-50 text-gray-900 font-bold flex items-center group-hover:text-blue-500">
+        {{name}}
+        <svg xmlns="http://www.w3.org/2000/svg"
+          class="ml-2 h-6 w-6 transition-opacity opacity-0 group-hover:opacity-100" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </h2>
+      <p class="text-sm dark:text-gray-400 text-gray-600 line-clamp-3">{{description}}</p>
+    </div>
+  </a>
+  {{/foreach}}
+  {{/get}}
+
+  <div class="col-span-2" id="tutorial-links">
+    <input type="text" name="search" id="search-bar"
+      class="hidden focus:ring-blue-500 focus:border-blue-500 transition w-full pl-10 sm:text-sm border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white rounded-md h h-12"
+      placeholder="Search...">
+    <div id="some-tutorials" class="w-full text-xs text-center dark:text-white hidden">Some tutorials:</div>
+    <div id="search-results" class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+  </div>
+
+  <div
+    class="group dark:text-gray-200 text-gray-600 p-2 col-span-2 tip-card flex flex-col justify-center items-center my-10 dark:bg-gray-900 bg-white rounded-xl shadow-xl py-10"
+    id='tipcontainer' style="display: none;">
+    <div class="prose-blue prose prose-sm dark:prose-dark max-w-none">
+      <h3 id="tip-text" class="text-center"></h3>
+    </div>
+    <div class="my-4">
+      {{> ctaButton}}
+    </div>
+    <div class="prose prose-sm dark:prose-dark">
+      <p>For the full details, check our list of <a href="https://speckle.guide/user/support-tables.html">supported
+          elements</a>.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+  document.getElementById('from').addEventListener('change', fromSelect)
+  document.getElementById('to').addEventListener('change', toSelect)
+
+  let selection = [null, null]
+
+  function fromSelect(event) {
+    selection[0] = event.target.value
+    filterCards()
+  }
+
+  function toSelect(event) {
+    selection[1] = event.target.value
+    filterCards()
+  }
+
+  function clearSelection() {
+    selection[0] = null
+    selection[1] = null
+    document.getElementById('from').value = 'Select a connector'
+    document.getElementById('to').value = 'Select a connector'
+    filterCards()
+    document.getElementById('clearbutton').style.display = 'none'
+    document.getElementById('tipcontainer').style.display = 'none'
+    
+    document.getElementById('search-bar').value = ''
+    document.getElementById('search-bar').dispatchEvent(new Event('keyup'))
+  }
+
+  function filterCards() {
+    console.log(tips[selection[0] + selection[1]])
+
+
+    if (selection[0] === 'Select a connector' || !selection[0]) {
+      [].forEach.call(document.getElementsByClassName(`connector-card`), el => el.style.display = 'flex')
+      return
+    }
+    document.getElementById('clearbutton').style.display = 'flex'
+    document.getElementById('search-bar').value = selection[0]
+    document.getElementById('search-bar').dispatchEvent(new Event('keyup'))
+
+      ;[].forEach.call(document.getElementsByClassName(`connector-card`), el => el.style.display = 'none')
+
+    document.getElementsByClassName(`connector-${selection[0]}`)[0].style.display = 'flex'
+
+    if (selection[1] === 'Select a connector' || !selection[1]) return
+    document.getElementsByClassName(`connector-${selection[1]}`)[0].style.display = 'flex'
+
+    if (tips[selection[0] + selection[1]]) {
+      document.getElementById('tip-text').innerHTML = tips[selection[0] + selection[1]]
+    } else {
+      document.getElementById('tip-text').innerHTML = 'Let us know how you use this workflow on the <a href="https://speckle.community">community forum</a>!'
+    }
+    document.getElementById('tipcontainer').style.display = 'flex'
+
+    document.getElementById('search-bar').value = selection[0] + ' ' + selection[1]
+    document.getElementById('search-bar').dispatchEvent(new Event('keyup'))
+  }
+
+  const tips = {
+    'GrasshopperExcel': `Yep, it works nicely - parametric schedules here we come!`,
+    'GrasshopperRevit': `Using our advanced BIM creation nodes, you generate a full building in Grasshopper and send it to Revit!`,
+    'RhinoGrasshopper': `Planning to distribute your design tasks across a team? Speckle can help you do that!`,
+    'GrasshopperRhino': `Planning to distribute your design tasks across a team? Speckle can help you do that!`,
+    'AutocadGrasshopper': `Turbocharge drafting with some parametric smartness. Defo worth it!`,
+    'GrasshopperAutocad': `Turbocharge drafting with some parametric smartness. Defo worth it!`,
+    'Civil3dGrasshopper': `Turbocharge infrastructure design with some parametric smartness. Defo worth it!`,
+    'GrasshopperCivil3d': `Turbocharge infrastructure design with some parametric smartness. Defo worth it!`,
+    'DynamoRevit': `Hm... you know you can just open Dynamo up in Revit, right?`,
+    'RevitDynamo': `Hm... you know you can just open Dynamo up in Revit, right?`,
+    'RhinoRevit': `Sketch your design in Rhino, and get it into Revit using Speckle's BIM tagging tools!`,
+    'ExcelRevit': `So you want to control properties of specific Revit elements from Excel? Yes you can.`,
+    'RevitExcel': `Scheduling much? Let Speckle help!`,
+    'ExcelExcel': `Excel to Excel workflows work quite well - especially for a distributed team!`,
+    'ExcelRhino': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive them in Rhino.`,
+    'ExcelGrasshopper': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive in Grasshopper.`,
+    'ExcelDynamo': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive them in Dynamo.`,
+    'ExcelBlender': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive them in Blender.`,
+    'ExcelAutocad': `You can actually create full on geometry and BIM elements from Excel, send them to Speckle, and receive them in Autocad.`,
+    'UnityRhino': `Visualisation has never been easier - combine multiple models, do walkthroughs, send data back to inform your designs!`,
+    'RhinoUnity': `Visualisation has never been easier - combine multiple models, do walkthroughs, send data back to inform your designs!`,
+    'UnrealRhino': `Visualisation has never been nicer - combine multiple models in AR/XR, do walkthroughs, send data back to inform your designs!`,
+    'RhinoUnreal': `Visualisation has never been nicer - combine multiple models in AR/XR, do walkthroughs, send data back to inform your designs!`,
+    'UnrealRevit': `Visualisation has never been nicer - combine multiple models in AR/XR, do walkthroughs, send data back to inform your designs!`,
+    'RevitUnreal': `Visualisation has never been nicer - combine multiple models in AR/XR, do walkthroughs, send data back to inform your designs!`,
+  }
+
+  window.addEventListener('load', () => {
+    const tutorialSearchConnectors = new SearchinGhost({
+      key: window.searchKey,
+      loadOn: 'page',
+      postFields: ['title', 'url', 'excerpt', 'published_at'],
+      postsExtraFields: ['tags'],
+      customProcessing: function (post) {
+        if (post.tags && post.tags.length !== 0) {
+          post.firstTag = post.tags[0].name.toLowerCase()
+          post.string_tags = post.string_tags = post.tags.map(o => o.name).join(' ').toLowerCase()
+        }
+        else post.firstTag = "no-tag"
+
+        return post
+      },
+      outputChildsType: '',
+      limit: 3,
+      searchOptions: {
+        where: {
+          firstTag: "tutorials"
+        },
+      },
+      onSearchEnd: function (posts) { 
+        console.log(posts.length)
+        if( posts.length !== 0 ) {
+          document.getElementById('some-tutorials').style.display = 'block'
+        } else {
+          document.getElementById('some-tutorials').style.display = 'none'
+        }
+
+      },
+      template: function (post) {
+        return `
+        <div class="flex flex-col rounded-lg transition shadow hover:shadow-2xl overflow-hidden w-full">
+          <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-200 p-6 flex flex-col justify-between">
+            <div class="flex-1">
+              <a href="${post.url}" class="block mt-2">
+                <p class="font-semibold text-gray-900 dark:text-gray-200 line-clamp-2">
+                  <span class="text-xs py-0 px-2 rounded border border-blue-500 text-blue-500">${post.firstTag}</span> ${post.title}
+                </p>
+                <p class="mt-3 text-sm text-gray-500 line-clamp-2">
+                  ${post.excerpt}
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+        `
+      }
+    })
+
+    window.srch = tutorialSearchConnectors
+  })
+</script>

@@ -1,0 +1,59 @@
+<div class="pt-10 mx-10">
+  <div class="swiper-container connector-swiper mx-auto">
+    <div class="swiper-wrapper mb-10">
+      {{#get "tags" limit="all" filter="slug:-[features,developers,careers,blog,connectors]"}}
+      {{#foreach tags }}
+      <div
+        class="swiper-slide group dark:text-gray-200 text-gray-600 p-2 flex flex-col prose-blue prose dark:prose-dark max-w-none
+          shadow-lg dark:bg-gray-900 bg-gray-100 rounded-xl
+        ">
+        <div>
+          <img class="mx-auto w-32 transition-transform transform group-hover:scale-110 object-contain"
+            src="{{feature_image}}">
+        </div>
+        <div>
+          <h2 class="w-full mt-4">
+            {{name}}
+          </h2>
+          <p>{{description}}</p>
+          <h3><a href="{{url}}">Check out</a></h3>
+        </div>
+      </div>
+      {{/foreach}}
+      {{/get}}
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  var swiper = new Swiper(".connector-swiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    grabCursor: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+      },
+      1280: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+      }
+    }
+  });
+</script>

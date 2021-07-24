@@ -2,7 +2,7 @@
   "name": "speckle-starter-theme",
   "description": "A custom theme for speckle",
   "demo": "https://starter.ghost.io",
-  "version": "2.5.1",
+  "version": "2.4.2",
   "engines": {
     "ghost": ">=3.0.0",
     "ghost-api": "v3"
@@ -65,7 +65,7 @@
     "defaults"
   ],
   "config": {
-    "posts_per_page": 6,
+    "posts_per_page": 12,
     "image_sizes": {
       "xxs": {
         "width": 30
@@ -89,6 +89,7 @@
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/line-clamp": "^0.2.0",
     "@tailwindcss/typography": "^0.4.1",
     "cssnano-preset-advanced": "^4.0.7",

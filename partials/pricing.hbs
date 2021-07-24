@@ -4,7 +4,7 @@
 
   {{!-- Standard --}}
 
-  <div class="bg-white p-10 col-span-1 lg:col-span-3 shadow-xl rounded-xl dark:bg-gray-900 relative ring dark:ring-blue-700">
+  <div class="bg-white p-10 col-span-1 lg:col-span-3 shadow-xl rounded-xl dark:bg-gray-900 relative ring dark:ring-blue-700 transition transform scale-95 hover:scale-105">
     <div>
       <h3 class="bg-blue-100 font-semibold text-base text-blue-600 tracking-wide uppercase px-4 py-1 rounded-full inline-flex">
         Standard
@@ -14,11 +14,8 @@
         <span class="font-medium text-base text-blue-600">£0/mo</span>
       </h2>
       <p class="mb-5 mt-5 pt-5 border-t dark:border-gray-600 dark:text-gray-300">
-        Our free plan is for individuals and small teams
-        who want to
-        enjoy Speckle without extra hassle, hosted and
-        managed by
-        us.
+        Enjoy Speckle without extra hassle, hosted and
+        managed by us.
       </p>
       {{!-- <ul class="space-y-2 ">
         {{> extras/listItem value="Interoperability Suite (Revit, Rhino, Gh, etc.)"}}
@@ -37,7 +34,7 @@
     {{!-- <div class="h-16 absolute bottom-0 inset-x-0"> --}}
     <div class="self-end mt-10 ">
       <a href="https://speckle.xyz/authn/register">
-        <button class="w-full bg-blue-600 font-medium text-base text-white px-4 py-2 shadow-sm border-transparent rounded-md border hover:bg-blue-700 hover:shadow-xl transition">
+        <button class="w-full bg-blue-500 hover:bg-blue-600 font-medium text-base text-white px-4 py-4 shadow-sm border-transparent rounded-md border hover:ring-4 hover:shadow-xl transition">
           Register Now
         </button>
       </a>
@@ -47,7 +44,7 @@
 
   {{!-- Managed --}}
 
-  <div class="bg-gray-50 dark:bg-gray-900 col-span-1 lg:col-span-2 p-10 flex-wrap rounded-xl flex relative">
+  <div class="bg-gray-50 dark:bg-gray-900 col-span-1 lg:col-span-2 p-10 flex-wrap rounded-xl flex relative transition transform scale-95 hover:scale-105">
     <div class="w-full">
       <h3 class="bg-blue-100 font-semibold text-base text-blue-600 tracking-wide uppercase px-4 py-1 rounded-full inline-flex">
         Managed / On Prem
@@ -56,8 +53,7 @@
         Enterprise
       </h2>
       <p class="mb-5 mt-5 pt-5 border-t dark:border-gray-600 dark:text-gray-200">
-        Dedicated solutions for enterprises, large
-        teams or projects.
+        Dedicated custom solutions for enterprises.
       </p>
       <ul class="space-y-2 ">
         {{> extras/listItem value="Everything in the Free Plan"}}
@@ -71,7 +67,7 @@
     </div>
     <div class="self-end mt-10 w-full">
       <a href="mailto:office@speckle.systems?subject=Speckle Enterprise Query">
-        <button class="w-full font-medium text-base dark:text-gray-50 text-gray-900 px-4 py-2 shadow-sm border-transparent rounded-md border ring-0 hover:ring-2 hover:shadow-xl transition">
+        <button class="w-full font-medium text-base dark:text-gray-50 text-gray-900 px-4 py-4 shadow-sm border-transparent rounded-md border ring-0 hover:ring-2 hover:shadow-xl transition">
           Contact Us
         </button>
       </a>

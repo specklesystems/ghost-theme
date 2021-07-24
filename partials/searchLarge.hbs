@@ -1,0 +1,74 @@
+<div>
+  <div>
+    <div class="mt-1 relative rounded-md shadow-sm">
+      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z" />
+          <path fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z"
+            clip-rule="evenodd" />
+        </svg>
+      </div>
+      <input type="text" name="search" id="search-bar"
+        class="focus:ring-blue-500 focus:border-blue-500 transition block w-full pl-10 sm:text-sm border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white rounded-md h h-12"
+        placeholder="Search...">
+    </div>
+    <div id="search-results" class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', function () {
+
+    const tutorialSearch = new SearchinGhost( {
+      key: window.searchKey,
+      postFields: ['title', 'url', 'excerpt', 'published_at'],
+      postsExtraFields: ['tags'],
+      debug: true,
+      emptyTemplate: function () {
+        return `
+        <p class="text-center text-sm col-span-3 dark:text-white" id='no-results'>No results found.</p>
+      `},
+      customProcessing: function (post) {
+        if (post.tags && post.tags.length !== 0) {
+          post.firstTag = post.tags[0].name.toLowerCase()
+          post.string_tags = post.string_tags = post.tags.map(o => o.name).join(' ').toLowerCase()
+        }
+        else post.firstTag = "no-tag"
+
+        return post
+      },
+      outputChildsType: '',
+      searchOptions: {
+        where: {
+          firstTag: "tutorials"
+        },
+        limit: 9
+      },
+      template: function (post) {
+        return `
+        <div class="flex flex-col rounded-lg transition shadow hover:shadow-2xl overflow-hidden w-full">
+          <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-200 p-6 flex flex-col justify-between">
+            <div class="flex-1">
+              <a href="${post.url}" class="block mt-2">
+                <p class="font-semibold text-gray-900 dark:text-gray-200 line-clamp-2">
+                  <span class="text-xs py-0 px-2 rounded border border-blue-500 text-blue-500">${post.firstTag}</span> ${post.title}
+                </p>
+                <p class="mt-3 text-sm text-gray-500 line-clamp-2">
+                  ${post.excerpt}
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+        `
+      }
+    })
+
+    const el = document.getElementById('search-bar')
+    el.addEventListener('input', (e) => {
+      if (e.target.value === '')
+        setTimeout(() => document.getElementById('no-results').style.display = "none", 250)
+    })
+  })
+</script>

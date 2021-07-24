@@ -8,6 +8,35 @@
 /* Main
 /* ---------------------------------------------------------- */
 
+[x-cloak] {
+  display: none !important;
+}
+
+a.no-underline{
+  text-decoration: none !important;
+}
+a.no-underline:hover{
+  text-decoration: none;
+}
+
+/* pre{
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-width: 100%;
+}
+
+code{
+  word-break: break-all;
+} */
+
+.kg-image-card{
+  @apply content-center;
+}
+
+.kg-image {
+  @apply mx-auto;
+}
+
 .text-gradient {
   background-clip: text;
   -webkit-background-clip: text;
@@ -19,7 +48,8 @@
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-.page-about-content h2, .page-about-content h3 {
+.page-about-content h2,
+.page-about-content h3 {
   @apply my-10;
 }
 
@@ -27,65 +57,129 @@
   height: auto !important;
 }
 
-.perspective-700{
+.perspective-700 {
   perspective: 750px;
+  /* z-index: 100; */
 }
 
 .perspective-transform {
-  transform: rotateX(30deg) rotateY(0deg); transform-style: preserve-3d;
+  transform: rotateX(25deg) rotateY(0deg) translateZ(0px);
+  transform-style: preserve-3d;
   transition: 1s ease all;
 }
 
-.perspective-transform:hover{
-  transform: rotateX(15deg) rotateY(0deg); 
+.perspective-transform-0 {
+  transform: rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  transition: 1s ease all;
 }
 
-/*
-.post-body h2 {
-  @apply text-4xl my-4 px-4 sm:px-2 md:px-0;
+.perspective-transform:hover {
+  transform: rotateX(10deg) rotateY(0deg) translateZ(20px);
 }
 
-.post-body h3 {
-  @apply text-2xl my-4 px-4 sm:px-2 md:px-0;
+.no-underline {
+  text-decoration: none !important;
 }
 
-.post-body p{
-  @apply my-3 mx-auto text-lg max-w-prose mx-auto px-4 sm:px-2 md:px-0;
+.medium-zoom-image--opened {
+  @apply relative z-50;
 }
 
-.post-body blockquote {
-  @apply my-4 pl-2 text-lg border-l-2 mx-auto max-w-prose border-l-4 border-blue-600 pl-5;
+.medium-zoom-overlay{
+  @apply dark:bg-gray-900 bg-gray-200 z-50;
 }
 
-.post-body figure {
-  @apply my-10;
+.kg-bookmark-card {
+  @apply shadow-md hover:shadow-xl transition-shadow dark:bg-gray-900 bg-white rounded-lg overflow-x-hidden;
 }
 
-.post-body hr{
-  @apply my-10;
+.kg-bookmark-container {
+  @apply grid grid-cols-3 content-center dark:text-gray-100 text-gray-800 ;
+  text-decoration: none !important;
 }
 
-.post-body ul{
-  @apply text-lg my-4 list-inside list-disc my-3 mx-auto text-lg max-w-prose mx-auto px-4 sm:px-2 md:px-0;
+.kg-bookmark-content{
+  @apply px-4 col-span-2 self-center;
 }
 
-.post-body li{
-  @apply text-lg;
+.kg-bookmark-description {
+  @apply line-clamp-1;
+}
+.kg-bookmark-description {
+  @apply dark:text-gray-100 text-gray-800 line-clamp-2;
 }
 
-.post-body a {
-  @apply text-blue-500 font-normal;
+.kg-bookmark-thumbnail{
+  @apply col-span-1;
 }
 
-.post-body a:hover {
-  @apply font-bold;
+.kg-bookmark-thumbnail img {
+  @apply object-cover;
+  margin: 0 !important;
 }
 
-.post-body pre {
-  @apply p-4 px-8 my-10 rounded-xl bg-gray-200 dark:bg-gray-700 shadow-xl;
-}*/
+.kg-bookmark-metadata {
+  display: none;
+}
 
-figcaption{
+.kg-bookmark-title {
+  @apply text-xl;
+}
+.kg-bookmark-description {
+  @apply text-xs line-clamp-3;
+}
+
+.kg-gallery-row {
+  @apply flex space-x-2;
+}
+
+.kg-gallery-image {
+  @apply opacity-100;
+}
+
+figcaption {
   @apply text-sm text-center;
 }
 
+.prose code::after, .prose code::before {
+    content: "" !important;
+}
+
+.prose code {
+  @apply px-1 rounded-sm text-blue-500 dark:bg-gray-900 bg-white;
+}
+
+.prose > h1::before,
+.prose > h2::before,
+.prose > h3::before,
+.prose > h4::before,
+.prose > h5::before,
+.prose > h6::before {
+  display: block;
+  content: " ";
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.is-active-link {
+  @apply transition-colors text-gray-900 dark:text-gray-100 bg-blue-100 dark:bg-blue-900;
+}
+
+.toc-list-item a {
+  @apply text-sm transition-colors text-gray-600 dark:text-gray-400;
+}
+
+.toc-list-item a:hover {
+  @apply dark:text-blue-500;
+}
+
+.toc-list-item {
+  @apply my-1;
+}
+
+.node-name--H3::before {
+  content: "– " !important;
+}

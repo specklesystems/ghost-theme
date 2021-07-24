@@ -1,0 +1,142 @@
+{{!-- Plans --}}
+
+
+<div class="shadow-xl sm:px-2 px-5 pt-8 pb-10 rounded-lg mt-10 mb-10 bg-white dark:bg-gray-900 transition hover:bg-blue-800">
+  <div class="max-w-4xl mx-auto grid grid-cols-2 gap-10">
+    <div class="mt-2 text-center sm:text-left dark:text-gray-200">
+      <h2 class="font-bold text-5xl dark:text-gray-300">
+        Free
+        <span class="font-medium text-base text-blue-600">£0/mo</span>
+      </h2>
+      <p class="mb-5 mt-5">
+        Enjoy Speckle without extra hassle, hosted and managed by us. Get started in seconds!
+      </p>
+      <ul class="space-y-1 ">
+        {{> extras/listItem value="Interoperability Suite (Revit, Rhino, Gh, etc.)"}}
+        {{> extras/listItem value="Version control"}}
+        {{> extras/listItem value="No limits on data, streams or versions"}}
+        {{> extras/listItem value="Web based 3D viewer"}}
+        {{> extras/listItem value="API Access"}}
+        {{> extras/listItem value="3rd Party App Registration"}}
+        {{> extras/listItem value="Community support"}}
+      </ul>
+    </div>
+
+    <div class="flex items-center justify-center">
+      <a href="https://speckle.xyz/authn/register"
+        target="_blank"
+        class="mt-2 border-2 h-32 w-72 rounded-xl border-blue-500 bg-blue-500 hover:ring-4 transition p-4 flex text-white text-center justify-center">
+        <span class="self-center">Register Now</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="sm:px-2 px-5 pt-8 pb-10 mb-10 rounded-lg mt-10 mx-auto">
+  <div class="w-default grid grid-cols-2 gap-10">
+    <div class="mt-2 text-center sm:text-left dark:text-gray-200">
+      <h2 class="font-bold text-3xl mt-5 dark:text-gray-300">
+        Enterprise
+        <span class="font-medium text-base text-blue-600">From £500/mo</span>
+      </h2>
+      <p class="mb-5 mt-5 pt-5 border-t dark:border-gray-600 dark:text-gray-300">
+        Enjoy Speckle without extra hassle, hosted and managed by us. Our free plan will always be free.
+      </p>
+      <ul class="space-y-1 ">
+        {{> extras/listItem value="Everything in the Free Plan"}}
+        {{> extras/listItem value="On prem or managed deployments"}}
+        {{> extras/listItem value="Custom subdomain"}}
+        {{> extras/listItem value="White labelling"}}
+        {{> extras/listItem value="SSO (Single sign-on)"}}
+        {{> extras/listItem value="SLA (Service Level Agreement)"}}
+        {{> extras/listItem value="Dedicated Support"}}
+      </ul>
+    </div>
+
+    <div class="flex items-center justify-center">
+      <a href="https://speckle.community/new-topic?title=Question:%20How%20can%20I%20...&category=help&tags=v2"
+        target="_blank"
+        class="mt-2 border-2 h-32 w-72 rounded-lg border-blue-500 bg-blue-500 hover:ring-4 transition p-4 flex text-white text-center justify-center">
+        <span class="self-center">Contact us</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="hidden relative w-default mb-20 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+
+  {{!-- Standard --}}
+
+  <div
+    class="bg-white p-10 col-span-1 lg:col-span-3 rounded-xl dark:bg-gray-900 relative ring dark:ring-blue-700">
+    <div>
+      {{!-- <h3
+        class="bg-blue-100 font-semibold text-base text-blue-600 tracking-wide uppercase px-4 py-1 rounded-full inline-flex">
+        Standard
+      </h3> --}}
+      <h2 class="font-bold text-4xl mt-5 dark:text-gray-300">
+        Free
+        <span class="font-medium text-base text-blue-600">£0/mo</span>
+      </h2>
+      <p class="mb-5 mt-5 pt-5 border-t dark:border-gray-600 dark:text-gray-300">
+        Dedicated custom solutions for enterprises, large teams or projects.
+      </p>
+      <ul class="space-y-2 ">
+        {{> extras/listItem value="Everything in the Free Plan"}}
+        {{> extras/listItem value="On prem or managed deployments"}}
+        {{> extras/listItem value="Custom subdomain"}}
+        {{> extras/listItem value="White labelling"}}
+        {{> extras/listItem value="SSO (Single sign-on)"}}
+        {{> extras/listItem value="SLA (Service Level Agreement)"}}
+        {{> extras/listItem value="Dedicated Support"}}
+      </ul>
+    </div>
+
+    {{!-- <div class="self-end mt-10 ">
+      <a href="https://speckle.xyz/authn/register">
+        <button
+          class="w-full bg-blue-600 font-medium text-base text-white px-4 py-2 shadow-sm border-transparent rounded-md border hover:bg-blue-700 hover:shadow-xl transition">
+          Register Now
+        </button>
+      </a>
+    </div> --}}
+  </div>
+
+
+  {{!-- Managed --}}
+
+  <div class="bg-gray-50 dark:bg-gray-900 col-span-1 lg:col-span-2 p-10 flex-wrap rounded-xl flex relative">
+    <div class="w-full">
+      <h3
+        class="bg-blue-100 font-semibold text-base text-blue-600 tracking-wide uppercase px-4 py-1 rounded-full inline-flex">
+        Managed / On Prem
+      </h3>
+      <h2 class="font-bold text-4xl mt-5  dark:text-gray-200">
+        Enterprise
+      </h2>
+      <p class="mb-5 mt-5 pt-5 border-t dark:border-gray-600 dark:text-gray-200">
+        Dedicated solutions for enterprises, large
+        teams or projects.
+      </p>
+      <ul class="space-y-2 ">
+        {{> extras/listItem value="Everything in the Free Plan"}}
+        {{> extras/listItem value="On prem or managed deployments"}}
+        {{> extras/listItem value="Custom subdomain"}}
+        {{> extras/listItem value="White labelling"}}
+        {{> extras/listItem value="SSO (Single sign-on)"}}
+        {{> extras/listItem value="SLA (Service Level Agreement)"}}
+        {{> extras/listItem value="Dedicated Support"}}
+      </ul>
+    </div>
+    <div class="self-end mt-10 w-full">
+      <a href="mailto:office@speckle.systems?subject=Speckle Enterprise Query">
+        <button
+          class="w-full font-medium text-base dark:text-gray-50 text-gray-900 px-4 py-2 shadow-sm border-transparent rounded-md border ring-0 hover:ring-2 hover:shadow-xl transition">
+          Contact Us
+        </button>
+      </a>
+    </div>
+  </div>
+
+
+</div>
