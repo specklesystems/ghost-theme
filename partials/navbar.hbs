@@ -8,8 +8,10 @@
   class="fixed top-0 shadow mt-0 w-full bg-white dark:bg-gray-900 dark:text-white z-20">
 
   {{!-- Hiring notice --}}
+  {{#is "home"}}
   <div x-cloak x-show="topBanner" x-html="topBanner" @mouseenter="usecasesMenu = false; resourcesMenu = false; developersMenu = false; flyoutMenuOpen = false;" class=" transition transform origin-top hover:scale-105">
   </div>
+  {{/is}}
 
 
   <div class="relative">
