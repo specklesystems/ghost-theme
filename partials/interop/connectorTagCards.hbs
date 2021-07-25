@@ -14,7 +14,7 @@
     </select>
     to
     <select id="to" name="to"
-      class="block inline-block sm:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      class="inline-block sm:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
       <option value="Select a connector">To </option>
       {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
       filter="slug:[rhino,grasshopper,revit,dynamo,excel,blender,autocad,civil3d,unity,unreal]"}}
@@ -32,15 +32,15 @@
 </div>
 
 <div class="relative flex items-center w-default mt-4 text-white"></div>
-<div class="w-default pt-10 grid grid-cols-1 md:grid-cols-2 gap-0 gap-y-2 md:gap-6">
+<div class="w-default pt-10 grid grid-cols-2 gap-0 gap-y-2 md:gap-6">
   {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
   filter="slug:[rhino,grasshopper,revit,dynamo,excel,blender,autocad,civil3d,unity,unreal]"}}
   {{#foreach tags }}
-  <a href="{{url}}" class="group p-2 py-5 flex flex-row
-          shadow-sm hover:shadow-xl transition-shadow hover:ring dark:bg-gray-900 bg-white rounded-xl col-span-1 connector-card connector-{{name}}
+  <a href="{{url}}" class="group p-2 py-5 col-span-2 md:col-span-1 flex flex-row
+          shadow-sm hover:shadow-xl transition-shadow hover:ring dark:bg-gray-900 bg-white rounded-xl connector-card connector-{{name}}
         ">
     <div class="flex flex-shrink-0 items-center justify-center mx-6">
-      <img class="mx-auto h-32 w-32 transition-transform transform group-hover:scale-110 object-contain"
+      <img class="mx-auto h-16 w-16 sm:h-32 sm:w-32 transition-transform transform group-hover:scale-110 object-contain"
         src="{{feature_image}}">
     </div>
     <div class="flex flex-grow flex-col justify-center">
@@ -52,7 +52,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
       </h2>
-      <p class="text-sm dark:text-gray-400 text-gray-600 line-clamp-3">{{description}}</p>
+      <p class="text-sm dark:text-gray-400 text-gray-600 line-clamp-2 md:line-clamp-3">{{description}}</p>
     </div>
   </a>
   {{/foreach}}
