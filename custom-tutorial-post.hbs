@@ -7,7 +7,7 @@
     {{!-- Header --}}
     <figure class="col-span-7 md:col-span-2 flex items-center justify-center rounded-xl overflow-hidden mt-10">
       {{#if feature_image}}
-      <img srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w, {{img_url
+      <img class="object-cover" srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w, {{img_url
         feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w" sizes="(max-width: 800px) 400px,
                             (max-width: 1170px) 1170px,
                                 2000px" src="{{img_url feature_image size=" xl"}}" alt="{{title}}" />
@@ -23,9 +23,9 @@
         </span>
         <h1 class="gh-title">{{title}}</h1>
       </div>
-      <div class="max-w-prose mx-auto my-4">
+      <div class="max-w-prose mx-auto my-4 space-y-1 space-x-1">
         {{#foreach tags}}
-        <a class="rounded-full py-1 px-3 bg-blue-500 text-white mr-2 inline-block hover:ring-4 transition"
+        <a class="rounded-full py-1 px-3 bg-blue-500 text-white inline-block hover:ring-4 transition"
           href="{{url}}">
           {{name}}
         </a>
@@ -91,9 +91,9 @@
               Top
             </a>
             <p class="border-t dark:border-gray-800 mt-2 pt-2"></p>
-            <div>
+            <div class="space-y-1 space-x-1">
               {{#foreach tags}}
-              <a class="rounded-full py-1 px-3 bg-blue-500 text-white mr-2 inline-block hover:ring-4 transition"
+              <a class="rounded-full py-1 px-3 bg-blue-500 text-white inline-block hover:ring-4 transition"
                 href="{{url}}">
                 {{name}}
               </a>

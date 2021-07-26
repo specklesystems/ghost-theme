@@ -5,7 +5,7 @@
 <div
   x-data="{ mobileMenuOpen: false, usecasesMenu: false, developersMenu: false, resourcesMenu: false, flyoutMenuOpen: false, topBanner: null }"
   x-init="topBanner = window.topBanner"
-  class="fixed top-0 shadow mt-0 w-full bg-white dark:bg-gray-900 dark:text-white z-20">
+  class="fixed top-0 shadow mt-0 w-full bg-white dark:bg-gray-900 dark:text-white" style="z-index: 1000;">
 
   {{!-- Hiring notice --}}
   {{#is "home"}}
