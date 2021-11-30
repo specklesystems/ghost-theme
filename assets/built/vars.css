@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 /* Variables
 /* ---------------------------------------------------------- */
 
@@ -28,3 +30,5 @@
   --margin: 2rem;
   --radius: 0.5rem;
 }
+
+/* purgecss end ignore */
