@@ -109,10 +109,20 @@
     <div
       class="block post-content prose dark:prose-dark lg:prose-xl prose-blue mx-auto col-span-7 md:col-span-5 mt-4 w-full max-w-prose">
       {{content}}
+      <br>
+      <div id='discourse-comments' class="mt-4"></div>
     </div>
 
-    <div class="post-content mx-auto col-span-7 md:col-span-5 mt-4">
-    </div>
+
+    <script type="text/javascript">
+      DiscourseEmbed = { discourseUrl: 'https://speckle.community/',
+                        discourseEmbedUrl: '{{url absolute="true"}}' };
+      (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+      })();
+    </script>
 
   </div>
   </article>

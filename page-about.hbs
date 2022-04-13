@@ -1,5 +1,6 @@
 {{!< default}}
 
+{{#post}}
 <div class="absolute inset-0 pt-32 opacity-10 h-5/6">
   {{> extras/super }}
 </div>
@@ -14,7 +15,7 @@
       Specklers!</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-20 md:gap-10 my-20 text-left">
 
-      {{#get 'authors' limit='all' include='count.posts' order='date desc' filter="slug:-speckle"}}
+      {{!-- {{#get 'authors' limit='all' include='count.posts' order='date desc' filter="slug:-speckle"}} --}}
         {{#foreach authors}}
 
           <div class="flex items-center space-x-4 lg:space-x-6">
@@ -30,7 +31,7 @@
           </div>
 
         {{/foreach}}
-      {{/get}}
+      {{!-- {{/get}} --}}
 
     </div>
   </div>
@@ -59,7 +60,6 @@
         </div>
       </a>
     </div>
-
     {{!-- TODO --}}
 
     {{!--     <div class="relative h-screen/4 rounded-2xl overflow-hidden transition hover:shadow-2xl p-5 flex justify-center text-center">
@@ -76,6 +76,6 @@
   </div>
 
 </article>
-
+{{/post}}
 
 {{!-- {{> extras/patterns}} --}}
