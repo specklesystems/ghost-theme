@@ -23,7 +23,7 @@
       <div @mouseenter="usecasesMenu = false; resourcesMenu = false; developersMenu = false">
         <a href="/" class="flex relative" style="margin-top:-4px;">
           <img class="h-8 mr-2 " src="{{@site.logo}}" alt="logo">
-          <div class="text-2xl text-blue-500 title-font font-bold mr-5">
+          <div class="text-2xl text-blue-500 title-font font-bold mr-5 hidden">
             Speckle
           </div>
         </a>
@@ -44,7 +44,7 @@
       {{!-- Main Menu --}}
 
       <div class="hidden lg:flex-1 lg:flex lg:items-center lg:justify-between">
-        <nav class="flex space-x-2">
+        <nav class="flex">
 
           {{!-- use cases menu button --}}
 
@@ -72,8 +72,42 @@
               <span>Tutorials</span>
             </a>
           </div>
+          
+          <div class="relative">
+            <a href="https://speckle.community" target="_blank" @mouseenter="resourcesMenu = false; flyoutMenuOpen = false;"
+              class="transition hover:bg-blue-100 dark:hover:bg-gray-800 rounded-md px-2 text-gray-700 dark:text-gray-400 hover:text-blue-500 inline-flex items-center text-base font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              <span>Community</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-3 w-3" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
 
-          <div class="relative" @mouseenter="resourcesMenu = false; flyoutMenuOpen = false;">
+          <div class="relative">
+            <a href="https://speckle.guide" target="_blank" @mouseenter="resourcesMenu = false; flyoutMenuOpen = false;"
+              class="transition hover:bg-blue-100 dark:hover:bg-gray-800 rounded-md px-2 text-gray-700 dark:text-gray-400 hover:text-blue-500 inline-flex items-center text-base font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+
+              <span>Docs</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-3 w-3" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+          
+
+          {{!-- <div class="relative" @mouseenter="resourcesMenu = false; flyoutMenuOpen = false;">
             <a href="/developers"
               class="transition hover:bg-blue-100 dark:hover:bg-gray-800 rounded-md px-2 text-gray-700 dark:text-gray-400 hover:text-blue-500 inline-flex items-center text-base font-medium">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24"
@@ -82,83 +116,9 @@
               </svg>
               <span>Devs</span>
             </a>
-          </div>
+          </div> --}}
 
           {{!-- Resources menu button --}}
-
-          <div class="relative ml-1">
-            <button type="button" @mouseenter="resourcesMenu = true; flyoutMenuOpen = false;"
-              @click="resourcesMenu = !resourcesMenu;" x-state:on="Item active" x-state:off="Item inactive"
-              :class="{ 'text-gray-900 dark:text-gray-50': resourcesMenu, 'text-gray-700 dark:text-gray-400': !resourcesMenu }"
-              class="transition hover:bg-blue-100 dark:hover:bg-gray-800 rounded-md px-2 text-gray-700 dark:text-gray-400 hover:text-blue-500 inline-flex items-center text-base font-medium">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-
-              </svg>
-              <span>Resources</span>
-            </button>
-
-            <div x-description="'resources' flyout menu, show/hide based on flyout menu state." x-show="resourcesMenu"
-              @mouseleave="resourcesMenu = false;" x-transition:enter="transition ease-out duration-200"
-              x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"
-              x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
-              x-transition:leave-end="opacity-0 -translate-y-1"
-              class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
-
-              <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                <div class="relative grid gap-6 bg-white dark:bg-gray-900 px-5 py-6 sm:gap-8 sm:p-8">
-
-                  <a href="/blog"
-                    class="-m-3 p-3 block rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition ease-in-out duration-150">
-                    <p class="text-base font-medium text-gray-900 dark:text-gray-100">
-                      Blog
-                    </p>
-                    <p class="mt-1 text-sm text-gray-500">
-                      Announcements and other musings from the Speckle team.
-                    </p>
-                  </a>
-
-                  <a href="https://speckle.guide" target="_blank"
-                    class="-m-3 p-3 block rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition ease-in-out duration-150">
-                    <p class="text-base font-medium text-gray-900 dark:text-gray-100 flex items-center">
-                      Docs
-                      <svg xmlns="http://www.w3.org/2000/svg" class="ml-3 h-4 w-4" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </p>
-                    <p class="mt-1 text-sm text-gray-500">
-                      The reference manuals for Speckle, both for end users and developers alike.
-                    </p>
-                  </a>
-
-                  <a href="https://speckle.community" target="_blank"
-                    class="-m-3 p-3 block rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition ease-in-out duration-150">
-                    <p class="text-base font-medium text-gray-900 dark:text-gray-100 flex items-center">
-                      Community Forum
-                      <svg xmlns="http://www.w3.org/2000/svg" class="ml-3 h-4 w-4" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </p>
-                    <p class="mt-1 text-sm text-gray-500">
-                      Meet & get help from the Speckle community!
-                    </p>
-                  </a>
-
-                </div>
-              </div>
-
-              {{!-- {{> menus/resourcesMenu }} --}}
-
-            </div>
-
-          </div>
-
           {{!-- About --}}
 
           <div class="relative" @mouseenter="resourcesMenu = false; flyoutMenuOpen = true" @mouseleave="">
@@ -190,17 +150,26 @@
                       Speckle's mission and vision.
                     </p>
                   </a>
-
-                  <a href="/partnerships"
+                  
+                  <a href="/pricing"
                     class="-m-3 p-3 block rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition ease-in-out duration-150">
                     <p class="text-base font-medium text-gray-900 dark:text-gray-100">
-                      Partnerships
+                      Pricing
                     </p>
                     <p class="mt-1 text-sm text-gray-500">
-                      Speckle's here to help.
+                      From self hosting to enterprise SaaS.
                     </p>
                   </a>
 
+                  <a href="/blog"
+                    class="-m-3 p-3 block rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition ease-in-out duration-150">
+                    <p class="text-base font-medium text-gray-900 dark:text-gray-100">
+                      Blog
+                    </p>
+                    <p class="mt-1 text-sm text-gray-500">
+                      Announcements and other musings from the Speckle team.
+                    </p>
+                  </a>
                   <a href="/contact"
                     class="-m-3 p-3 block rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition ease-in-out duration-150">
                     <p class="text-base font-medium text-gray-900 dark:text-gray-100">
@@ -235,15 +204,23 @@
 
         {{!-- CTA --}}
 
-        <div class="flex items-center lg:ml-12">
+        <div class="flex items-center lg:ml-12" @mouseenter="resourcesMenu = false; flyoutMenuOpen = false;">
           <a href="https://github.com/specklesystems/speckle-server" target="_blank"
-            class="mr-4 transition hover:text-gray-500">
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            class="mr-4 transition hover:text-gray-500 flex">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fill-rule="evenodd"
                 d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
                 clip-rule="evenodd"></path>
             </svg>
+            <span class="ml-2 text-sm">Github</span>
           </a>
+          {{!-- <a href="https://releases.speckle.dev/manager/SpeckleManager%20Setup.exe" target="_blank"
+            class="mr-4 transition hover:text-gray-500 flex">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span class="ml-2 text-sm">Download</span>
+          </a> --}}
           {{> navbarCTA }}
         </div>
       </div>
@@ -295,7 +272,7 @@
                 </div>
               </a>
 
-              <a href="/developers"
+              {{!-- <a href="/developers"
                 class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
                 <div
                   class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-blue-500 text-white sm:h-12 sm:w-12">
@@ -308,7 +285,7 @@
                 <div class="ml-4 text-base font-medium text-gray-900 dark:text-gray-200">
                   Developers
                 </div>
-              </a>
+              </a> --}}
 
               <a href="/tutorials"
                 class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -325,19 +302,30 @@
                   Tutorials
                 </div>
               </a>
-
-              <a href="/blog" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+              <a href="https://speckle.community" target="_blank"
+                class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
                 <div
                   class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-blue-500 text-white sm:h-12 sm:w-12">
                   <svg class="h-6 w-6" x-description="Heroicon name: cursor-click" xmlns="http://www.w3.org/2000/svg"
                     fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122">
-                    </path>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                </div>
+                <div class="ml-4 text-base font-medium text-gray-900 dark:text-gray-200">
+                  Community
+                </div>
+              </a>
+
+              <a href="https://speckle.guide" target="_blank" class="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                <div
+                  class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-blue-500 text-white sm:h-12 sm:w-12">
+                  <svg class="h-6 w-6" x-description="Heroicon name: cursor-click" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
                 <div class="ml-4 text-base font-medium text-gray-900 dark:text-gray-200">
-                  Blog
+                  Docs
                 </div>
               </a>
 
@@ -355,18 +343,6 @@
                   About Us
                 </div>
               </a>
-
-
-              <div class="text-base">
-                <a href="https://speckle.community" target="_blank"
-                  class="font-medium text-blue-500 hover:text-blue-500">
-                  Community <span aria-hidden="true">→</span></a>
-              </div>
-
-              <div class="text-base">
-                <a href="https://speckle.guide" target="_blank" class="font-medium text-blue-500 hover:text-blue-500">
-                  Docs <span aria-hidden="true">→</span></a>
-              </div>
 
               <div class="text-base">
                 <a href="https://github.com/specklesystems/speckle-server" target="_blank"
