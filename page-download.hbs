@@ -55,6 +55,23 @@
           releases page</a> instead.</p>
     </div>
 
+<script>   
+async function downloadManager(filename) {
+  let url = `https://releases.speckle.dev/manager2/installer/${filename}`
+
+  let a = document.createElement('a')
+  document.body.appendChild(a)
+  a.style = 'display: none'
+  a.href = url
+  a.download = filename
+  a.click()
+  document.body.removeChild(a)
+
+  mixpanel.track('Manager Download', {
+    os: filename.includes('exe') ? 'win' : 'mac'
+  })
+}
+</script>
 
 
 
