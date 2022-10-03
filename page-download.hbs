@@ -10,15 +10,15 @@
         </h1>
         <div
           class="post-body text-gray-500 dark:text-gray-100 text-base text-justify sm:text-lg md:text-xl md:max-w-6xl mt-10">
-          Manage your Connectors and Accounts with ease with Manager for Speckle!
+          Manage your Connectors and Accounts with ease! Manager for Speckle is the only tool you'll need to install and update Connectors and link your Accounts.
         </div>
       </div>
     </main>
 
 
-    <div class="relative w-default mb-20 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    <div class="relative w-default mb-10 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
 
-      <div class="self-end mt-10 hover:scale-105 col-span-1 lg:col-start-2 transition transform scale-95">
+      <div class="self-end mt-5 hover:scale-105 col-span-1 lg:col-start-2 transition transform scale-95">
 
         <button onclick="downloadManager('manager.exe')"
           class="w-full bg-blue-500 hover:bg-blue-600 inline-flex items-center justify-center font-medium text-base text-white px-4 py-4 shadow-sm border-transparent rounded-md border hover:ring-4 hover:shadow-xl transition">
@@ -32,7 +32,7 @@
         </button>
       </div>
 
-      <div class="self-end mt-10 hover:scale-105 col-span-1 transition transform scale-95">
+      <div class="self-end mt-5 hover:scale-105 col-span-1 transition transform scale-95">
         <button onclick="downloadManager('manager.dmg')"
           class="w-full bg-blue-500 hover:bg-blue-600 inline-flex items-center justify-center font-medium text-base text-white px-4 py-4 shadow-sm border-transparent rounded-md border hover:ring-4 hover:shadow-xl transition">
           <svg aria-hidden="true" class="mr-4 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 814 1000"
@@ -47,31 +47,36 @@
 
 
     </div>
+    <div class="relative max-w-prose p-5 mx-auto mb-10 pb-5 grid grid-cols-1 gap-4 ">
+      <img class="w-full object-cover" src="{{asset 'images/manager.png'}}" alt="manager"/>
+    </div>
+
 
     <div
       class="relative max-w-prose p-5 mx-auto mb-20 pb-5 grid grid-cols-1 gap-4 bg-white dark:bg-gray-900 rounded-xl transition hover:shadow-xl">
       <p class="dark:text-gray-300">Want to see all our releases and set up Conectors and Accounts manually? Visit our
         <a class="font-semibold text-blue-600" href="https://releases.speckle.systems/" target="_blank">
-          releases page</a> instead.</p>
+          releases page</a> instead.
+      </p>
     </div>
 
-<script>   
-async function downloadManager(filename) {
-  let url = `https://releases.speckle.dev/manager2/installer/${filename}`
+    <script>
+      async function downloadManager(filename) {
+        let url = `https://releases.speckle.dev/manager2/installer/${filename}`
 
-  let a = document.createElement('a')
-  document.body.appendChild(a)
-  a.style = 'display: none'
-  a.href = url
-  a.download = filename
-  a.click()
-  document.body.removeChild(a)
+        let a = document.createElement('a')
+        document.body.appendChild(a)
+        a.style = 'display: none'
+        a.href = url
+        a.download = filename
+        a.click()
+        document.body.removeChild(a)
 
-  mixpanel.track('Manager Download', {
-    os: filename.includes('exe') ? 'win' : 'mac'
-  })
-}
-</script>
+        mixpanel.track('Manager Download', {
+          os: filename.includes('exe') ? 'win' : 'mac'
+        })
+      }
+    </script>
 
 
 

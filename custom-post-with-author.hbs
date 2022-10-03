@@ -1,67 +1,66 @@
-{{!< default}}
+{{!< default}} {{#post}} <article class="relative max-w-2xl mx-auto px-4 md:px-0">
 
-{{#post}}
+  {{!-- Header --}}
 
-  <article class="relative max-w-2xl mx-auto px-4 md:px-0">
+  <header class="mt-10 prose prose-lg dark:prose-dark max-w-none">
 
-    {{!-- Header --}}
+    {{#if feature_image}}
+    <img class="gh-feature-image mx-auto w-full max-w-full" srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
+      feature_image size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }}
+      2000w" sizes="(max-width: 1000px) 1000px, 2000px" loading="lazy" src="{{img_url feature_image size=" xl"}}"
+      alt="{{title}}" />
+    {{/if}}
+    <h1 class="">
+      {{title}}
+    </h1>
+    {{#if custom_excerpt}}
+    <p>
+      {{custom_excerpt}}
+    </p>
+    {{/if}}
 
-    <header class="mt-10 prose prose-lg dark:prose-dark max-w-none">
+    <p class="text-sm">
+      Written by
+      {{#foreach authors}}
+      {{name}}
+      {{/foreach}}
+      <span class="text-gray-500">on <time datetime="{{date format=" YYYY-MM-DD"}}">{{date format="D MMM
+          YYYY"}}</time></span>
 
-      {{#if feature_image}}
-        <img class="gh-feature-image mx-auto w-full max-w-full"
-          srcset="{{img_url feature_image size="s"}} 300w,
-                    {{img_url feature_image size="m"}} 600w,
-                    {{img_url feature_image size="l"}} 1000w,
-                    {{img_url feature_image size="xl"}} 2000w"
-          sizes="(max-width: 1000px) 1000px, 2000px"
-          loading="lazy" src="{{img_url feature_image size="xl"}}"
-          alt="{{title}}" />
-      {{/if}}
-      <h1 class="">
-        {{title}}
-      </h1>
-      {{#if custom_excerpt}}
-        <p>
-          {{custom_excerpt}}
-        </p>
-      {{/if}}
+    </p>
 
-      <p class="text-sm">
-        Written by
-        {{#foreach authors}}
-          {{name}}
-        {{/foreach}}
-        <span class="text-gray-500">on <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time></span>
+  </header>
 
-      </p>
+  {{!-- Content --}}
 
-    </header>
+  <div class="prose prose-blue dark:prose-dark max-w-none mt-10">
 
-    {{!-- Content --}}
+    {{content}}
 
-    <div class="prose prose-blue dark:prose-dark max-w-none mt-10">
+  </div>
 
-      {{content}}
+  <div
+    class="relative max-w-prose p-5 mx-auto mb-20 mt-20 pb-5 grid grid-cols-1 gap-4 bg-white dark:bg-gray-900 rounded-xl">
+    <p class="dark:text-gray-300">Feeback or comments? We'd love to hear from you in our
+      <a class="font-semibold text-blue-600" href="https://speckle.community/" target="_blank">community
+      forum!</a>
+    </p>
+  </div>
 
-    </div>
-    
+  {{!-- Read more --}}
 
+  <div class="mt-8 grid gap-5 md:grid-cols-2 mb-10">
 
-    {{!-- Read more --}}
+    {{#get "posts" filter="tags:{{primary_tag.slug}}+id:>{{id}}"
+    limit="2" order="id asc"}}
 
-    <div class="mt-8 grid gap-5 md:grid-cols-2 mb-10">
+    {{#foreach posts}}
+    {{> cardFancySmall}}
+    {{/foreach}}
+    {{/get}}
 
-      {{#get "posts" filter="tags:{{primary_tag.slug}}+id:>{{id}}"
-        limit="2" order="id asc"}}
-
-        {{#foreach posts}}
-          {{> cardFancySmall}}
-        {{/foreach}}
-      {{/get}}
-
-      {{#get "posts" filter="tags:{{primary_tag.slug}}+id:<
-          {{id}}" limit=" 2" order="id desc" }}
-          {{#foreach posts}} {{> cardFancySmall}}
-          {{/foreach}} {{/get}} {{> cardTag}} </div> </article>
-          {{/post}}
+    {{#get "posts" filter="tags:{{primary_tag.slug}}+id:< {{id}}" limit=" 2" order="id desc" }} {{#foreach posts}} {{>
+      cardFancySmall}}
+      {{/foreach}} {{/get}} {{> cardTag}} </div>
+  </article>
+  {{/post}}
