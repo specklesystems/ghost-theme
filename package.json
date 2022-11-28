@@ -2,7 +2,7 @@
   "name": "speckle-starter-theme",
   "description": "A custom theme for speckle",
   "demo": "https://starter.ghost.io",
-  "version": "2.4.6",
+  "version": "2.4.8",
   "engines": {
     "ghost": ">=3.0.0",
     "ghost-api": "v3"
