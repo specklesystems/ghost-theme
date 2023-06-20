@@ -6,7 +6,7 @@
       us:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
       <option value="Select a connector">From</option>
       {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
-      filter="slug:[rhino,grasshopper,revit,dynamo,excel,blender,autocad,civil3d,unity,unreal,archicad,openrail,etabs,sap2000,csibridge,safe,qgis,arcgis,topsolid,powerbi,sketchup,openroads,microstation,openbuildings,teklastructures,gsa]"}}
+      filter="slug:[rhino,grasshopper,revit,dynamo,navisworks,excel,blender,autocad,civil3d,unity,unreal,archicad,openrail,etabs,sap2000,csibridge,safe,qgis,arcgis,topsolid,powerbi,sketchup,openroads,microstation,openbuildings,teklastructures,gsa]"}}
       {{#foreach tags }}
       <option value="{{name}}">{{name}}</option>
       {{/foreach}}
@@ -17,7 +17,7 @@
       class="inline-block sm:w-auto mt-1 pl-3 mx-3 pr-10 py-2 text-base font-extrabold shadow-lg text-white bg-blue-500  dark:bg-blue-900 border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
       <option value="Select a connector">To </option>
       {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
-      filter="slug:[rhino,grasshopper,revit,dynamo,excel,blender,autocad,civil3d,unity,unreal,archicad,openrail,etabs,sap2000,csibridge,safe,qgis,arcgis,topsolid,powerbi,sketchup,openroads,microstation,openbuildings,teklastructures,gsa]"}}
+      filter="slug:[rhino,grasshopper,revit,dynamo,navisworks,excel,blender,autocad,civil3d,unity,unreal,archicad,openrail,etabs,sap2000,csibridge,safe,qgis,arcgis,topsolid,powerbi,sketchup,openroads,microstation,openbuildings,teklastructures,gsa]"}}
       {{#foreach tags }}
       <option value="{{name}}">{{name}}</option>
       {{/foreach}}
@@ -34,7 +34,7 @@
 <div class="relative flex items-center w-default mt-4 text-white"></div>
 <div class="w-default pt-10 grid grid-cols-2 gap-0 gap-y-2 md:gap-6">
   {{#get "tags" limit="all" include='count.posts' order='count.posts desc'
-  filter="slug:[rhino,grasshopper,revit,dynamo,excel,blender,autocad,civil3d,unity,unreal,archicad,openrail,etabs,sap2000,csibridge,safe,qgis,arcgis,topsolid,powerbi,sketchup,openroads,microstation,openbuildings,teklastructures,gsa]"}}
+  filter="slug:[rhino,grasshopper,revit,dynamo,navisworks,excel,blender,autocad,civil3d,unity,unreal,archicad,openrail,etabs,sap2000,csibridge,safe,qgis,arcgis,topsolid,powerbi,sketchup,openroads,microstation,openbuildings,teklastructures,gsa]"}}
   {{#foreach tags }}
   <a href="{{url}}" class="group p-2 py-5 col-span-2 md:col-span-1 flex flex-row
           shadow-sm hover:shadow-xl transition-shadow hover:ring dark:bg-gray-900 bg-white rounded-xl connector-card connector-{{name}}
